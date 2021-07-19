@@ -6,16 +6,20 @@ This library contains a set of general-purpose UI components and utilities.
 
 ```sh
 npm install react-native-mosaic
+
+or 
+
+yarn add react-native-mosaic
 ```
 
-## Usage
+## Usage (Example)
 
 ```js
-import Mosaic from "react-native-mosaic";
+import { Button } from "react-native-mosaic";
 
 // ...
 
-const result = await Mosaic.multiply(3, 7);
+<Button title="Press Me!" onPress={() => console.log('PRESSED')} />
 ```
 
 ## Contributing
