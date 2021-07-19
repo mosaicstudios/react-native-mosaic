@@ -149,5 +149,12 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@react-native-community/checkbox": "^0.5.8",
+    "apsl-react-native-button": "^3.1.1",
+    "prop-types": "^15.7.2",
+    "react-native-elements": "^3.4.2",
+    "react-native-phone-input": "^1.0.10"
   }
 }
