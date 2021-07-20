@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { SegmentControl } from 'react-native-mosaic';
+import { LoadingView } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -12,10 +12,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SegmentControl
-          values={['Display', 'Manage']}
-          onChange={(selectedIndex) => this.setState({ selectedIndex })}
-        />
+        <LoadingView isLoading={true} />
       </View>
     );
   }
@@ -26,7 +23,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 20,
   },
   box: {
     width: 60,
