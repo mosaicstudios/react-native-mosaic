@@ -25,10 +25,27 @@ import { Button } from "react-native-mosaic";
 ```
 
 ## Components included:
+- [ ] [AgreementInput]()
 - [ ] [Button](https://reactnativeelements.com/docs/bottomsheet)
+- [ ] [CheckBox]()
+- [ ] [InlinePicker]()
+- [x] [LazyLoader]()
 - [ ] [LazyLoadingFlatList](https://reactnativeelements.com/docs/badge)
 - [x] [LoadingView](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LoadingView.md)
+- [ ] [Locationsearch]()
+- [ ] [LogoBanner]()
+- [ ] [NoResults]()
+- [ ] [QuickModal]()
+- [ ] [PickerField]()
+- [ ] [RadioGroup]()
+- [ ] [SearchField]()
+- [x] [Separator]()
 - [x] [SegmentControl](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SegmentControl.md)
+
+## Utilities included:
+- [ ] [DateTime]()
+- [ ] [TextFormat]()
+- [ ] 
 
 ## Contributing
 
