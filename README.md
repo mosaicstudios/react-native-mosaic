@@ -23,7 +23,7 @@ import { Button } from "react-native-mosaic";
 ```
 
 
-![Alt Text](https://drive.google.com/uc?export=view&id=12jqw5QdYUwLMcb1LfDN3UatOJFfOzpBR)
+![Alt Text](https://drive.google.com/uc?export=view&id=1cTWGCpqT0jAK0WzRdFl72_N4y3FOpE1k)
 
 
 ## Contributing
