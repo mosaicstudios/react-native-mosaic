@@ -28,6 +28,7 @@ import { Button } from "react-native-mosaic";
 - [ ] [AgreementInput]()
 - [ ] [Button](https://reactnativeelements.com/docs/bottomsheet)
 - [ ] [CheckBox]()
+- [ ] [Indicators]()
 - [ ] [InlinePicker]()
 - [x] [LazyLoader]()
 - [ ] [LazyLoadingFlatList](https://reactnativeelements.com/docs/badge)
