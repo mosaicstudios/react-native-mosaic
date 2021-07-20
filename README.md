@@ -27,6 +27,7 @@ import { Button } from "react-native-mosaic";
 ## Components included:
 - [ ] [Button](https://reactnativeelements.com/docs/bottomsheet)
 - [ ] [LazyLoadingFlatList](https://reactnativeelements.com/docs/badge)
+- [x] [LoadingView](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LoadingView.md)
 - [x] [SegmentControl](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SegmentControl.md)
 
 ## Contributing
