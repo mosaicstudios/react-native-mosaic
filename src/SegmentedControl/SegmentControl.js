@@ -105,6 +105,8 @@ export default class SegmentControl extends React.Component {
             <Segment
               style={{ height: segmentHeight }}
               title={segment}
+              key={index}
+              index={index}
               textStyle={
                 index !== this.state.selectedIndex
                   ? unSelectedTextStyle
@@ -183,10 +185,6 @@ SegmentControl.propTypes = {
    */
   activeSegmentStyle: ViewPropTypes.style,
 
-  /**
-   * Styles props of gradient view
-   */
-  colors: ViewPropTypes.style,
   /**
    * Selected Segment text style.
    */

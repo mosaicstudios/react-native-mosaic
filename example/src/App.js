@@ -6,9 +6,7 @@ import { SegmentControl } from 'react-native-mosaic';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedIndex: 0,
-    };
+    this.state = {};
   }
 
   render() {
@@ -28,6 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginHorizontal: 20,
   },
   box: {
     width: 60,

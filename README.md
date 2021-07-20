@@ -29,9 +29,6 @@ import { Button } from "react-native-mosaic";
 - [x] [LazyLoadingFlatList](https://reactnativeelements.com/docs/badge)
 - [x] [SegmentControl](https://reactnativeelements.com/docs/avatar)
 
-![Alt Text](https://drive.google.com/uc?export=view&id=1cTWGCpqT0jAK0WzRdFl72_N4y3FOpE1k)
-
-
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
