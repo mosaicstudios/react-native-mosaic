@@ -22,6 +22,10 @@ import { Button } from "react-native-mosaic";
 <Button title="Press Me!" onPress={() => console.log('PRESSED')} />
 ```
 
+
+![Alt Text](https://drive.google.com/uc?export=view&id=14rtKtUHp0l0sPR_8etcOhNygAvKDRdpH)
+
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
