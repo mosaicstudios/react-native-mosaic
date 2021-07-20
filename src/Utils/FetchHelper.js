@@ -18,12 +18,10 @@ export default class FetchHelper {
     return FetchHelper._handleValidateTokens(validateTokens).then(() => {
       return fetch(endpoint, data)
         .then((response) => {
-          console.log('response', response);
           statusCode = response.status;
           return response.json();
         })
         .then((responseJson) => {
-          console.log('responseJson', responseJson);
           let status = { code: statusCode, success: responseJson.status };
           if (this._hasError(status)) {
             throw FetchHelper._getError(responseJson);
