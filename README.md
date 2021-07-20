@@ -44,8 +44,9 @@ import { Button } from "react-native-mosaic";
 
 ## Utilities included:
 - [ ] [DateTime]()
+- [ ] [FetchHelper]()
+- [ ] [List]()
 - [ ] [TextFormat]()
-- [ ] 
 
 ## Contributing
 
