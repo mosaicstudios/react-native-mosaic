@@ -1,5 +1,5 @@
 
 {
-  "extends": "./jsconfig",
+  "extends": "./tsconfig",
   "exclude": ["example"]
 }
