@@ -2,6 +2,8 @@
 
 ## Button
 
+This component is built using the dependency ``react-native-button`` https://github.com/APSL/react-native-button. Check out the repository to view the props additional props available.
+
 ## Usage examples
 
 ```js
