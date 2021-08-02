@@ -7,8 +7,6 @@
 ```js
 import { LoadingView } from "react-native-mosaic";
 
-// ...
-
 <LoadingView isLoading={this.state.isLoading}/>
 ```
 
