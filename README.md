@@ -9,7 +9,7 @@ This library contains a set of general-purpose UI components and utilities.
 ```sh
 npm install react-native-mosaic
 
-or 
+or
 
 yarn add react-native-mosaic
 ```
@@ -17,15 +17,16 @@ yarn add react-native-mosaic
 ## Usage (Example)
 
 ```js
-import { Button } from "react-native-mosaic";
+import { Button } from 'react-native-mosaic';
 
 // ...
 
-<Button title="Press Me!" onPress={() => console.log('PRESSED')} />
+<Button title="Press Me!" onPress={() => console.log('PRESSED')} />;
 ```
 
 ## Components included:
-- [ ] [AgreementInput]()
+
+- [x] [AgreementInput](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/AgreementInput.md)
 - [x] [Button](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Button.md)
 - [ ] [CheckBox]()
 - [ ] [Indicators]()
@@ -44,6 +45,7 @@ import { Button } from "react-native-mosaic";
 - [x] [SegmentControl](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SegmentControl.md)
 
 ## Utilities included:
+
 - [ ] [DateTime]()
 - [ ] [FetchHelper]()
 - [ ] [List]()
