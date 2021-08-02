@@ -82,8 +82,8 @@ import { ExpandingIndicator } from 'react-native-mosaic';
 | `activeDotColor?`     | `string` | The color of the active indicator dot.                                                     |
 | `inActiveDotOpacity?` | `number` | The opacity of the inactive indicator dots. Default value is 1.                            |
 | `activeDotOpacity?`   | `number` | The opacity of the active indicator dots. Default value is 1.                              |
-| `activeDotScale?`     | `number` | The active indicator will scale to this size when becoming active. Default value is 1.4.   |
 | `inactiveDotScale?`   | `number` | The inactive indicator will scale to this size when becoming inactive. Default value is 1. |
+| `activeDotScale?`     | `number` | The active indicator will scale to this size when becoming active. Default value is 1.4.   |
 | `containerStyle?`     | `style`  | The style of the main view container.                                                      |
 | `dotStyle?`           | `style`  | The style of the dot indicators                                                            |
 
@@ -93,8 +93,6 @@ import { ExpandingIndicator } from 'react-native-mosaic';
 | ------------------------ | -------- | ------------------------------------------------------------------------------- |
 | `scrollX?`               | `func`   | The horizontal position of the scrollView/FlatList currently being animated.    |
 | `data`                   | `array`  | Used to render the number of dot indicators and to animate the scrolling. dots. |
-| `inActiveDotColor?`      | `string` | The color of the inactive indicator dots.                                       |
-| `data?`                  | `array`  | The color of the inactive indicator dots.                                       |
 | `inActiveDotColor?`      | `string` | The color of the inactive indicator dots.                                       |
 | `activeDotColor?`        | `string` | The color of the active indicator dot.                                          |
 | `dotSize?`               | `number` | The size of the dot indicators. Default size is 30.                             |
@@ -113,8 +111,6 @@ import { ExpandingIndicator } from 'react-native-mosaic';
 | `scrollX?`               | `func`   | The horizontal position of the scrollView/FlatList currently being animated.    |
 | `data`                   | `array`  | Used to render the number of dot indicators and to animate the scrolling. dots. |
 | `inActiveDotColor?`      | `string` | The color of the inactive indicator dots.                                       |
-| `data?`                  | `array`  | The color of the inactive indicator dots.                                       |
-| `inActiveDotColor?`      | `string` | The color of the inactive indicator dots.                                       |
 | `activeDotColor?`        | `string` | The color of the active indicator dot.                                          |
 | `dotSize?`               | `number` | The size of the dot indicators. Default size is 12.                             |
 | `indicatorSpacing?`      | `number` | The spacing between the dot indicators. Default size is 10.                     |
@@ -130,8 +126,6 @@ import { ExpandingIndicator } from 'react-native-mosaic';
 | --------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `scrollX?`            | `func`   | The horizontal position of the scrollView/FlatList currently being animated.                         |
 | `data`                | `array`  | Used to render the number of dot indicators and to animate the scrolling. dots.                      |
-| `inActiveDotColor?`   | `string` | The color of the inactive indicator dots.                                                            |
-| `data?`               | `array`  | The color of the inactive indicator dots.                                                            |
 | `inActiveDotColor?`   | `string` | The color of the inactive indicator dots.                                                            |
 | `activeDotColor?`     | `string` | The color of the active indicator dot.                                                               |
 | `inActiveDotOpacity?` | `number` | The opacity of the inactive indicator dots. Default value is 1.                                      |
