@@ -26,7 +26,7 @@ import { Button } from "react-native-mosaic";
 
 ## Components included:
 - [ ] [AgreementInput]()
-- [ ] [Button](https://reactnativeelements.com/docs/bottomsheet)
+- [x] [Button](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Button.md)
 - [ ] [CheckBox]()
 - [ ] [Indicators]()
 - [ ] [InlinePicker]()
