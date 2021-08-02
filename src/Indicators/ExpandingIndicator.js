@@ -95,6 +95,58 @@ export default class ExpandingIndicator extends Component {
   }
 }
 
+ExpandingIndicator.propTypes = {
+  /**
+   * The horizontal position of the scrollView/FlatList currently being animated.
+   */
+  scrollX: PropTypes.func.isRequired,
+
+  /**
+   * Used to render the number of dot indicators and to animate the scrolling.
+   */
+  data: PropTypes.array.isRequired,
+
+  /**
+   * The color of the inactive indicator dots.
+   */
+  inActiveDotColor: PropTypes.string,
+
+  /**
+   * The color of the active indicator dot.
+   */
+  activeDotColor: PropTypes.string,
+
+  /**
+   * The opacity of the inactive indicator dots. Default value is 1.
+   */
+  inActiveDotOpacity: PropTypes.number,
+
+  /**
+   * The opacity of the active indicator dots. Default value is 1.
+   */
+  activeDotOpacity: PropTypes.number,
+
+  /**
+   * The width the active indicator dot expands to when changing to active/inactive. Default value is 20.
+   */
+  expandingDotWidth: PropTypes.number,
+
+  /**
+   * The width of all inactive indicator dots. Default value is 10.
+   */
+  dotWidth: PropTypes.number,
+
+  /**
+   * The style of the main view container.
+   */
+  containerStyle: ViewPropTypes.style,
+
+  /**
+   * The style of the dot indicators
+   */
+  dotStyle: ViewPropTypes.style,
+};
+
 ExpandingIndicator.defaultProps = {
   inActiveDotColor: 'gray',
   activeDotColor: 'gray',
@@ -102,6 +154,7 @@ ExpandingIndicator.defaultProps = {
   activeDotOpacity: 1,
   expandingDotWidth: 20,
   dotWidth: 10,
+  data: {},
 };
 
 const styles = StyleSheet.create({

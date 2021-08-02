@@ -89,6 +89,53 @@ export default class ScaleIndicator extends Component {
   }
 }
 
+ScaleIndicator.propTypes = {
+  /**
+   * The horizontal position of the scrollView/FlatList currently being animated.
+   */
+  scrollX: PropTypes.func.isRequired,
+
+  /**
+   * Used to render the number of dot indicators and to animate the scrolling.
+   */
+  data: PropTypes.array.isRequired,
+
+  /**
+   * The color of the inactive indicator dots.
+   */
+  inActiveDotColor: PropTypes.string,
+
+  /**
+   * The color of the active indicator dot.
+   */
+  activeDotColor: PropTypes.string,
+
+  /**
+   * The opacity of the inactive indicator dots. Default value is 1.
+   */
+  inActiveDotOpacity: PropTypes.number,
+
+  /**
+   * The size a dot indicator will scale to when becoming active. Default value is 1.4.
+   */
+  activeDotScale: PropTypes.number,
+
+  /**
+   * The size a dot indicator will scale to when becoming inactive. Default value is 1.
+   */
+  inactiveDotScale: PropTypes.number,
+
+  /**
+   * The style of the main view container.
+   */
+  containerStyle: ViewPropTypes.style,
+
+  /**
+   * The style of the dot indicators
+   */
+  dotStyle: ViewPropTypes.style,
+};
+
 ScaleIndicator.defaultProps = {
   inActiveDotColor: 'gray',
   activeDotColor: 'gray',
