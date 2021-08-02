@@ -7,8 +7,6 @@
 ```js
 import { SegmentControl } from "react-native-mosaic";
 
-// ...
-
 <SegmentControl
   values={['Display', 'Manage']}
   onChange={(selectedIndex) => this.setState({ selectedIndex })}
