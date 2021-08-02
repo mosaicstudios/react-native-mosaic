@@ -5,6 +5,7 @@
 ## Usage examples
 
 ```js
+
 import { Button } from "react-native-mosaic";
 
 // ...
