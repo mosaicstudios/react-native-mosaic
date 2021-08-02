@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewPropTypes } from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -50,6 +50,7 @@ export default class CustomButton extends Component<Props> {
       textStyle: props.textStyle,
       isLoading: props.isLoading,
       isDisabled: props.isDisabled,
+      activityIndicatorColor: props.activityIndicatorColor,
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -69,6 +70,7 @@ export default class CustomButton extends Component<Props> {
   render() {
     return (
       <Button
+        {...this.props}
         style={[styles.base, styles[this.props.type], this.state.style]}
         textStyle={[this._getTextStyle(), this.state.textStyle]}
         onPress={this.props.onPress}
@@ -82,8 +84,40 @@ export default class CustomButton extends Component<Props> {
 }
 
 CustomButton.propTypes = {
+  /**
+   * Set the buttons title.
+   */
   title: PropTypes.string.isRequired,
+
+  /**
+   * Color of the activity indicator. Default value is 'gray'.
+   */
+  activityIndicatorColor: PropTypes.string,
+
+  /**
+   * To display the loading indicator. Default value is 'false'.
+   */
+  isLoading: PropTypes.bool,
+
+  /**
+   * To prevent user interaction. Opacity is reduce to show the disabled effect. Default value is 'false'.
+   */
+  isDisabled: PropTypes.bool,
+
+  /**
+   * To set the size of the activity indicator. Default value is 'large'.
+   */
   type: PropTypes.oneOf(['solid', 'clear', 'outline']),
+
+  /**
+   * Base style for button container.
+   */
+  style: ViewPropTypes.style,
+
+  /**
+   * Text style for the title text.
+   */
+  textStyle: ViewPropTypes.style,
 };
 
 CustomButton.defaultProps = {
@@ -92,4 +126,5 @@ CustomButton.defaultProps = {
   textStyle: {},
   isLoading: false,
   isDisabled: false,
+  activityIndicatorColor: 'gray',
 };
