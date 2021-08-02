@@ -106,6 +106,7 @@ export default class AgreementInput extends Component {
       <View style={[styles.mainContainer, this.props.containerStyle]}>
         <View style={[styles.checkboxContainer, this.props.checkboxContainer]}>
           <CheckBox
+            {...this.props}
             value={this.state.termsAgreed}
             boxType={this.state.boxType}
             onCheckColor={this.state.checkColor}
@@ -113,9 +114,11 @@ export default class AgreementInput extends Component {
             onTintColor={this.state.tintColor}
             animationDuration={this.state.checkboxAnimationDuration}
             onValueChange={(value) => {
-              this.setState({ termsAgreed: value }, () =>
-                this.props.onValueChange(this.state.termsAgreed)
-              );
+              this.setState({ termsAgreed: value }, () => {
+                if (this.props.onValueChange) {
+                  this.props.onValueChange(this.state.termsAgreed);
+                }
+              });
             }}
           />
         </View>
@@ -133,6 +136,11 @@ export default class AgreementInput extends Component {
 }
 
 AgreementInput.propTypes = {
+  /**
+   * Will trigger when the user presses the checkbox. A boolean value will be returned.
+   */
+  onValueChange: PropTypes.func,
+
   /**
    * To control if the component is rendered based on a state variable. Default is true.
    */
@@ -179,6 +187,16 @@ AgreementInput.propTypes = {
   fillColor: PropTypes.string,
 
   /**
+   * Border color around the checkbox input.
+   */
+  tintColor: PropTypes.string,
+
+  /**
+   * Checkmark color.
+   */
+  checkColor: PropTypes.string,
+
+  /**
    * Base style for the container.
    */
   containerStyle: ViewPropTypes.style,
@@ -213,6 +231,7 @@ AgreementInput.defaultProps = {
   visible: true,
   title: 'I agree to the terms & conditions ',
   checkboxAnimationDuration: 0.4,
+  onValueChange: () => {},
 };
 
 const styles = StyleSheet.create({

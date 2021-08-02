@@ -14,13 +14,17 @@ export default class App extends Component {
       <View style={styles.container}>
         <AgreementInput
           onValueChange={(value) => this.setState({ value })}
-          termsUrl="https"
-          privacyUrl="https"
+          termsUrl="https://mosaic.ie/terms"
+          privacyUrl="https://mosaic.ie/privacy"
+          fillColor="green"
+          checkColor="white"
         />
         <AgreementInput
-          onValueChange={(value) => this.setState({ value })}
-          customUrl="hh"
-          customText=" Click Here to view custom url"
+          showCustom={(url) => alert('Custom url: ' + url)}
+          title="Custom user agreement input"
+          customUrl="https://mosaic.ie/"
+          customTextStyle={{ color: 'blue' }}
+          customText="Click Here to view custom url"
         />
       </View>
     );
