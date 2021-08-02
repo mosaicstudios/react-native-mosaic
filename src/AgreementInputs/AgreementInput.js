@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Switch, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import BaseComponent from '../../utils/BaseComponent';
 import CheckBox from '@react-native-community/checkbox';
 
