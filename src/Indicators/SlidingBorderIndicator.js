@@ -154,14 +154,9 @@ SlidingBorderIndicator.propTypes = {
   inActiveDotOpacity: PropTypes.number,
 
   /**
-   * The size a dot indicator will scale to when becoming active. Default value is 1.4.
+   * The opacity of the active indicator dots. Default value is 1.
    */
-  activeDotScale: PropTypes.number,
-
-  /**
-   * The size a dot indicator will scale to when becoming inactive. Default value is 1.
-   */
-  inactiveDotScale: PropTypes.number,
+  activeDotOpacity: PropTypes.number,
 
   /**
    * The size of the dot indicators.

@@ -140,6 +140,16 @@ SlidingIndicator.propTypes = {
   inActiveDotColor: PropTypes.string,
 
   /**
+   * The size of the dot indicators. Default size is 12.
+   */
+  dotSize: PropTypes.number,
+
+  /**
+   * The spacing between the dot indicators. Default size is 10.
+   */
+  indicatorSpacing: PropTypes.number,
+
+  /**
    * The color of the active indicator dot.
    */
   activeDotColor: PropTypes.string,
@@ -148,16 +158,6 @@ SlidingIndicator.propTypes = {
    * The opacity of the inactive indicator dots. Default value is 1.
    */
   inActiveDotOpacity: PropTypes.number,
-
-  /**
-   * The size a dot indicator will scale to when becoming active. Default value is 1.4.
-   */
-  activeDotScale: PropTypes.number,
-
-  /**
-   * The size a dot indicator will scale to when becoming inactive. Default value is 1.
-   */
-  inactiveDotScale: PropTypes.number,
 
   /**
    * The style of the main view container.
