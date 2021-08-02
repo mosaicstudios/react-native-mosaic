@@ -53,8 +53,8 @@ export default class CustomButton extends Component<Props> {
       activityIndicatorColor: props.activityIndicatorColor,
     };
   }
-  componentWillReceiveProps(nextProps) {
-    this.setState(nextProps);
+  static getDerivedStateFromProps(nextProps, state) {
+    return nextProps;
   }
   _getTextStyle() {
     switch (this.state.type) {

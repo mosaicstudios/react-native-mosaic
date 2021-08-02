@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { LoadingView } from 'react-native-mosaic';
+import { AgreementInput } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -12,7 +12,16 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <LoadingView isLoading />
+        <AgreementInput
+          onValueChange={(value) => this.setState({ value })}
+          termsUrl="https"
+          privacyUrl="https"
+        />
+        <AgreementInput
+          onValueChange={(value) => this.setState({ value })}
+          customUrl="hh"
+          customText=" Click Here to view custom url"
+        />
       </View>
     );
   }
@@ -21,6 +30,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },

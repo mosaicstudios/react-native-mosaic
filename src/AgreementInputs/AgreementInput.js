@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ViewPropTypes,
+} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
+
+import PropTypes from 'prop-types';
 
 export default class AgreementInput extends Component {
   constructor(props) {
@@ -11,12 +19,14 @@ export default class AgreementInput extends Component {
       privacyUrl: props.privacyUrl,
       customUrl: props.customUrl,
       customText: props.customText,
+      fillColor: props.fillColor,
+      boxType: props.boxType,
       checkboxAnimationDuration: props.checkboxAnimationDuration,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState(nextProps);
+  static getDerivedStateFromProps(nextProps, state) {
+    return nextProps;
   }
 
   _showTermsModal() {
@@ -38,7 +48,10 @@ export default class AgreementInput extends Component {
       return null;
     }
     return (
-      <TouchableOpacity onPress={() => this._showTermsModal()}>
+      <TouchableOpacity
+        style={styles.urlContainerStyle}
+        onPress={() => this._showTermsModal()}
+      >
         <Text style={[styles.termsTextStyle, this.props.termsTextStyle]}>
           Terms & Conditions
         </Text>
@@ -94,15 +107,14 @@ export default class AgreementInput extends Component {
         <View style={[styles.checkboxContainer, this.props.checkboxContainer]}>
           <CheckBox
             value={this.state.termsAgreed}
-            boxType="square"
-            onCheckColor="white"
-            tintColors={{ true: 'green', false: 'grey' }}
-            onFillColor={'green'}
-            onTintColor={'green'}
+            boxType={this.state.boxType}
+            onCheckColor={this.state.checkColor}
+            onFillColor={this.state.fillColor}
+            onTintColor={this.state.tintColor}
             animationDuration={this.state.checkboxAnimationDuration}
             onValueChange={(value) => {
               this.setState({ termsAgreed: value }, () =>
-                this.props.onAgreedChanged(this.state.termsAgreed)
+                this.props.onValueChange(this.state.termsAgreed)
               );
             }}
           />
@@ -120,6 +132,83 @@ export default class AgreementInput extends Component {
   }
 }
 
+AgreementInput.propTypes = {
+  /**
+   * To control if the component is rendered based on a state variable. Default is true.
+   */
+  visible: PropTypes.bool,
+
+  /**
+   * Shows the terms and conditions url.
+   */
+  termsUrl: PropTypes.string,
+
+  /**
+   * Will trigger when termsUrl contains a string and is pressed by the user.
+   */
+  showTerms: PropTypes.func,
+
+  /**
+   * Shows the privacy url.
+   */
+  privacyUrl: PropTypes.string,
+
+  /**
+   * Will trigger when privacyUrl contains a string and is pressed by the user.
+   */
+  showPrivacy: PropTypes.func,
+
+  /**
+   * Allows to show a custom url. Will be shown at the end of the text.
+   */
+  customUrl: PropTypes.string,
+
+  /**
+   * The custom text for a custom url. Defaults to 'CUSTOM TEXT' if a customUrl is provided but this prop is not used.
+   */
+  customText: PropTypes.string,
+
+  /**
+   * Will trigger when customUrl contains a string and is pressed by the user.
+   */
+  showCustom: PropTypes.func,
+
+  /**
+   * Background color of the checkbox indicator.
+   */
+  fillColor: PropTypes.string,
+
+  /**
+   * Base style for the container.
+   */
+  containerStyle: ViewPropTypes.style,
+
+  /**
+   * Style for the container of checkbox input.
+   */
+  checkboxContainer: ViewPropTypes.style,
+
+  /**
+   * Style for the container of text.
+   */
+  textContainer: ViewPropTypes.style,
+
+  /**
+   * Text style for the title text.
+   */
+  textStyle: ViewPropTypes.style,
+
+  /**
+   * The type of box to use. Defaults to 'circle'
+   */
+  boxType: PropTypes.oneOf(['square', 'circle']),
+
+  /**
+   * The animation that occurs when the checkbox value changes.
+   */
+  checkboxAnimationDuration: PropTypes.number,
+};
+
 AgreementInput.defaultProps = {
   visible: true,
   title: 'I agree to the terms & conditions ',
@@ -132,7 +221,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    flex: 1,
   },
   checkboxContainer: { alignItems: 'flex-start', marginRight: 10 },
   textContainer: { flex: 1 },
@@ -140,5 +228,5 @@ const styles = StyleSheet.create({
   customTextStyle: { color: 'green', marginTop: 0 },
   privacyTextStyle: { color: 'green', marginTop: 0 },
   termsTextStyle: { color: 'green' },
-  urlContainerStyle: { marginTop: -4 },
+  urlContainerStyle: { marginTop: -3 },
 });
