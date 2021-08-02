@@ -8,8 +8,6 @@
 
 import { Button } from "react-native-mosaic";
 
-// ...
-
 <Button title="HELLO WORLD" />
 <Button title="HELLO WORLD" type="outline" />
 <Button title="HELLO WORLD" type="clear" />
