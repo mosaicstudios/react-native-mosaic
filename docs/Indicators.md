@@ -74,17 +74,17 @@ import { ExpandingIndicator } from 'react-native-mosaic';
 
 ## API
 
-| Prop                  | Type     | Description                                                                                          |
-| --------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `scrollX?`            | `func`   | The horizontal position of the scrollView/FlatList currently being animated.                         |
-| `data`                | `array`  | Used to render the number of dot indicators and to animate the scrolling. dots.                      |
-| `inActiveDotColor?`   | `string` | The color of the inactive indicator dots.                                                            |
-| `data?`               | `array`  | The color of the inactive indicator dots.                                                            |
-| `inActiveDotColor?`   | `string` | The color of the inactive indicator dots.                                                            |
-| `activeDotColor?`     | `string` | The color of the active indicator dot.                                                               |
-| `inActiveDotOpacity?` | `number` | The opacity of the inactive indicator dots. Default value is 1.                                      |
-| `activeDotOpacity?`   | `number` | The opacity of the active indicator dots. Default value is 1.                                        |
-| `expandingDotWidth?`  | `number` | The width the active indicator dot expands to when changing to active/inactive. Default value is 20. |
-| `dotWidth?`           | `number` | The width of all inactive indicator dots. Default value is 10.                                       |
-| `containerStyle?`     | `style`  | The style of the main view container.                                                                |
-| `dotStyle?`           | `style`  | The style of the dot indicators                                                                      |
+| Prop                  | Type     | Description                                                                                                                   |
+| --------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `scrollX?`            | `func`   | The horizontal position of the scrollView/FlatList currently being animated.                                                  |
+| `data`                | `array`  | Used to render the number of dot indicators and to animate the scrolling. dots.                                               |
+| `inActiveDotColor?`   | `string` | The color of the inactive indicator dots.                                                                                     |
+| `data?`               | `array`  | The color of the inactive indicator dots.                                                                                     |
+| `inActiveDotColor?`   | `string` | The color of the inactive indicator dots.                                                                                     |
+| `activeDotColor?`     | `string` | The color of the active indicator dot.                                                                                        |
+| `inActiveDotOpacity?` | `number` | The opacity of the inactive indicator dots. Default value is 1.                                                               |
+| `activeDotOpacity?`   | `number` | The opacity of the active indicator dots. Default value is 1.                                                                 |
+| `expandingDotWidth?`  | `number` | The width the active indicator dot expands to when changing to active/inactive. Default value is 20. ExpandingIndicator only. |
+| `dotWidth?`           | `number` | The width of all inactive indicator dots. Default value is 10. ExpandingIndicator only.                                       |
+| `containerStyle?`     | `style`  | The style of the main view container.                                                                                         |
+| `dotStyle?`           | `style`  | The style of the dot indicators                                                                                               |
