@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import { Animated, View, StyleSheet, Dimensions } from 'react-native';
+import {
+  Animated,
+  View,
+  StyleSheet,
+  Dimensions,
+  ViewPropTypes,
+} from 'react-native';
 const { width } = Dimensions.get('screen');
+import PropTypes from 'prop-types';
 
 export default class SlidingIndicator extends Component {
   constructor(props) {
