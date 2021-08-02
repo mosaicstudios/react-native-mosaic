@@ -8,17 +8,19 @@
 
 import { Button } from "react-native-mosaic";
 
-<Button title="HELLO WORLD" />
-<Button title="HELLO WORLD" type="outline" />
-<Button title="HELLO WORLD" type="clear" />
-<Button title="HELLO WORLD" isLoading />
-<Button title="HELLO WORLD" isDisabled />
-<Button
-  title="HELLO WORLD"
-  style={{ backgroundColor: 'lightblue' }}
-  textStyle={{ color: 'black' }}
-  onPress={() =>  console.log('PRESSED')}
-/>
+<View>
+  <Button title="HELLO WORLD" />
+  <Button title="HELLO WORLD" type="outline" />
+  <Button title="HELLO WORLD" type="clear" />
+  <Button title="HELLO WORLD" isLoading />
+  <Button title="HELLO WORLD" isDisabled />
+  <Button
+    title="HELLO WORLD"
+    style={{ backgroundColor: 'lightblue' }}
+    textStyle={{ color: 'black' }}
+    onPress={() =>  console.log('PRESSED')}
+  />
+</View>
 ```
 
 ## API
