@@ -164,6 +164,16 @@ SlidingBorderIndicator.propTypes = {
   inactiveDotScale: PropTypes.number,
 
   /**
+   * The size of the dot indicators.
+   */
+  dotSize: PropTypes.number,
+
+  /**
+   * The spacing between the dot indicators.
+   */
+  spacing: PropTypes.number,
+
+  /**
    * The style of the main view container.
    */
   containerStyle: ViewPropTypes.style,
@@ -172,6 +182,16 @@ SlidingBorderIndicator.propTypes = {
    * The style of the dot indicators
    */
   dotStyle: ViewPropTypes.style,
+
+  /**
+   * The style of the dot indicators
+   */
+  slidingIndicatorStyle: ViewPropTypes.style,
+
+  /**
+   * The style of the sliding dot indicator
+   */
+  slidingIndicatorColor: PropTypes.string,
 };
 
 SlidingBorderIndicator.defaultProps = {
