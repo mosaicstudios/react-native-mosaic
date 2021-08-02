@@ -6,6 +6,8 @@ This component is built using the dependency `@react-native-community/checkbox` 
 
 ## Getting Started
 
+**Note:** These steps must be followed on first use otherwise an error will be thrown. 'Invariant Violation: requireNativeComponent: "RNCCheckbox" was not found in the UIManager.'
+
 `yarn add @react-native-community/checkbox`
 
 or

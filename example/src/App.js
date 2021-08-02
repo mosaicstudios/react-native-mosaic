@@ -19,13 +19,6 @@ export default class App extends Component {
           fillColor="green"
           checkColor="white"
         />
-        <AgreementInput
-          showCustom={(url) => alert('Custom url: ' + url)}
-          title="Custom user agreement input"
-          customUrl="https://mosaic.ie/"
-          customTextStyle={{ color: 'blue' }}
-          customText="Click Here to view custom url"
-        />
       </View>
     );
   }
