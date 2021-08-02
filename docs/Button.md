@@ -33,6 +33,6 @@ import { Button } from "react-native-mosaic";
 | ``isLoading`` | ``bool`` | To display a loading indicator. Default value is 'false'. |
 | ``isDisabled`` | ``bool`` | To prevent user interaction. Reduces opacity to show the button is no longer pressable. Default value is 'false'. |
 | ``title`` | ``string`` | To set the buttons title. Default value is 'large'. |
-| ``type`` | ``enum`` | To set the buttons style. Default value is 'solid'. Options: 'solid', 'outline', 'clear'. |
+| ``type`` | ``string`` | To set the buttons style. Default value is 'solid'. Options: 'solid', 'outline', 'clear'. |
 | ``style`` | ``style`` | To style the main container of the button |
 | ``textStyle`` | ``style`` | To style the title text of the button |
