@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import BaseComponent from '../../utils/BaseComponent';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
-import Screens from '../../constants/Screens';
-import Colors from '../../constants/Colors';
-
-type Props = {};
-export default class AgreementInput extends BaseComponent {
+export default class AgreementInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,6 +11,7 @@ export default class AgreementInput extends BaseComponent {
       privacyUrl: props.privacyUrl,
       customUrl: props.customUrl,
       customText: props.customText,
+      checkboxAnimationDuration: props.checkboxAnimationDuration,
     };
   }
 
@@ -24,27 +20,17 @@ export default class AgreementInput extends BaseComponent {
   }
 
   _showTermsModal() {
-    let { venue, termsUrl } = this.state;
-    this.showModal(Screens.Web, {
-      url: termsUrl,
-      title: 'Terms & Condition',
-      showCloseButton: true,
-    });
+    let { termsUrl } = this.state;
+    this.props.showTerms(termsUrl);
   }
 
   _showCustomUrlModal(url) {
-    this.showModal(Screens.Web, {
-      url: url,
-      title: this.state.customText,
-      showCloseButton: true,
-    });
+    this.props.showCustom(url);
   }
 
   _showPrivacyModal() {
-    let { venue, privacyUrl } = this.state;
-    this.showModal(Screens.Privacy, {
-      showCloseButton: true,
-    });
+    let { privacyUrl } = this.state;
+    this.props.showPrivacy(privacyUrl);
   }
 
   _renderTermsText() {
@@ -53,7 +39,9 @@ export default class AgreementInput extends BaseComponent {
     }
     return (
       <TouchableOpacity onPress={() => this._showTermsModal()}>
-        <Text style={{ color: Colors.Primary }}>Terms & Conditions</Text>
+        <Text style={[styles.termsTextStyle, this.props.termsTextStyle]}>
+          Terms & Conditions
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -66,11 +54,11 @@ export default class AgreementInput extends BaseComponent {
       <>
         {this.state.termsUrl && <Text> and </Text>}
         <TouchableOpacity
-          style={{ marginTop: -4 }}
+          style={styles.urlContainerStyle}
           onPress={() => this._showPrivacyModal()}
         >
-          <Text style={{ color: Colors.Primary, marginTop: 0 }}>
-            Randox's Privacy Policy
+          <Text style={[styles.privacyTextStyle, this.props.privacyTextStyle]}>
+            Privacy Policy
           </Text>
         </TouchableOpacity>
       </>
@@ -85,10 +73,10 @@ export default class AgreementInput extends BaseComponent {
     return (
       <>
         <TouchableOpacity
-          style={{ marginTop: -4 }}
+          style={styles.urlContainerStyle}
           onPress={() => this._showCustomUrlModal(customUrl)}
         >
-          <Text style={{ color: Colors.Primary, marginTop: 0 }}>
+          <Text style={[styles.customTextStyle, this.props.customTextStyle]}>
             {this.state.customText || 'CUSTOM TEXT'}
           </Text>
         </TouchableOpacity>
@@ -102,27 +90,16 @@ export default class AgreementInput extends BaseComponent {
       return null;
     }
     return (
-      <View
-        style={[
-          {
-            marginTop: 20,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flex: 1,
-          },
-          this.props.containerStyle,
-        ]}
-      >
-        <View style={{ alignItems: 'flex-start', marginRight: 10 }}>
+      <View style={[styles.mainContainer, this.props.containerStyle]}>
+        <View style={[styles.checkboxContainer, this.props.checkboxContainer]}>
           <CheckBox
             value={this.state.termsAgreed}
             boxType="square"
             onCheckColor="white"
-            tintColors={{ true: Colors.Primary, false: 'grey' }}
-            onFillColor={Colors.Primary}
-            onTintColor={Colors.Primary}
-            animationDuration={0.4}
+            tintColors={{ true: 'green', false: 'grey' }}
+            onFillColor={'green'}
+            onTintColor={'green'}
+            animationDuration={this.state.checkboxAnimationDuration}
             onValueChange={(value) => {
               this.setState({ termsAgreed: value }, () =>
                 this.props.onAgreedChanged(this.state.termsAgreed)
@@ -130,8 +107,8 @@ export default class AgreementInput extends BaseComponent {
             }}
           />
         </View>
-        <View style={{ flex: 1 }}>
-          <Text style={{ flexWrap: 'wrap' }}>
+        <View style={[styles.textContainer, this.props.textContainer]}>
+          <Text style={[styles.textStyle, this.props.textStyle]}>
             {this.props.title}
             {this._renderTermsText()}
             {this._renderPrivacyPolicyText()}
@@ -145,5 +122,23 @@ export default class AgreementInput extends BaseComponent {
 
 AgreementInput.defaultProps = {
   visible: true,
-  title: 'I agree to the to the venues ',
+  title: 'I agree to the terms & conditions ',
+  checkboxAnimationDuration: 0.4,
 };
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    marginTop: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flex: 1,
+  },
+  checkboxContainer: { alignItems: 'flex-start', marginRight: 10 },
+  textContainer: { flex: 1 },
+  textStyle: { flexWrap: 'wrap' },
+  customTextStyle: { color: 'green', marginTop: 0 },
+  privacyTextStyle: { color: 'green', marginTop: 0 },
+  termsTextStyle: { color: 'green' },
+  urlContainerStyle: { marginTop: -4 },
+});
