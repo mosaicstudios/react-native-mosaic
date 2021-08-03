@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, View } from 'react-native';
-import { AgreementInput } from 'react-native-mosaic';
+import { StyleSheet, View, Text } from 'react-native';
+import { DatePicker } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -12,12 +12,12 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AgreementInput
-          onValueChange={(value) => this.setState({ value })}
-          termsUrl="https://mosaic.ie/terms"
-          privacyUrl="https://mosaic.ie/privacy"
-          fillColor="green"
-          checkColor="white"
+        <Text>Test</Text>
+        <DatePicker
+          value={this.state?.dateOfBirth}
+          mode="datetime"
+          placeholder="Date of Birth"
+          onChange={(value) => {}}
         />
       </View>
     );

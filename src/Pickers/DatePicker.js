@@ -1,37 +1,36 @@
 import React, { Component } from 'react';
-import { Image, View, Text, TouchableOpacity } from 'react-native';
+import {
+  Image,
+  View,
+  Text,
+  TouchableOpacity,
+  ViewPropTypes,
+} from 'react-native';
+import Separator from '../Separators/Separator';
 
 import moment from 'moment';
 
-import Separator from '../Separators/Separator';
-
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import DatePicker from 'react-native-datepicker';
 
 import PropTypes from 'prop-types';
 
 type Props = {};
-export default class Picker extends Component {
+export default class DatePicker extends Component {
   constructor(props) {
     super(props);
-    this.dateFormat =
-      props.mode == 'datetime' ? 'HH:mm, DD MMM YY' : 'DD-MMM-YYYY';
+    this.dateFormat = this._getFormat(props.mode);
     this.state = {
       mode: props.mode,
-      value: props.value ? moment(props.value).toDate() : null,
+      time: moment(props.date).format(this.dateFormat),
+      date: moment(props.date).toDate(),
       minimumDate: props.minimumDate
         ? props.minimumDate
-        : moment(new Date()).add('years', -100).toDate(),
+        : moment(new Date()).add(-100, 'years').toDate(),
       maximumDate: props.maximumDate
         ? props.maximumDate
-        : moment(new Date()).add('years', 100).toDate(),
+        : moment(new Date()).add(100, 'years').toDate(),
       isVisible: false,
-      placeholder: props.placeholder,
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState(nextProps);
   }
 
   isValid() {
@@ -43,49 +42,56 @@ export default class Picker extends Component {
     return true;
   }
 
-  _getFormat() {
-    let { mode } = this.state;
-    if (mode == 'datetime') {
-      return 'HH:mm, DD MMM YY';
-    }
-    if (mode == 'date') {
-      return 'DD MMM YYYY';
-    }
-    if (mode == 'time') {
-      return 'HH:mm';
+  _getFormat(mode) {
+    switch (mode) {
+      case 'datetime':
+        return 'HH:mm, DD MMM YY';
+      case 'date':
+        return 'DD-MMM-YYYY';
+      case 'time':
+        return 'HH:mm';
+      case 'countdown':
+        return 'HH:mm';
+      default:
     }
   }
 
+  _showDateTimePicker() {
+    this.setState({ isVisible: true });
+  }
+
+  _hideDateTimePicker() {
+    this.setState({ isVisible: false });
+  }
+
+  _handleDatePicked = (date) => {
+    this._hideDateTimePicker();
+    const time = moment(date).format(this.dateFormat);
+    this.setState({ time, date });
+    this.props.onChange(date);
+  };
+
   render() {
     return (
-      <View style={this.props.style}>
-        <DatePicker
-          style={{ width: '100%' }}
-          customStyles={{
-            dateInput: {
-              alignItems: 'flex-start',
-              borderWidth: 0,
-            },
-            dateText: {
-              fontSize: 18,
-            },
-            placeholderText: {
-              fontSize: 18,
-              color: 'gray',
-            },
-          }}
-          onOpenModal={() => this.setState({ showError: false })}
-          date={this.state.value}
-          mode={this.state.mode}
-          showIcon={false}
-          placeholder={this.state.placeholder}
-          format={this._getFormat()}
-          minDate={this.state.minimumDate}
-          maxDate={this.state.maximumDate}
-          confirmBtnText="Confirm"
-          cancelBtnText="Cancel"
-          onDateChange={(value) => this.props.onChange(value)}
-        />
+      <View style={this.props.containerStyle}>
+        <TouchableOpacity onPress={() => this._showDateTimePicker()}>
+          <View style={this.props.pickerContainerStyle}>
+            <Text style={{ color: this.props.textColor, fontSize: 20 }}>
+              {this.state.time}
+            </Text>
+            <DateTimePicker
+              {...this.props}
+              isVisible={this.state.isVisible}
+              onConfirm={this._handleDatePicked}
+              onCancel={() => this._hideDateTimePicker()}
+              date={this.state.date}
+              minimumDate={this.state.minimumDate}
+              maximumDate={this.state.maximumDate}
+              is24Hour={true}
+              mode={this.state.mode}
+            />
+          </View>
+        </TouchableOpacity>
         <Separator style={{ marginTop: 0 }} />
         {this.state.showError && (
           <Text style={{ color: 'red', marginTop: 5 }}>{this.state.error}</Text>
@@ -95,15 +101,32 @@ export default class Picker extends Component {
   }
 }
 
-Picker.propTypes = {
+DatePicker.propTypes = {
+  /**
+   * This is called when the user confirm the picked date or time in the UI. The first and only argument is a date or time string representing the new date and time formatted by moment.js with the given format property.
+   */
   onChange: PropTypes.func.isRequired,
-  minuteInterval: 15,
+
+  /**
+   * This can be called to validate the date or time. Will show an error if false is returned.
+   */
+  isValid: PropTypes.func,
+
+  /**
+   * Used to display the modal picker.
+   */
+  isVisible: PropTypes.bool,
+
+  minimumDate: PropTypes.string,
+  maximumDate: PropTypes.string,
+  mode: PropTypes.oneOf(['datetime', 'date', 'time', 'countdown']),
+  containerStyle: ViewPropTypes.style,
+  pickerContainerStyle: ViewPropTypes.style,
 };
 
-Picker.defaultProps = {
+DatePicker.defaultProps = {
   date: new Date(),
   mode: 'datetime',
   minimumDate: null,
-  placeholder: 'Select date',
   textColor: 'black',
 };

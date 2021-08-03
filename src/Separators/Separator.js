@@ -11,7 +11,14 @@ export default class Hr extends Component<Props> {
     };
   }
   render() {
-    return <View style={[styles.hr(this.state.color), this.props.style]} />;
+    return (
+      <View
+        style={[
+          styles.hr(this.state.color, this.state.width),
+          this.props.style,
+        ]}
+      />
+    );
   }
 }
 
@@ -21,9 +28,9 @@ Hr.defaultProps = {
 };
 
 const styles = StyleSheet.create({
-  hr: (color) => ({
+  hr: (color, width) => ({
     height: 1,
     backgroundColor: color,
-    width: this.state.width,
+    width: width,
   }),
 });

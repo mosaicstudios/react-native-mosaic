@@ -1,5 +1,6 @@
 import AgreementInput from './AgreementInputs/AgreementInput';
 import Button from './Buttons/Button';
+import DatePicker from './Pickers/DatePicker';
 import ExpandingIndicator from './Indicators/ExpandingIndicator';
 import Gallery2 from './Galleries/Gallery2';
 import LoadingView from './LoadingViews/LoadingView';
@@ -12,6 +13,7 @@ import SlidingIndicator from './Indicators/SlidingIndicator';
 export {
   AgreementInput,
   Button,
+  DatePicker,
   ExpandingIndicator,
   Gallery2,
   LoadingView,
