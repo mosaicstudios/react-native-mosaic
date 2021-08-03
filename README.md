@@ -28,7 +28,7 @@ import { Button } from 'react-native-mosaic';
 
 - [x] [AgreementInput](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/AgreementInput.md)
 - [x] [Button](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Button.md)
-- [ ] [Indicators]()
+- [x] [Indicators](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Indicators.md)
 - [ ] [InlinePicker]()
 - [x] [LazyLoader]()
 - [ ] [LazyLoadingFlatList](https://reactnativeelements.com/docs/badge)
