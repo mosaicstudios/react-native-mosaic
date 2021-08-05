@@ -25,7 +25,7 @@ import { Button } from "react-native-mosaic";
 </View>
 ```
 
-## API
+## Props Available
 
 | Prop | Type | Description |
 |------|------|-------------|
