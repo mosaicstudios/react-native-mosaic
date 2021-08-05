@@ -40,7 +40,7 @@ import { Button } from 'react-native-mosaic';
 - [x] [QuickModal](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/QuickModal.md)
 - [ ] [PickerField]()
 - [x] [RadioGroup](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/RadioGroup.md)
-- [ ] [SearchField]()
+- [x] [SearchField](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SearchBar.md)
 - [x] [Separator]()
 - [x] [SegmentControl](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SegmentControl.md)
 
