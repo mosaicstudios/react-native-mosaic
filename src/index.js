@@ -7,6 +7,7 @@ import Gallery2 from './Galleries/Gallery2';
 import InLinePicker from './Pickers/InLinePicker';
 import LoadingView from './LoadingViews/LoadingView';
 import NoResults from './Text/NoResults';
+import RadioGroup from './Inputs/RadioGroup';
 import ScaleIndicator from './Indicators/ScaleIndicator';
 import SegmentControl from './SegmentedControl/SegmentControl';
 import Separator from './Separators/Separator';
@@ -28,6 +29,7 @@ export {
   InLinePicker,
   LoadingView,
   NoResults,
+  RadioGroup,
   ScaleIndicator,
   SegmentControl,
   Separator,
