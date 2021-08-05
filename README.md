@@ -14,15 +14,13 @@ or
 yarn add react-native-mosaic
 ```
 
-## Usage (Example)
+### Notes before use
 
-```js
-import { Button } from 'react-native-mosaic';
+Please note some components require further setup in order to use them.
 
-// ...
+### Usage
 
-<Button title="Press Me!" onPress={() => console.log('PRESSED')} />;
-```
+Please see the components below for guides on how to implement and use the components.
 
 ## Components included:
 
