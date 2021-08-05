@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ViewPropTypes } from 'react-native';
-
+import { View, StyleSheet, ViewPropTypes } from 'react-native';
+import Text from 'react-native-text';
 import RNPickerSelect from 'react-native-picker-select';
 
 import PropTypes from 'prop-types';

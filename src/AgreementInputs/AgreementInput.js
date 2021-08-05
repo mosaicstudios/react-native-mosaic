@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   TouchableOpacity,
   StyleSheet,
   ViewPropTypes,
 } from 'react-native';
+import Text from 'react-native-text';
 import CheckBox from '@react-native-community/checkbox';
 
 import PropTypes from 'prop-types';

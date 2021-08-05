@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Button from 'apsl-react-native-button';
+import Text from 'react-native-text';
 
 type Props = {};
 export default class Counter extends Component<Props> {

@@ -37,7 +37,7 @@ import { Button } from 'react-native-mosaic';
 - [ ] [Locationsearch]()
 - [ ] [LogoBanner]()
 - [ ] [NoResults]()
-- [ ] [QuickModal]()
+- [x] [QuickModal](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/QuickModal.md)
 - [ ] [PickerField]()
 - [ ] [RadioGroup]()
 - [ ] [SearchField]()
