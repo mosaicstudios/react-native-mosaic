@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { DatePicker } from 'react-native-mosaic';
+import { SearchField } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -12,12 +12,12 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Test</Text>
-        <DatePicker
-          value={this.state?.dateOfBirth}
-          mode="datetime"
-          placeholder="Date of Birth"
-          onChange={(value) => {}}
+        <SearchField
+          containerStyle={{ marginLeft: 20, marginRight: 20 }}
+          placeholder="Search"
+          onChangeText={(searchTerm) => {
+            this.setState({ searchTerm });
+          }}
         />
       </View>
     );
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: 10,
-    alignItems: 'center',
     justifyContent: 'center',
   },
   box: {
