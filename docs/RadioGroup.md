@@ -2,6 +2,10 @@
 
 ## RadioGroup
 
+## Setup
+
+To use this component you need to install react-native-vector-icons. To see how to install please see https://github.com/oblador/react-native-vector-icons.
+
 ## Usage (Basic)
 
 ```js
