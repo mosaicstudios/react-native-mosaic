@@ -39,7 +39,7 @@ export default class App extends Component {
 }
 ```
 
-## API
+## Props Available
 
 | Prop                    | Type     | Description                                                                                   |
 | ----------------------- | -------- | --------------------------------------------------------------------------------------------- |

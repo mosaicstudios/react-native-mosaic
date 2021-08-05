@@ -10,7 +10,7 @@ import { CheckBox } from 'react-native-mosaic';
 <CheckBox />;
 ```
 
-## API
+## Props Available
 
 | Prop              | Type     | Description                                                          |
 | ----------------- | -------- | -------------------------------------------------------------------- |

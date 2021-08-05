@@ -87,7 +87,7 @@ import { ExpandingIndicator } from 'react-native-mosaic';
 />;
 ```
 
-## ScaleIndicator API
+## ScaleIndicator Props Available
 
 | Prop                  | Type     | Description                                                                                |
 | --------------------- | -------- | ------------------------------------------------------------------------------------------ |
@@ -102,7 +102,7 @@ import { ExpandingIndicator } from 'react-native-mosaic';
 | `containerStyle?`     | `style`  | The style of the main view container.                                                      |
 | `dotStyle?`           | `style`  | The style of the dot indicators                                                            |
 
-## SlidingBorderIndicator API
+## SlidingBorderIndicator Props Available
 
 | Prop                     | Type     | Description                                                                    |
 | ------------------------ | -------- | ------------------------------------------------------------------------------ |
@@ -120,7 +120,7 @@ import { ExpandingIndicator } from 'react-native-mosaic';
 | `slidingIndicatorStyle?` | `style`  | The style of the sliding dot indicator                                         |
 | `slidingIndicatorColor?` | `string` | The color of the sliding indicator border.                                     |
 
-## SlidingIndicator API
+## SlidingIndicator Props Available
 
 | Prop                     | Type     | Description                                                                    |
 | ------------------------ | -------- | ------------------------------------------------------------------------------ |
@@ -136,7 +136,7 @@ import { ExpandingIndicator } from 'react-native-mosaic';
 | `dotStyle?`              | `style`  | The style of the dot indicators                                                |
 | `slidingIndicatorStyle?` | `style`  | The style of the sliding dot indicator                                         |
 
-## ExpandingIndicator API
+## ExpandingIndicator Props Available
 
 | Prop                  | Type     | Description                                                                                          |
 | --------------------- | -------- | ---------------------------------------------------------------------------------------------------- |

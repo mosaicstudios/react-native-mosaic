@@ -5,15 +5,15 @@
 ## Usage (Basic)
 
 ```js
-import { LoadingView } from "react-native-mosaic";
+import { LoadingView } from 'react-native-mosaic';
 
-<LoadingView isLoading={this.state.isLoading}/>
+<LoadingView isLoading={this.state.isLoading} />;
 ```
 
-## API
+## Props Available
 
-| Prop | Type | Description |
-|------|------|-------------|
-| ``indicatorColor?`` | ``string`` | Color of the activity indicator. Default value is 'white'.. |
-| ``isLoading`` | ``bool`` | To display the loading view. Default value is 'false'. |
-| ``size?`` | ``string`` | To set the size of the activity indicator. Default value is 'large'. |
+| Prop              | Type     | Description                                                          |
+| ----------------- | -------- | -------------------------------------------------------------------- |
+| `indicatorColor?` | `string` | Color of the activity indicator. Default value is 'white'..          |
+| `isLoading`       | `bool`   | To display the loading view. Default value is 'false'.               |
+| `size?`           | `string` | To set the size of the activity indicator. Default value is 'large'. |
