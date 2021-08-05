@@ -6,6 +6,7 @@ import ExpandingIndicator from './Indicators/ExpandingIndicator';
 import Gallery2 from './Galleries/Gallery2';
 import InLinePicker from './Pickers/InLinePicker';
 import LoadingView from './LoadingViews/LoadingView';
+import NoResults from './Text/NoResults';
 import ScaleIndicator from './Indicators/ScaleIndicator';
 import SegmentControl from './SegmentedControl/SegmentControl';
 import Separator from './Separators/Separator';
@@ -26,6 +27,7 @@ export {
   Gallery2,
   InLinePicker,
   LoadingView,
+  NoResults,
   ScaleIndicator,
   SegmentControl,
   Separator,

@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ViewPropTypes,
+  TextStyle,
 } from 'react-native';
 import Text from 'react-native-text';
 import CheckBox from '@react-native-community/checkbox';
@@ -214,7 +215,7 @@ AgreementInput.propTypes = {
   /**
    * Text style for the title text.
    */
-  textStyle: ViewPropTypes.style,
+  textStyle: TextStyle,
 
   /**
    * The type of box to use. Defaults to 'circle'

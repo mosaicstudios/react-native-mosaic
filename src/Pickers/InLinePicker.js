@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ViewPropTypes } from 'react-native';
+import { View, StyleSheet, ViewPropTypes, TextStyle } from 'react-native';
 import Text from 'react-native-text';
 import RNPickerSelect from 'react-native-picker-select';
 
@@ -101,7 +101,7 @@ InLinePicker.propTypes = {
   /**
    ** Style for the text label of the selected item.
    */
-  selectedItemStyle: ViewPropTypes.style,
+  selectedItemStyle: TextStyle,
 
   /**
    ** The view containing the picker label.
@@ -111,7 +111,7 @@ InLinePicker.propTypes = {
   /**
    ** Style for the title text.
    */
-  titleTextStyle: ViewPropTypes.style,
+  titleTextStyle: TextStyle,
 
   /**
    ** Style for the outermost view container.

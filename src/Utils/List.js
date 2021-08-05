@@ -3,7 +3,7 @@ export default class List {
     if (key == null) {
       return list.findIndex((item) => item === selectedItem);
     }
-    return list.findIndex((item) => item[key] == selectedItem[key]);
+    return list.findIndex((item) => item[key] === selectedItem[key]);
   }
 
   static removeItem(list, selectedItem, key = null) {

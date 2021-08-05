@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Text from 'react-native-text';
 import Modal from 'react-native-modal';
 
@@ -45,7 +45,7 @@ export default class QuickModal extends Component {
         style={this._getModalPosition()}
       >
         <View style={styles.background}>
-          <View style={[styles.container, { backgroundColor: '#333333' }]}>
+          <View style={[styles.container]}>
             <Text style={styles.text}>{text}</Text>
           </View>
         </View>
@@ -77,6 +77,7 @@ export const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
     padding: 10,
+    backgroundColor: '#333333',
   },
 
   text: { textAlign: 'center', color: 'white' },
