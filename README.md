@@ -49,7 +49,7 @@ import { Button } from 'react-native-mosaic';
 - [ ] [DateTime]()
 - [ ] [FetchHelper]()
 - [x] [List](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/List.md)
-- [ ] [TextFormat]()
+- [x] [TextFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/TextFormat.md)
 
 ## Contributing
 
