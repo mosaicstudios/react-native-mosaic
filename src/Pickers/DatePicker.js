@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-  Image,
   View,
   Text,
   TouchableOpacity,
   ViewPropTypes,
+  StyleSheet,
 } from 'react-native';
 import Separator from '../Separators/Separator';
 
@@ -14,7 +14,6 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
 
 import PropTypes from 'prop-types';
 
-type Props = {};
 export default class DatePicker extends Component {
   constructor(props) {
     super(props);
@@ -76,7 +75,7 @@ export default class DatePicker extends Component {
       <View style={this.props.containerStyle}>
         <TouchableOpacity onPress={() => this._showDateTimePicker()}>
           <View style={this.props.pickerContainerStyle}>
-            <Text style={{ color: this.props.textColor, fontSize: 20 }}>
+            <Text style={[styles.textStyle, this.props.textStyle]}>
               {this.state.time}
             </Text>
             <DateTimePicker
@@ -92,9 +91,11 @@ export default class DatePicker extends Component {
             />
           </View>
         </TouchableOpacity>
-        <Separator style={{ marginTop: 0 }} />
+        <Separator style={styles.separator} />
         {this.state.showError && (
-          <Text style={{ color: 'red', marginTop: 5 }}>{this.state.error}</Text>
+          <Text style={[styles.errorTextStyle, this.props.errorTextStyle]}>
+            {this.state.error}
+          </Text>
         )}
       </View>
     );
@@ -130,3 +131,9 @@ DatePicker.defaultProps = {
   minimumDate: null,
   textColor: 'black',
 };
+
+const styles = StyleSheet.create({
+  textStyle: (color) => ({ color: color || 'black', fontSize: 20 }),
+  errorTextStyle: { color: 'red', marginTop: 5 },
+  separator: { marginTop: 0 },
+});

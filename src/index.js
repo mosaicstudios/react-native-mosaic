@@ -3,6 +3,7 @@ import Button from './Buttons/Button';
 import DatePicker from './Pickers/DatePicker';
 import ExpandingIndicator from './Indicators/ExpandingIndicator';
 import Gallery2 from './Galleries/Gallery2';
+import InLinePicker from './Pickers/InLinePicker';
 import LoadingView from './LoadingViews/LoadingView';
 import ScaleIndicator from './Indicators/ScaleIndicator';
 import SegmentControl from './SegmentedControl/SegmentControl';
@@ -16,6 +17,7 @@ export {
   DatePicker,
   ExpandingIndicator,
   Gallery2,
+  InLinePicker,
   LoadingView,
   ScaleIndicator,
   SegmentControl,

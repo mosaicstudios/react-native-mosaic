@@ -18,7 +18,7 @@ export default class Counter extends Component<Props> {
   _decreaseValue() {
     let value = this.state.value;
     value -= 1;
-    if (value == 0) {
+    if (value === 0) {
       return;
     }
     this.setState({ value }, () => this.props.valueChanged(this.state.value));
