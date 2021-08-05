@@ -30,7 +30,7 @@ import { Button } from 'react-native-mosaic';
 - [x] [Button](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Button.md)
 - [x] [DatePicker](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/DatePicker.md)
 - [x] [Indicators](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Indicators.md)
-- [ ] [InlinePicker]()
+- [x] [InlinePicker](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/InlinePicker.md)
 - [x] [LazyLoader]()
 - [ ] [LazyLoadingFlatList](https://reactnativeelements.com/docs/badge)
 - [x] [LoadingView](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LoadingView.md)
