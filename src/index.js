@@ -7,6 +7,7 @@ import Gallery2 from './Galleries/Gallery2';
 import InLinePicker from './Pickers/InLinePicker';
 import LoadingView from './LoadingViews/LoadingView';
 import NoResults from './Text/NoResults';
+import PickerField from './Pickers/PickerField';
 import RadioGroup from './Inputs/RadioGroup';
 import ScaleIndicator from './Indicators/ScaleIndicator';
 import SearchField from './Inputs/SearchField';
@@ -30,6 +31,7 @@ export {
   InLinePicker,
   LoadingView,
   NoResults,
+  PickerField,
   RadioGroup,
   ScaleIndicator,
   SearchField,
