@@ -57,7 +57,6 @@ export default class List {
     if (list.length === 0) {
       return true;
     }
-
     return false;
   }
 }
