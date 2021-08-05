@@ -11,6 +11,7 @@ import SegmentControl from './SegmentedControl/SegmentControl';
 import Separator from './Separators/Separator';
 import SlidingBorderIndicator from './Indicators/SlidingBorderIndicator';
 import SlidingIndicator from './Indicators/SlidingIndicator';
+import QuickModal from './Modals/QuickModal';
 
 // Utility imports
 import List from './Utils/List';
@@ -30,6 +31,7 @@ export {
   Separator,
   SlidingBorderIndicator,
   SlidingIndicator,
+  QuickModal,
 };
 
 // Utility exports
