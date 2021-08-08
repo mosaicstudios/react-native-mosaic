@@ -7,6 +7,7 @@ import {
   StatusBar,
   Alert,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import GetStartedButton from './GetStartedButton';
 import GetStartedText from './GetStartedText';
@@ -68,9 +69,11 @@ export default class GetStarted extends Component {
               <Item icon={item.icon} name={item.name} color={colors.light} />
             );
           }}
-          onItemIndexChange={(activeIndex) =>
-            this.setState({ activeItem: data[activeIndex] })
-          }
+          onItemIndexChange={(activeIndex) => {
+            let activeItem = data[activeIndex];
+            this.props.onItemChange(activeItem);
+            this.setState({ activeItem });
+          }}
           style={StyleSheet.absoluteFillObject}
         />
         <View style={styles.darkList(colors)} pointerEvents="none">
@@ -92,19 +95,23 @@ export default class GetStarted extends Component {
         </View>
         <GetStartedButton
           colors={colors}
-          onPress={() => Alert.alert('Connect with:', activeItem.name)}
+          onPress={() => this.props.onPress()}
         />
       </View>
     );
   }
 }
 
+GetStarted.propTypes = {
+  colors: PropTypes.object,
+  data: PropTypes.array,
+};
+
 GetStarted.defaultProps = {
   colors: {
     light: '#ffc873',
     dark: '#2D2D2D',
   },
-  activeItem: Socials.ALL[0],
   data: Socials.ALL,
 };
 
