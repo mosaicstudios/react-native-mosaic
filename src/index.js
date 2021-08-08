@@ -3,6 +3,7 @@ import AgreementInput from './AgreementInputs/AgreementInput';
 import Button from './Buttons/Button';
 import DatePicker from './Pickers/DatePicker';
 import ExpandingIndicator from './Indicators/ExpandingIndicator';
+import Gallery from './Galleries/Gallery';
 import Gallery2 from './Galleries/Gallery2';
 import GetStarted from './GetStarted/GetStarted';
 import InLinePicker from './Pickers/InLinePicker';
@@ -30,6 +31,7 @@ export {
   Button,
   DatePicker,
   ExpandingIndicator,
+  Gallery,
   Gallery2,
   GetStarted,
   InLinePicker,

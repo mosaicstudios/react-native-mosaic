@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { StyleSheet, View, Alert } from 'react-native';
-import { Gallery2 } from 'react-native-mosaic';
+import { Gallery } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class App extends Component {
   }
 
   render() {
-    return <Gallery2 />;
+    return <Gallery />;
   }
 }
 

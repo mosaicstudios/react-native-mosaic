@@ -9,7 +9,18 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import Backend from '../../utils/Backend';
+const images = [
+  'https://images.unsplash.com/photo-1551316679-9c6ae9dec224?w=800&q=80',
+  'https://images.unsplash.com/photo-1562569633-622303bafef5?w=800&q=80',
+  'https://images.unsplash.com/photo-1503656142023-618e7d1f435a?w=800&q=80',
+  'https://images.unsplash.com/photo-1555096462-c1c5eb4e4d64?w=800&q=80',
+  'https://images.unsplash.com/photo-1517957754642-2870518e16f8?w=800&q=80',
+  'https://images.unsplash.com/photo-1546484959-f9a381d1330d?w=800&q=80',
+  'https://images.unsplash.com/photo-1548761208-b7896a6ff225?w=800&q=80',
+  'https://images.unsplash.com/photo-1511208687438-2c5a5abb810c?w=800&q=80',
+  'https://images.unsplash.com/photo-1548614606-52b4451f994b?w=800&q=80',
+  'https://images.unsplash.com/photo-1548600916-dc8492f8e845?w=800&q=80',
+];
 
 const { width, height } = Dimensions.get('screen');
 const HALF_SCREEN_WIDTH = width / 2;
@@ -19,6 +30,7 @@ export default class Gallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      images: props.images,
       activeIndex: 0,
       selectorPositionStyle: props.selectorPositionStyle,
       selectorImageSize: props.selectorImageSize,
@@ -31,20 +43,6 @@ export default class Gallery extends Component {
 
   static getDerivedStateFromProps(nextProps, state) {
     return nextProps;
-  }
-
-  componentDidMount() {
-    this._getImagesFromPexels();
-  }
-
-  _getImagesFromPexels() {
-    Backend.getImagesFromPexels()
-      .then((response) => {
-        this.setState({ images: response.photos });
-      })
-      .catch((error) => {
-        console.log('err', error);
-      });
   }
 
   _getSelectorPosition() {
@@ -99,7 +97,7 @@ export default class Gallery extends Component {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ ...this.props.mainContainerStyle }}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.toString()}
         onMomentumScrollEnd={(event) => {
           let index = Math.floor(event.nativeEvent.contentOffset.x / width);
           this._scrollToActiveIndex(index);
@@ -108,7 +106,7 @@ export default class Gallery extends Component {
           return (
             <View style={{ width, height }}>
               <Image
-                source={{ uri: item.src.portrait }}
+                source={{ uri: item }}
                 style={[
                   StyleSheet.absoluteFillObject,
                   { ...this.props.mainImageStyle },
@@ -136,7 +134,7 @@ export default class Gallery extends Component {
         data={images}
         horizontal
         showsHorizontalScrollIndicator={false}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.toString()}
         contentContainerStyle={[
           { paddingHorizontal: SPACING },
           { ...this.props.selectorContainerStyle },
@@ -146,7 +144,7 @@ export default class Gallery extends Component {
           return (
             <TouchableOpacity onPress={() => this._scrollToActiveIndex(index)}>
               <Image
-                source={{ uri: item.src.portrait }}
+                source={{ uri: item }}
                 style={[
                   styles.selectorImageStyle(selectorImageSize),
                   {
@@ -186,6 +184,7 @@ export default class Gallery extends Component {
 }
 
 Gallery.defaultProps = {
+  images: images,
   renderMainImageOverlay: () => {},
   selectorImageSize: 80,
   verticalPosition: 50,
