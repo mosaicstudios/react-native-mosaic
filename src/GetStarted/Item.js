@@ -41,11 +41,34 @@ export default class Item extends Component {
 }
 
 Item.propTypes = {
+  /**
+   * Base container style.
+   */
   itemContainer: ViewPropTypes.style,
+
+  /**
+   * Text style.
+   */
   itemText: ViewPropTypes.style,
+
+  /**
+   * Color of the icon.
+   */
   color: PropTypes.string,
+
+  /**
+   * Title of the item.
+   */
   name: PropTypes.string,
+
+  /**
+   * Icon name to be rendered.
+   */
   icon: PropTypes.string,
+
+  /**
+   * Boolean value to show text or not.
+   */
   showText: PropTypes.bool,
 };
 
