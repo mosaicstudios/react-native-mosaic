@@ -32,6 +32,8 @@ export default class Gallery2 extends Component {
     super(props);
     this.state = {
       scrollX: new Animated.Value(0),
+      loadingIndicatorColor: props.loadingIndicatorColor,
+      images: props.images,
     };
   }
 
@@ -67,7 +69,7 @@ export default class Gallery2 extends Component {
       );
     }
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, this.props.containerStyle]}>
         <TitleTicker data={data} scrollX={scrollX} />
         <Animated.FlatList
           ref={(mainGallery) => (this.mainGallery = mainGallery)}
@@ -90,9 +92,16 @@ export default class Gallery2 extends Component {
               outputRange: [-width * 0.7, 0, width * 0.7],
             });
             return (
-              <View style={styles.itemContainer}>
-                <View style={styles.outerImageContainer}>
-                  <View style={styles.imageContainer}>
+              <View style={[styles.itemContainer, this.props.itemContainer]}>
+                <View
+                  style={[
+                    styles.outerImageContainer,
+                    this.props.outerImageContainer,
+                  ]}
+                >
+                  <View
+                    style={[styles.imageContainer, this.props.imageContainer]}
+                  >
                     <Animated.Image
                       source={{ uri: item.photo }}
                       style={[
@@ -107,10 +116,12 @@ export default class Gallery2 extends Component {
                       ]}
                     />
                   </View>
-                  <Image
-                    source={{ uri: item.avatar_url }}
-                    style={styles.avatar}
-                  />
+                  {this.props.showAvatar && (
+                    <Image
+                      source={{ uri: item.avatar_url }}
+                      style={[styles.avatar, this.props.avatarStyle]}
+                    />
+                  )}
                 </View>
               </View>
             );
@@ -120,6 +131,9 @@ export default class Gallery2 extends Component {
     );
   }
 }
+Gallery2.defaultProps = {
+  showAvatar: true,
+};
 
 const styles = StyleSheet.create({
   container: {

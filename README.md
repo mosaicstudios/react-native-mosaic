@@ -51,6 +51,13 @@ Please see the components below for guides on how to implement and use the compo
 - [x] [LocationFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LocationFormat.md)
 - [x] [TextFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/TextFormat.md)
 
+## Screens included:
+
+- [ ] [Gallery]()
+- [ ] [Gallery2]()
+- [x] [GetStarted](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/GetStarted/GetStarted.md)
+- [ ] [Onboarding]()
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.

@@ -27,7 +27,7 @@ export default class TitleTicker extends Component {
       outputRange: [HEIGHT, 0, -HEIGHT],
     });
     return (
-      <View style={styles.titleContainer}>
+      <View style={[styles.titleContainer, this.props.titleContainer]}>
         <Animated.View style={{ transform: [{ translateY }] }}>
           {data.map(({ title }, index) => {
             return (

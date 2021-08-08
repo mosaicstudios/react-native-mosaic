@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { StyleSheet, View, Alert } from 'react-native';
-import { GetStarted } from 'react-native-mosaic';
+import { Gallery2 } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -10,12 +10,7 @@ export default class App extends Component {
   }
 
   render() {
-    return (
-      <GetStarted
-        onItemChange={(item) => this.setState({ item })}
-        onPress={() => Alert.alert('Connect with:', this.state.item.name)}
-      />
-    );
+    return <Gallery2 />;
   }
 }
 
