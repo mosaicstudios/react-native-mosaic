@@ -13,7 +13,7 @@ import GetStartedText from './GetStartedText';
 import Item from './Item';
 import List from './List';
 
-import Data from '../../utils/Data';
+import Socials from '../Utils/Socials';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -25,13 +25,10 @@ export default class GetStarted extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: Data.SOCIALS,
+      data: this.props.data,
+      activeItem: this.props.activeItem,
+      colors: this.props.colors,
       scrollY: new Animated.Value(0),
-      activeItem: Data.SOCIALS[0],
-      colors: {
-        light: '#ffc873',
-        dark: '#2D2D2D',
-      },
     };
   }
 
@@ -101,6 +98,15 @@ export default class GetStarted extends Component {
     );
   }
 }
+
+GetStarted.defaultProps = {
+  colors: {
+    light: '#ffc873',
+    dark: '#2D2D2D',
+  },
+  activeItem: Socials.ALL[0],
+  data: Socials.ALL,
+};
 
 const styles = StyleSheet.create({
   container: (colors) => ({

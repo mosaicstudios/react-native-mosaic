@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ViewPropTypes, TextStyle } from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import PropTypes from 'prop-types';
 
 const ICON_SIZE = 42;
 const ITEM_HEIGHT = ICON_SIZE * 2;
@@ -13,6 +14,7 @@ export default class Item extends Component {
       color: props.color,
       name: props.name,
       showText: props.showText,
+      iconSize: props.iconSize,
     };
   }
 
@@ -21,20 +23,35 @@ export default class Item extends Component {
   }
 
   render() {
-    let { icon, color, name, showText } = this.state;
+    let { icon, color, name, showText, iconSize } = this.state;
     return (
-      <View style={styles.itemContainer}>
+      <View style={[styles.itemContainer, this.props.itemContainer]}>
         {showText ? (
-          <Text style={[styles.itemText, { color }]}>{name}</Text>
+          <Text style={[styles.itemText, { color }, this.props.itemText]}>
+            {name}
+          </Text>
         ) : (
           // Required to keep spacing
           <View />
         )}
-        <Icon name={icon} color={color} size={ICON_SIZE} />
+        <Icon name={icon} color={color} size={iconSize} />
       </View>
     );
   }
 }
+
+Item.propTypes = {
+  itemContainer: ViewPropTypes.style,
+  itemText: ViewPropTypes.style,
+  color: PropTypes.string,
+  name: PropTypes.string,
+  icon: PropTypes.string,
+  showText: PropTypes.bool,
+};
+
+Item.defaultProps = {
+  iconSize: ICON_SIZE,
+};
 
 const styles = StyleSheet.create({
   itemContainer: {

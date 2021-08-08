@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Dimensions } from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Dimensions,
+  ViewPropTypes,
+} from 'react-native';
+
+import PropTypes from 'prop-types';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -21,12 +29,17 @@ export default class GetStartedText extends Component {
   render() {
     let { colors } = this.props;
     return (
-      <View style={styles.textContainer}>
+      <View style={[styles.textContainer, this.props.textContainer]}>
         <Text style={styles.text(colors)}>Get Started with...</Text>
       </View>
     );
   }
 }
+
+GetStartedText.propTypes = {
+  textContainer: ViewPropTypes.style,
+  colors: PropTypes.object,
+};
 
 const styles = StyleSheet.create({
   textContainer: {

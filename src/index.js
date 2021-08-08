@@ -4,6 +4,7 @@ import Button from './Buttons/Button';
 import DatePicker from './Pickers/DatePicker';
 import ExpandingIndicator from './Indicators/ExpandingIndicator';
 import Gallery2 from './Galleries/Gallery2';
+import GetStarted from './GetStarted/GetStarted';
 import InLinePicker from './Pickers/InLinePicker';
 import LoadingView from './LoadingViews/LoadingView';
 import LocationSearch from './Inputs/LocationSearch';
@@ -30,6 +31,7 @@ export {
   DatePicker,
   ExpandingIndicator,
   Gallery2,
+  GetStarted,
   InLinePicker,
   LoadingView,
   LocationSearch,

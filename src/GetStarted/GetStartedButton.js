@@ -5,7 +5,11 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
+  ViewPropTypes,
+  TextStyle,
 } from 'react-native';
+
+import PropTypes from 'prop-types';
 
 const { height } = Dimensions.get('screen');
 
@@ -17,6 +21,8 @@ export default class GetStartedButton extends Component {
     super(props);
     this.state = {
       colors: props.colors,
+      title: props.title,
+      activeOpacity: props.activeOpacity,
     };
   }
 
@@ -25,21 +31,37 @@ export default class GetStartedButton extends Component {
   }
 
   render() {
-    let { colors } = this.props;
+    let { colors, activeOpacity, title } = this.state;
     return (
-      <View pointerEvents="box-none" style={styles.buttonContainer}>
+      <View
+        pointerEvents="box-none"
+        style={[styles.buttonContainer, this.props.containerStyle]}
+      >
         <View style={styles.line(colors)} />
         <TouchableOpacity
           onPress={() => this.props.onPress()}
           style={styles.button(colors)}
-          activeOpacity={0.8}
+          activeOpacity={activeOpacity}
         >
-          <Text style={styles.buttonText(colors)}>Continue!</Text>
+          <Text style={styles.buttonText(colors)}>{title}</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
+
+GetStartedButton.propTypes = {
+  onPress: PropTypes.func,
+  containerStyle: ViewPropTypes.style,
+  title: PropTypes.string,
+  activeOpacity: PropTypes.number,
+  colors: PropTypes.object,
+};
+
+GetStartedButton.defaultProps = {
+  activeOpacity: 0.8,
+  title: 'Continue!',
+};
 
 const styles = StyleSheet.create({
   buttonContainer: {

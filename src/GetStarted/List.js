@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Animated, StyleSheet, Dimensions } from 'react-native';
-
+import PropTypes from 'prop-types';
 const ICON_SIZE = 42;
 const ITEM_HEIGHT = ICON_SIZE * 2;
 const { height } = Dimensions.get('screen');
@@ -51,6 +51,11 @@ export default class List extends Component {
     );
   }
 }
+
+List.propTypes = {
+  showText: PropTypes.bool,
+  data: PropTypes.array,
+};
 
 const styles = StyleSheet.create({
   itemContainer: {

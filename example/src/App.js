@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { PickerField } from 'react-native-mosaic';
+import { GetStarted } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -10,21 +10,7 @@ export default class App extends Component {
   }
 
   render() {
-    return (
-      <View style={styles.container}>
-        <PickerField
-          selectedItemValue={this.state.selected}
-          items={[
-            { label: 'Gaelic Football', value: 'gaelic football' },
-            { label: 'Hurling', value: 'hurling' },
-            { label: 'Rubgy', value: 'rugby' },
-          ]}
-          onValueChange={(selected) => {
-            this.setState({ selected });
-          }}
-        />
-      </View>
-    );
+    return <GetStarted />;
   }
 }
 
