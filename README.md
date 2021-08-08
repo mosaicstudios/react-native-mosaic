@@ -41,12 +41,14 @@ Please see the components below for guides on how to implement and use the compo
 - [x] [SearchField](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SearchBar.md)
 - [x] [Separator](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Separator.md)
 - [x] [SegmentControl](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SegmentControl.md)
+- [] [TextField]()
 
 ## Utilities included:
 
 - [ ] [DateTime]()
 - [ ] [FetchHelper]()
 - [x] [List](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/List.md)
+- [x] [LocationFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/List.md)
 - [x] [TextFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/TextFormat.md)
 
 ## Contributing

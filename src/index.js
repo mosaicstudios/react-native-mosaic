@@ -6,6 +6,7 @@ import ExpandingIndicator from './Indicators/ExpandingIndicator';
 import Gallery2 from './Galleries/Gallery2';
 import InLinePicker from './Pickers/InLinePicker';
 import LoadingView from './LoadingViews/LoadingView';
+import LocationSearch from './Inputs/LocationSearch';
 import NoResults from './Text/NoResults';
 import PickerField from './Pickers/PickerField';
 import RadioGroup from './Inputs/RadioGroup';
@@ -16,6 +17,7 @@ import Separator from './Separators/Separator';
 import SlidingBorderIndicator from './Indicators/SlidingBorderIndicator';
 import SlidingIndicator from './Indicators/SlidingIndicator';
 import QuickModal from './Modals/QuickModal';
+import TextField from './Inputs/TextField';
 
 // Utility imports
 import List from './Utils/List';
@@ -30,6 +32,7 @@ export {
   Gallery2,
   InLinePicker,
   LoadingView,
+  LocationSearch,
   NoResults,
   PickerField,
   RadioGroup,
@@ -40,6 +43,7 @@ export {
   SlidingBorderIndicator,
   SlidingIndicator,
   QuickModal,
+  TextField,
 };
 
 // Utility exports

@@ -159,6 +159,7 @@
     "prop-types": "^15.7.2",
     "react-native-datepicker": "^1.7.2",
     "react-native-elements": "^3.4.2",
+    "react-native-google-places-autocomplete": "1.8.0",
     "react-native-modal": "^12.0.3",
     "react-native-modal-datetime-picker": "^10.2.0",
     "react-native-phone-input": "^1.0.10",
