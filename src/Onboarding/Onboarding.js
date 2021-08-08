@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Animated, View, StyleSheet, Dimensions, Button } from 'react-native';
 const { width } = Dimensions.get('screen');
+import PropTypes from 'prop-types';
 
 import IntroScrollerItem from './IntroScrollerItem';
-import SlidingBorderIndicator from '../indicators/SlidingBorderIndicator';
-import ScaleIndicator from '../indicators/ScaleIndicator';
-import ExpandingIndicator from '../indicators/ExpandingIndicator';
-import SlidingIndicator from '../indicators/SlidingIndicator';
+import SlidingBorderIndicator from '../Indicators/SlidingBorderIndicator';
+import ScaleIndicator from '../Indicators/ScaleIndicator';
+import ExpandingIndicator from '../Indicators/ExpandingIndicator';
+import SlidingIndicator from '../Indicators/SlidingIndicator';
 import Backdrop from './Backdrop';
 import Shape from './Shape';
 
@@ -262,6 +263,30 @@ export default class IntroScroller extends Component {
     );
   }
 }
+
+IntroScroller.propTypes = {
+  /**
+   * The horizontal position of the scrollView/FlatList currently being animated.
+   */
+  scrollX: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
+  showPrevButton: PropTypes.bool,
+  showNextButton: PropTypes.bool,
+  showDoneButton: PropTypes.bool,
+  prevLabel: PropTypes.string,
+  nextLabel: PropTypes.string,
+  doneLabel: PropTypes.string,
+  activeIndex: PropTypes.number,
+  backgroundShape: PropTypes.string,
+  backgroundShapeAnimation: PropTypes.bool,
+  singleBackgroundColor: PropTypes.string,
+  indicatorType: PropTypes.oneOf([
+    'sliding',
+    'slidingBorder',
+    'scale',
+    'expanding',
+  ]),
+};
 
 IntroScroller.defaultProps = {
   indicatorType: 'sliding',

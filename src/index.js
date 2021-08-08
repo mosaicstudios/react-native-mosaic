@@ -10,6 +10,7 @@ import InLinePicker from './Pickers/InLinePicker';
 import LoadingView from './LoadingViews/LoadingView';
 import LocationSearch from './Inputs/LocationSearch';
 import NoResults from './Text/NoResults';
+import Onboarding from './Onboarding/Onboarding';
 import PickerField from './Pickers/PickerField';
 import RadioGroup from './Inputs/RadioGroup';
 import ScaleIndicator from './Indicators/ScaleIndicator';
@@ -38,6 +39,7 @@ export {
   LoadingView,
   LocationSearch,
   NoResults,
+  Onboarding,
   PickerField,
   RadioGroup,
   ScaleIndicator,

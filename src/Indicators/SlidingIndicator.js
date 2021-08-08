@@ -127,7 +127,7 @@ SlidingIndicator.propTypes = {
   /**
    * The horizontal position of the scrollView/FlatList currently being animated.
    */
-  scrollX: PropTypes.func.isRequired,
+  scrollX: PropTypes.object.isRequired,
 
   /**
    * Used to render the number of dot indicators and to animate the scrolling.
