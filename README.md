@@ -41,7 +41,7 @@ Please see the components below for guides on how to implement and use the compo
 - [x] [SearchField](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SearchBar.md)
 - [x] [Separator](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Separator.md)
 - [x] [SegmentControl](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SegmentControl.md)
-- [] [TextField]()
+- [x] [TextField](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/TextField.md)
 
 ## Utilities included:
 
