@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Animated,
-  Easing,
-  ScrollView,
-  Dimensions,
-} from 'react-native';
+import { StyleSheet, Text, View, ViewPropTypes, TextStyle } from 'react-native';
 
 import RNPickerSelect from 'react-native-picker-select';
 
@@ -33,11 +25,11 @@ export default class PickerField extends Component<Props> {
 
   isValid() {
     this.state.error = '';
-    if (this.props.validate == false) {
+    if (this.props.validate === false) {
       return true;
     }
 
-    if (this.state.value == null || this.state.value == '') {
+    if (this.state.value === null || this.state.value === '') {
       this.setState({ error: 'Please select something' });
       return false;
     }
@@ -58,12 +50,12 @@ export default class PickerField extends Component<Props> {
   }
 
   _renderErrorMessage() {
-    if (this.state.error == null || this.state.error == '') {
+    if (this.state.error === null || this.state.error === '') {
       return null;
     }
 
     return (
-      <Text labelStyle={{ color: 'red', marginLeft: 0 }}>
+      <Text labelStyle={[styles.error, this.props.errorTextStyle]}>
         {this.state.error}
       </Text>
     );
@@ -71,7 +63,7 @@ export default class PickerField extends Component<Props> {
 
   render() {
     return (
-      <View style={{ width: '100%' }}>
+      <View style={[styles.mainContainer, this.props.containerStyle]}>
         <View
           style={[styles.pickerContainerStyle, this.props.pickerContainerStyle]}
         >
@@ -99,6 +91,53 @@ export default class PickerField extends Component<Props> {
   }
 }
 
+PickerField.propTypes = {
+  /**
+   ** This function is called when the picker item changes. Returns the value from the items array.
+   */
+  onValueChange: PropTypes.func.isRequired,
+
+  /**
+   ** This function can be called to validate if the picker has a selected item. Returns a boolean value.
+   */
+  isValid: PropTypes.func,
+
+  /**
+   ** Current selected item in the picker.
+   */
+  value: PropTypes.string.isRequired,
+
+  /**
+   ** An array of items to display in the picker.
+   */
+  items: PropTypes.array.isRequired,
+
+  /**
+   ** Style for the picker.
+   */
+  pickerStyle: ViewPropTypes.style,
+
+  /**
+   ** The view containing the picker label.
+   */
+  pickerContainerStyle: ViewPropTypes.style,
+
+  /**
+   ** Style for the error text.
+   */
+  errorTextStyle: TextStyle,
+
+  /**
+   ** Style for the outermost view container.
+   */
+  containerStyle: ViewPropTypes.style,
+
+  /**
+   ** The placeholder label for the picker. Default is { label: 'Select an item'}
+   */
+  placeholder: PropTypes.object,
+};
+
 PickerField.defaultProps = {
   placeholder: null,
   items: [],
@@ -124,6 +163,7 @@ const pickerStyle = {
 };
 
 const styles = StyleSheet.create({
+  mainContainer: { width: '100%' },
   pickerContainerStyle: {
     marginTop: 20,
     height: 35,
@@ -133,4 +173,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
   },
+  error: { color: 'red', marginLeft: 0 },
 });

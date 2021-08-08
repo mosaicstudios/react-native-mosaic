@@ -23,7 +23,7 @@ export default class RadioGroup extends Component<Props> {
       return (
         <CheckBox
           title={item.label}
-          checked={this.state.selectedValue == item.value}
+          checked={this.state.selectedValue === item.value}
           checkedIcon={this.props.checkedIcon}
           uncheckedIcon={this.props.uncheckedIcon}
           checkedColor={this.props.checkedColor}
