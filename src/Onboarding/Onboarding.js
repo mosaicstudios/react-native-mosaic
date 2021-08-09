@@ -268,7 +268,7 @@ IntroScroller.propTypes = {
   /**
    * The horizontal position of the scrollView/FlatList currently being animated.
    */
-  scrollX: PropTypes.object.isRequired,
+  scrollX: PropTypes.object,
   data: PropTypes.array.isRequired,
   showPrevButton: PropTypes.bool,
   showNextButton: PropTypes.bool,

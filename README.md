@@ -56,7 +56,7 @@ Please see the components below for guides on how to implement and use the compo
 - [x] [Gallery](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Gallery.md)
 - [x] [Gallery2](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Gallery2.md)
 - [x] [GetStarted](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/GetStarted/GetStarted.md)
-- [ ] [Onboarding]()
+- [x] [Onboarding](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Onboarding.md)
 
 ## Contributing
 
