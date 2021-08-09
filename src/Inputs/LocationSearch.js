@@ -30,23 +30,6 @@ export default class LocationSearch extends Component {
     });
   }
 
-  isManualAddressValid() {
-    let isValid = true;
-    if (!this.tfLine1.isValid()) {
-      isValid = false;
-    }
-    if (!this.tfCity.isValid()) {
-      isValid = false;
-    }
-    if (!this.tfCounty.isValid()) {
-      isValid = false;
-    }
-    if (!this.tfCountry.isValid()) {
-      isValid = false;
-    }
-    return isValid;
-  }
-
   _underlineColor() {
     return this.state._hasFocus ? this.props.underlineColor : 'lightgray';
   }
@@ -197,7 +180,7 @@ export default class LocationSearch extends Component {
               this.setState({ showManuallyAddressContainer: false })
             }
           >
-            <View style={{ margin: 5, marginTop: 10, marginLeft: 8 }}>
+            <View style={{ marginTop: 10 }}>
               <Text style={styles.manualAddressText}>
                 Change to autofill address
               </Text>
@@ -352,6 +335,7 @@ LocationSearch.defaultProps = {
 const styles = {
   container: {
     width: '100%',
+    flex: 1,
     marginBottom: -10,
   },
   manualAddressContainer: {
