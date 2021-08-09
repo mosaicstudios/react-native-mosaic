@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import PropTypes from 'prop-types';
 
 import TextField from './TextField';
 import Separator from '../Separators/Separator';
@@ -318,6 +319,38 @@ export default class LocationSearch extends Component {
     );
   }
 }
+
+LocationSearch.propTypes = {
+  /**
+   * Object used to set the location.
+   */
+  data: PropTypes.object,
+
+  /**
+   * Bottom border color of the input when the input has focus.
+   */
+  underlineColor: PropTypes.string,
+
+  /**
+   * Default is true. If set as false change to manual address button will not show.
+   */
+  manualAddress: PropTypes.bool,
+
+  /**
+   * Default is false. If set as true autocomplete input will not show. Gmaps key is not required for this.
+   */
+  manualAddressOnly: PropTypes.bool,
+
+  /**
+   * GMaps key is required. See https://developers.google.com/maps/documentation/places/web-service/get-api-key/ to get your key.
+   */
+  gmapsKey: PropTypes.string,
+
+  /**
+   * When an address is entered the full address will return.
+   */
+  onPlaceSelected: PropTypes.func,
+};
 
 LocationSearch.defaultProps = {
   underlineColor: 'black',

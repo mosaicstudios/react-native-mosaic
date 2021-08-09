@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import Text from 'react-native-text';
+import { View, StyleSheet, Text, ViewPropTypes } from 'react-native';
+import PropTypes from 'prop-types';
 
 export default class InputDataItem extends Component {
   constructor(props) {
@@ -28,6 +28,13 @@ export default class InputDataItem extends Component {
     );
   }
 }
+
+InputDataItem.propTypes = {
+  /**
+   * Current selected item of array.
+   */
+  containerStyle: ViewPropTypes.style,
+};
 
 InputDataItem.defaultProps = {
   highlight: false,
