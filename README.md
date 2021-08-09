@@ -45,8 +45,9 @@ Please see the components below for guides on how to implement and use the compo
 
 ## Utilities included:
 
+- [ ] [AuthManager]()
 - [ ] [DateTime]()
-- [ ] [FetchHelper]()
+- [x] [FetchHelper](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/FetchHelper.md)
 - [x] [List](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/List.md)
 - [x] [LocationFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LocationFormat.md)
 - [x] [TextFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/TextFormat.md)
