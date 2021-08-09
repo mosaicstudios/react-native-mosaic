@@ -33,7 +33,7 @@ Please see the components below for guides on how to implement and use the compo
 - [ ] [LazyLoadingFlatList]()
 - [x] [LoadingView](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LoadingView.md)
 - [ ] [LocationSearch]()
-- [ ] [LogoBanner]()
+- [x] [LogoBanner](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LogoBanner.md)
 - [x] [NoResults](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/NoResults.md)
 - [x] [QuickModal](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/QuickModal.md)
 - [x] [PickerField](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/PickerField.md)

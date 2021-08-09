@@ -1,6 +1,8 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=)
-
 ## Logo Banner
+
+Large center screen image to be used for app logo image, can also be used on splash screens.
+
+Note: This will only work for local resources.
 
 ## Usage (Basic)
 

@@ -9,6 +9,7 @@ import GetStarted from './GetStarted/GetStarted';
 import InLinePicker from './Pickers/InLinePicker';
 import LoadingView from './LoadingViews/LoadingView';
 import LocationSearch from './Inputs/LocationSearch';
+import LogoBanner from './Images/LogoBanner';
 import NoResults from './Text/NoResults';
 import Onboarding from './Onboarding/Onboarding';
 import PickerField from './Pickers/PickerField';
@@ -43,6 +44,7 @@ export {
   InLinePicker,
   LoadingView,
   LocationSearch,
+  LogoBanner,
   NoResults,
   Onboarding,
   PickerField,
