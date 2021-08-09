@@ -23,7 +23,12 @@ import QuickModal from './Modals/QuickModal';
 import TextField from './Inputs/TextField';
 
 // Utility imports
+import AuthManager from './Utils/AuthManager';
+import DateTime from './Utils/DateTime';
+import FetchHelper from './Utils/FetchHelper';
 import List from './Utils/List';
+import LocationFormat from './Utils/LocationFormat';
+import Socials from './Utils/Socials';
 import TextFormat from './Utils/TextFormat';
 
 // Component exports
@@ -53,4 +58,12 @@ export {
 };
 
 // Utility exports
-export { List, TextFormat };
+export {
+  AuthManager,
+  DateTime,
+  FetchHelper,
+  List,
+  LocationFormat,
+  Socials,
+  TextFormat,
+};
