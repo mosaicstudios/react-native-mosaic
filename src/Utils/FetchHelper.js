@@ -245,7 +245,7 @@ export default class FetchHelper {
     return results.data.length >= pageLimit;
   }
 
-  static download(endpoint, mime, extension, description = 'RR Download') {
+  static download(endpoint, mime, extension, description = 'App Download') {
     const date = new Date();
     const directory =
       Platform.OS === 'ios'
