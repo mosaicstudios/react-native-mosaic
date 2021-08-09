@@ -111,13 +111,7 @@ export default class LocationSearch extends Component {
       return <View style={styles.spacer} />;
     }
 
-    return (
-      <Text
-        style={{ marginBottom: 10, color: 'red', marginLeft: 10, marginTop: 5 }}
-      >
-        {this.state.error}
-      </Text>
-    );
+    return <Text style={styles.errorText}>{this.state.error}</Text>;
   }
 
   _getTextInputStyle() {
@@ -180,7 +174,7 @@ export default class LocationSearch extends Component {
               this.setState({ showManuallyAddressContainer: false })
             }
           >
-            <View style={{ marginTop: 10 }}>
+            <View style={styles.manualAddressButtonStyle}>
               <Text style={styles.manualAddressText}>
                 Change to autofill address
               </Text>
@@ -357,4 +351,6 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
   },
+  errorText: { marginBottom: 10, color: 'red', marginLeft: 10, marginTop: 5 },
+  manualAddressButtonStyle: { marginTop: 10 },
 };
