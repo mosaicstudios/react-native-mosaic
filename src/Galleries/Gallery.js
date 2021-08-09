@@ -184,7 +184,7 @@ export default class Gallery extends Component {
 }
 
 Gallery.defaultProps = {
-  images: images,
+  images,
   renderMainImageOverlay: () => {},
   selectorImageSize: 80,
   verticalPosition: 50,

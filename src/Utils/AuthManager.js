@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
 import FetchHelper from './FetchHelper';
-import Backend from './Backend';
 import Api from '../constants/Api';
 
 import jwtDecode from 'jwt-decode';
@@ -184,16 +183,16 @@ export default class AuthManager {
   static async logOut() {
     let data = { refresh: AuthManager.refreshToken };
 
-    return Backend.removeToken()
-      .then(() => {
-        return FetchHelper.post(Api.Logout, data);
-      })
-      .then(() => {
-        return AuthManager.removeCredentials();
-      })
-      .catch((error) => {
-        return AuthManager.removeCredentials();
-      });
+    // return Backend.removeToken()
+    //   .then(() => {
+    //     return FetchHelper.post(Api.Logout, data);
+    //   })
+    //   .then(() => {
+    //     return AuthManager.removeCredentials();
+    //   })
+    //   .catch((error) => {
+    //     return AuthManager.removeCredentials();
+    //   });
   }
 
   static requestResetPassword(email) {

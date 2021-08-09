@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { View, Image, Platform, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-
-import { Icon } from 'react-native-elements';
 
 import TextField from './TextField';
 import Separator from '../Separators/Separator';
@@ -57,24 +55,24 @@ export default class LocationSearch extends Component {
     var data = {};
     if (details.geometry && details.geometry.location) {
       const location = details.geometry.location;
-      data['longitude'] = location.lng;
-      data['latitude'] = location.lat;
+      data.longitude = location.lng;
+      data.latitude = location.lat;
     }
-    data['line_1'] = details.name;
-    data['formattedAddress'] = details.formatted_address;
+    data.line_1 = details.name;
+    data.formattedAddress = details.formatted_address;
     details.address_components.forEach(function (address_component) {
       var type = address_component.types[0];
-      if (type == 'country') {
-        data['country'] = address_component.long_name;
-        data['countryShort'] = address_component.short_name;
+      if (type === 'country') {
+        data.country = address_component.long_name;
+        data.countryShort = address_component.short_name;
       }
-      if (type == 'neighborhood') {
-        data['city'] = address_component.long_name;
+      if (type === 'neighborhood') {
+        data.city = address_component.long_name;
       }
-      if (type == 'locality' || type == 'postal_town') {
-        data['city'] = address_component.long_name;
-      } else if (type == 'administrative_area_level_1') {
-        data['state'] = address_component.long_name;
+      if (type === 'locality' || type === 'postal_town') {
+        data.city = address_component.long_name;
+      } else if (type === 'administrative_area_level_1') {
+        data.state = address_component.long_name;
       }
     });
     this.setState({ data });
@@ -96,25 +94,25 @@ export default class LocationSearch extends Component {
     var error = null;
     this.setState({ error });
     if (this.state.showManuallyAddressContainer) {
-      if (line_1 == null || line_1 == '') {
+      if (line_1 === null || line_1 === '') {
         error = errorMessage;
-      } else if (country == null || country == '') {
+      } else if (country === null || country === '') {
         error = errorMessage;
-      } else if (city == null || city == '') {
+      } else if (city === null || city === '') {
         error = errorMessage;
-      } else if (state == null || state == '') {
+      } else if (state === null || state === '') {
         error = errorMessage;
       }
     } else {
-      if (country == null || country == '') {
+      if (country === null || country === '') {
         error = errorMessage;
-      } else if (city == null || city == '') {
+      } else if (city === null || city === '') {
         error = errorMessage;
-      } else if (line_1 == null || line_1 == '') {
+      } else if (line_1 === null || line_1 === '') {
         error = errorMessage;
-      } else if (state == null || state == '') {
+      } else if (state === null || state === '') {
         error = errorMessage;
-      } else if (longitude == null || longitude == null) {
+      } else if (longitude === null || longitude === null) {
         error = errorMessage;
       }
     }
@@ -127,7 +125,7 @@ export default class LocationSearch extends Component {
   }
   errorMessage() {
     if (this.state.error == null || this.state.error == '') {
-      return <View style={{ marginBottom: 10 }} />;
+      return <View style={styles.spacer} />;
     }
 
     return (
@@ -252,15 +250,7 @@ export default class LocationSearch extends Component {
 
   render() {
     return (
-      <View
-        style={[
-          {
-            width: '100%',
-            marginBottom: -10,
-          },
-          this.props.containerHeight,
-        ]}
-      >
+      <View style={[styles.container, this.props.containerHeight]}>
         {this._renderManualAddressContainer()}
         {!this.state.showManuallyAddressContainer && (
           <GooglePlacesAutocomplete
@@ -342,16 +332,7 @@ export default class LocationSearch extends Component {
             // predefinedPlaces={[homePlace, workPlace]}
 
             debounce={200} // debounce the requests in ms. Set to 0 to remove debounce. By default 0ms.
-            renderRightButton={() => (
-              <View
-                style={{
-                  marginLeft: 4,
-                  marginRight: 10,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              ></View>
-            )}
+            renderRightButton={() => <View style={styles.rightButton}></View>}
             // renderRightButton={() => <Text>Custom text after the input</Text>}
           />
         )}
@@ -369,6 +350,10 @@ LocationSearch.defaultProps = {
 };
 
 const styles = {
+  container: {
+    width: '100%',
+    marginBottom: -10,
+  },
   manualAddressContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -380,5 +365,12 @@ const styles = {
     fontSize: 16,
     fontWeight: 'bold',
     color: 'black',
+  },
+  spacer: { marginBottom: 10 },
+  rightButton: {
+    marginLeft: 4,
+    marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 };

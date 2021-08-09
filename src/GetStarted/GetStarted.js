@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Dimensions,
   StatusBar,
-  Alert,
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -47,7 +46,7 @@ export default class GetStarted extends Component {
   }
 
   render() {
-    let { data, scrollY, activeItem, colors } = this.state;
+    let { data, scrollY, colors } = this.state;
     const onScroll = Animated.event(
       [{ nativeEvent: { contentOffset: { y: scrollY } } }],
       {

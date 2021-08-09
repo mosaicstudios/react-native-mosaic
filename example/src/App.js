@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, View, Alert } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { Onboarding } from 'react-native-mosaic';
 
 const bgs = ['#A5BBFF', '#A0E5A5', '#C56551', '#FF947E'];

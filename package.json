@@ -151,10 +151,12 @@
     ]
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/checkbox": "^0.5.8",
     "@react-native-community/datetimepicker": "^3.5.2",
     "@react-native-community/picker": "^1.8.1",
     "apsl-react-native-button": "^3.1.1",
+    "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",
     "prop-types": "^15.7.2",
     "react-native-datepicker": "^1.7.2",
@@ -166,6 +168,7 @@
     "react-native-picker-select": "^8.0.4",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-text": "^1.2.2",
-    "react-native-vector-icons": "^8.1.0"
+    "react-native-vector-icons": "^8.1.0",
+    "rn-fetch-blob": "^0.12.0"
   }
 }
