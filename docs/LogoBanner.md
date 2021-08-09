@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=14eMlHgxSHh6oc4d-9WVbkJYx17kVSQLt)
+![Alt Text](https://drive.google.com/uc?export=view&id=1HKoUfq6cyX-f6qDaBHxYt6nSakHwDmXq)
 
 ## Logo Banner
 
