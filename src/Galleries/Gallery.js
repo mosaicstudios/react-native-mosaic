@@ -88,11 +88,10 @@ export default class Gallery extends Component {
   }
 
   _renderMainGallery() {
-    let { images } = this.state;
     return (
       <FlatList
         ref={(mainGallery) => (this.mainGallery = mainGallery)}
-        data={images}
+        data={this.state.images}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
@@ -122,7 +121,6 @@ export default class Gallery extends Component {
 
   _renderGallerySlider() {
     let {
-      images,
       activeImageBorderColor,
       inactiveImageBorderColor,
       selectorImageSize,
@@ -131,7 +129,7 @@ export default class Gallery extends Component {
     return (
       <FlatList
         ref={(thumbGallery) => (this.thumbGallery = thumbGallery)}
-        data={images}
+        data={this.state.images}
         horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.toString()}
@@ -164,8 +162,7 @@ export default class Gallery extends Component {
   }
 
   render() {
-    let { images } = this.state;
-    if (!images) {
+    if (!this.state.images) {
       return (
         <ActivityIndicator
           size="large"

@@ -40,6 +40,18 @@ export default class DateTime {
     return moment(date).endOf('day');
   }
 
+  static isSameDay(firstDay, secondDay) {
+    return firstDay.isSame(secondDay, 'day');
+  }
+
+  static isToday(date) {
+    return DateTime.now().isSame(date, 'day');
+  }
+
+  static isTomorrow(date) {
+    return DateTime.tomorrow().isSame(date, 'day');
+  }
+
   static timeSince(date) {
     let date_visited = new Date(date);
     let date_now = new Date();

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, Alert, View, Text, ScrollView } from 'react-native';
-import { LocationSearch } from 'react-native-mosaic';
+import { StyleSheet, View, Text } from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
@@ -14,25 +13,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{
-            paddingTop: 40,
-            paddingBottom: 40,
-          }}
-        >
-          <Text style={{ marginBottom: 20, fontSize: 25, textAlign: 'center' }}>
-            Enter Your Address{' '}
-          </Text>
-          <LocationSearch
-            ref={(locationField) => (this.locationField = locationField)}
-            gmapsKey="AIzaSyCKLLo-qnKup_TD0emmNnjgkcf17yoePL8"
-            manualAddress={false}
-            onPlaceSelected={(data) => {
-              this.setState({ data });
-            }}
-          />
-        </ScrollView>
+        <Text>Enter Your Address</Text>
       </View>
     );
   }

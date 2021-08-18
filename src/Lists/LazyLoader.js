@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import List from '../../utils/List';
+import List from '../Utils/List';
 
 export const PAGINATION_MODE_CURSOR = 'cursor';
 export const PAGINATION_MODE_PAGE = 'page';

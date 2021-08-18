@@ -7,6 +7,7 @@ import Gallery from './Galleries/Gallery';
 import Gallery2 from './Galleries/Gallery2';
 import GetStarted from './GetStarted/GetStarted';
 import InLinePicker from './Pickers/InLinePicker';
+import LazyLoader from './Lists/LazyLoader';
 import LoadingView from './LoadingViews/LoadingView';
 import LocationSearch from './Inputs/LocationSearch';
 import LogoBanner from './Images/LogoBanner';
@@ -40,6 +41,7 @@ export {
   Gallery2,
   GetStarted,
   InLinePicker,
+  LazyLoader,
   LoadingView,
   LocationSearch,
   LogoBanner,

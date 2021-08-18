@@ -64,16 +64,8 @@ export default class LocationSearch extends Component {
     this.props.onPlaceSelected(location);
   }
   isValid() {
-    const {
-      country,
-      countryShort,
-      city,
-      state,
-      longitude,
-      latitude,
-      address,
-      line_1,
-    } = this.state.data;
+    const { country, city, state, longitude, latitude, line_1 } =
+      this.state.data;
     const errorMessage = 'Please enter a more specific location';
     var error = null;
     this.setState({ error });
@@ -96,7 +88,7 @@ export default class LocationSearch extends Component {
         error = errorMessage;
       } else if (state === null || state === '') {
         error = errorMessage;
-      } else if (longitude === null || longitude === null) {
+      } else if (longitude === null || latitude === null) {
         error = errorMessage;
       }
     }
@@ -108,7 +100,7 @@ export default class LocationSearch extends Component {
     return true;
   }
   errorMessage() {
-    if (this.state.error == null || this.state.error == '') {
+    if (this.state.error === null || this.state.error === '') {
       return <View style={styles.spacer} />;
     }
 
@@ -116,7 +108,6 @@ export default class LocationSearch extends Component {
   }
 
   _getTextInputStyle() {
-    let { data } = this.state;
     let textColor = { color: 'black' };
     return {
       paddingLeft: 0,

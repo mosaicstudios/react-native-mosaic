@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ViewPropTypes, TextStyle } from 'react-native';
+import { Text, View, StyleSheet, ViewPropTypes } from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import PropTypes from 'prop-types';
 

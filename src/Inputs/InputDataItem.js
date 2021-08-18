@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, ViewPropTypes } from 'react-native';
-import PropTypes from 'prop-types';
 
 export default class InputDataItem extends Component {
   constructor(props) {

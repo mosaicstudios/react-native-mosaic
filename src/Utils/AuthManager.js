@@ -181,8 +181,7 @@ export default class AuthManager {
   }
 
   static async logOut() {
-    let data = { refresh: AuthManager.refreshToken };
-
+    //let data = { refresh: AuthManager.refreshToken };
     // return Backend.removeToken()
     //   .then(() => {
     //     return FetchHelper.post(Api.Logout, data);

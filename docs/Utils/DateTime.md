@@ -18,4 +18,7 @@ import { DateTime } from 'react-native-mosaic';
 | `displayDate`       | date (string)                                  | Format date to 'Do MMM YYYY' format.                                            |
 | `displayDateNoYear` | date (string)                                  | Format date to 'Do MMM' format.                                                 |
 | `displayTime`       | time (string)                                  | Format time to 'h:mm a' format.                                                 |
+| `isSameDay`         | date (string)                                  | Check if two dates are the same. Returns a boolean value.                       |
+| `isToday`           | date (string)                                  | Check if date is todays date. Returns a boolean value.                          |
+| `isTomorrow`        | date (string)                                  | Get tomrrows date.                                                              |
 | `timeSince`         | date (string)                                  | Show number of hours, minutes, and seconds since a time. Highest is '60+ mins'. |

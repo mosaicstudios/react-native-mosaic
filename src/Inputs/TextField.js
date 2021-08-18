@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ViewPropTypes, TextStyle, StyleSheet } from 'react-native';
+import { View, Text, ViewPropTypes, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 import PhoneInput from 'react-native-phone-input';
 
@@ -8,7 +8,7 @@ export default class TextField extends Component {
   constructor(props) {
     super(props);
     let autoCapitalize = props.autoCapitalize;
-    if (props.type == 'email' || props.type == 'password') {
+    if (props.type === 'email' || props.type === 'password') {
       autoCapitalize = 'none';
     }
     this.state = {
@@ -23,7 +23,7 @@ export default class TextField extends Component {
       value: props.value ? props.value.toString() : null,
       _hasFocus: false,
       error: null,
-      secureTextEntry: props.type == 'password',
+      secureTextEntry: props.type === 'password',
       isDisabled: props.isDisabled,
     };
   }
@@ -35,28 +35,28 @@ export default class TextField extends Component {
 
   isValid() {
     this.state.error = '';
-    if (this.props.validate == false) {
+    if (this.props.validate === false) {
       return true;
     }
 
-    if (this.state.type == 'phone') {
+    if (this.state.type === 'phone') {
       return this._isValidPhoneNumber();
     }
 
     if (
       this.props.isRequired &&
-      (this.state.value == null || this.state.value == '')
+      (this.state.value === null || this.state.value === '')
     ) {
       this.setState({ error: 'Required Field' });
       return false;
     }
-    if (this.state.type == 'email') {
+    if (this.state.type === 'email') {
       let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-      if (reg.test(this.state.value) == false) {
+      if (reg.test(this.state.value) === false) {
         this.setState({ error: 'Please enter a valid email address' });
         return false;
       }
-    } else if (this.state.type == 'password') {
+    } else if (this.state.type === 'password') {
       if (this.state.value.length < 6) {
         this.setState({ error: 'Password must have 6 or more characters' });
         return false;
@@ -91,7 +91,7 @@ export default class TextField extends Component {
 
   _isValidPhoneNumber() {
     let isValid = true;
-    if (this.phone.getISOCode() == null) {
+    if (this.phone.getISOCode() === null) {
       this.setState({ error: 'Please select a valid country code' });
       isValid = false;
     } else if (!this.phone.isValidNumber()) {
@@ -117,7 +117,7 @@ export default class TextField extends Component {
   }
 
   _isSecureTextEntry() {
-    return this.state.type == 'password';
+    return this.state.type === 'password';
   }
 
   _onBlur() {
@@ -133,7 +133,7 @@ export default class TextField extends Component {
   }
 
   _handleOnChangePhoneNumber() {
-    if (this.phone.getISOCode() == null) {
+    if (this.phone.getISOCode() === null) {
       this.props.onChangePhoneNumber('', '');
       return;
     }
@@ -147,7 +147,7 @@ export default class TextField extends Component {
   }
 
   _renderPhoneErrorMessage() {
-    if (this.state.type == 'phone' && this.state.error) {
+    if (this.state.type === 'phone' && this.state.error) {
       return (
         <View>
           <Text style={[styles.phoneErrorStyle, this.props.phoneErrorStyle]}>
@@ -161,7 +161,7 @@ export default class TextField extends Component {
   _renderInput() {
     let underlineColor = this._underlineColor();
     let isSecure = this._isSecureTextEntry();
-    if (this.state.type == 'phone') {
+    if (this.state.type === 'phone') {
       return this._renderPhoneInput();
     }
     return (
@@ -196,7 +196,7 @@ export default class TextField extends Component {
           secureTextEntry={this.state.secureTextEntry}
           maxLength={this.state.maxLength}
           multiline={this.state.multiline}
-          autoCapitalize={this.state.type == 'text' ? 'sentences' : 'none'}
+          autoCapitalize={this.state.type === 'text' ? 'sentences' : 'none'}
           editable={!this.state.isDisabled}
           errorMessage={this.state.error}
           errorStyle={[styles.errorStyle, this.props.errorStyle]}
