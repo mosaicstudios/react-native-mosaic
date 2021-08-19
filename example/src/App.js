@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import { Button, TextField, AuthManager } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -8,12 +10,69 @@ export default class App extends Component {
     this.state = {};
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    AuthManager.setup({
+      refreshTokenUrl: 'https://xelda-api-dev.herokuapp.com/user/refresh-token',
+      loginUrl: 'https://xelda-api-dev.herokuapp.com/user/login',
+      logoutUrl: 'https://xelda-api-dev.herokuapp.com/user/logout',
+      registerUrl: 'https://xelda-api-dev.herokuapp.com/clients',
+      userInfoUrl: 'https://xelda-api-dev.herokuapp.com/user/info',
+      requestResetPasswordUrl:
+        'https://xelda-api-dev.herokuapp.com/user/request-reset-password',
+      resetPassword: 'https://xelda-api-dev.herokuapp.com/user/reset-password',
+      socialUrl:
+        'https://xelda-api-dev.herokuapp.com/user/login/social/jwt-pair-user/',
+      getUser: (responseJson) => {
+        if (!responseJson.client) {
+          throw {
+            error: 'Only clients can use this app',
+            message: 'Only clients can use this app',
+          };
+        }
+        if (responseJson.client) {
+          return { currentUser: responseJson.client, userType: 'client' };
+        }
+      },
+    });
+  }
+
+  _login() {
+    this.setState({ isLoading: true });
+    let { email, password } = this.state;
+    AuthManager.login(email, password)
+      .then((response) => {
+        this.setState({ isLoading: false });
+      })
+      .catch((error) => {
+        console.log('error', error);
+        this.setState({ isLoading: false });
+      });
+  }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Enter Your Address</Text>
+        <TextField
+          type="email"
+          value={this.state.email}
+          placeholder="Email"
+          onChangeText={(value) => {
+            this.setState({ email: value });
+          }}
+        />
+        <TextField
+          type="password"
+          value={this.state.password}
+          placeholder="Password"
+          onChangeText={(value) => {
+            this.setState({ password: value });
+          }}
+        />
+        <Button
+          title="Log In"
+          isLoading={this.state.isLoading}
+          onPress={() => this._login()}
+        />
       </View>
     );
   }
@@ -21,7 +80,9 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     margin: 20,
   },
   box: {

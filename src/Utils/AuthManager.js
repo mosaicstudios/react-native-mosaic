@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
-
+import { Platform } from 'react-native';
 import FetchHelper from './FetchHelper';
-import Api from '../constants/Api';
 
 import jwtDecode from 'jwt-decode';
 import moment from 'moment';
@@ -10,6 +9,21 @@ const KEY_ACCESS_TOKEN = 'accessToken';
 const KEY_REFRESH_TOKEN = 'refreshToken';
 
 export default class AuthManager {
+  static setup(data) {
+    AuthManager.REFRESH_TOKEN_URL = data.refreshTokenUrl;
+    AuthManager.LOGIN_URL = data.loginUrl;
+    AuthManager.LOGOUT_URL = data.logoutUrl;
+    AuthManager.REGISTER_URL = data.registerUrl;
+    AuthManager.USER_INFO_URL = data.userInfoUrl;
+    AuthManager.REQUEST_RESET_PASSWORD_URL = data.requestResetPasswordUrl;
+    AuthManager.RESET_PASSWORD = data.resetPassword;
+    AuthManager.SOCIAL_LOGIN_URL = data.socialUrl;
+    AuthManager.DEVICE_TOKEN = data.deviceToken;
+    AuthManager.DEVICE_TOKEN_APNS = data.deviceTokenApns;
+    AuthManager.DEVICE_TOKEN_FCM = data.deviceTokenFcm;
+    AuthManager.getUser = data.getUser;
+  }
+
   static isAuthenticated() {
     return AuthManager.isLoggedIn;
   }
@@ -20,18 +34,6 @@ export default class AuthManager {
 
   static getCurrentUser() {
     return AuthManager.currentUser;
-  }
-
-  static isCustomer() {
-    return AuthManager.userType === 'customer';
-  }
-
-  static getCurrentUserLocation() {
-    return AuthManager.currentUserLocation;
-  }
-
-  static setCurrentUserLocation(location) {
-    AuthManager.currentUserLocation = location;
   }
 
   static _hasError(responseJson) {
@@ -57,8 +59,8 @@ export default class AuthManager {
     return hasError;
   }
 
-  static registerClient(data) {
-    return FetchHelper.post(Api.Clients, data, false, false)
+  static register(data) {
+    return FetchHelper.post(AuthManager.REGISTER_URL, data, false, false)
       .then((responseJson) => {
         if (this._hasError(responseJson)) {
           throw AuthManager.getError(responseJson);
@@ -74,7 +76,7 @@ export default class AuthManager {
 
   static login(email, password) {
     let data = { email, password };
-    return FetchHelper.post(Api.Login, data, false, false)
+    return FetchHelper.post(AuthManager.LOGIN_URL, data, false, false)
       .then((responseJson) => {
         if (this._hasError(responseJson)) {
           throw AuthManager.getError(responseJson);
@@ -99,17 +101,19 @@ export default class AuthManager {
       data = { ...data, ...extras };
     }
 
-    return FetchHelper.post(Api.SocialLogin, data, false, false).then(
-      (responseJson) => {
-        if (this._hasError(responseJson)) {
-          throw AuthManager.getError(responseJson);
-        }
-        AuthManager._updateTokens(responseJson.tokens);
-        AuthManager._setUser(responseJson);
-
-        return responseJson;
+    return FetchHelper.post(
+      AuthManager.SOCIAL_LOGIN_URL,
+      data,
+      false,
+      false
+    ).then((responseJson) => {
+      if (this._hasError(responseJson)) {
+        throw AuthManager.getError(responseJson);
       }
-    );
+      AuthManager._updateTokens(responseJson.tokens);
+      AuthManager._setUser(responseJson);
+      return responseJson;
+    });
   }
 
   static _getMinutesUntilTokenExpiration() {
@@ -146,7 +150,12 @@ export default class AuthManager {
         // manually
         const data = { refresh: refreshToken };
 
-        return FetchHelper.post(Api.RefreshToken, data, false, false);
+        return FetchHelper.post(
+          AuthManager.REFRESH_TOKEN_URL,
+          data,
+          false,
+          false
+        );
       })
       .then((tokenResponse) => {
         return AuthManager._updateTokens(tokenResponse);
@@ -156,7 +165,7 @@ export default class AuthManager {
   static silentLogin() {
     return AuthManager.refreshTokens()
       .then(() => {
-        return FetchHelper.get(Api.UserInfo);
+        return FetchHelper.get(AuthManager.USER_INFO_URL);
       })
       .then((responseJson) => {
         AuthManager._setUser(responseJson);
@@ -170,7 +179,7 @@ export default class AuthManager {
   }
 
   static refreshCurrentUser() {
-    return FetchHelper.get(Api.UserInfo)
+    return FetchHelper.get(AuthManager.USER_INFO_URL)
       .then((responseJson) => {
         AuthManager._setUser(responseJson);
         return AuthManager.currentUser;
@@ -181,22 +190,36 @@ export default class AuthManager {
   }
 
   static async logOut() {
-    //let data = { refresh: AuthManager.refreshToken };
-    // return Backend.removeToken()
-    //   .then(() => {
-    //     return FetchHelper.post(Api.Logout, data);
-    //   })
-    //   .then(() => {
-    //     return AuthManager.removeCredentials();
-    //   })
-    //   .catch((error) => {
-    //     return AuthManager.removeCredentials();
-    //   });
+    let data = { refresh: AuthManager.refreshToken };
+    return AuthManager.removeToken()
+      .then(() => {
+        return FetchHelper.post(AuthManager.LOGOUT_URL, data);
+      })
+      .then(() => {
+        return AuthManager.removeCredentials();
+      })
+      .catch((error) => {
+        return AuthManager.removeCredentials();
+      });
+  }
+
+  static async removeToken() {
+    if (!AuthManager.DEVICE_TOKEN) {
+      return true;
+    }
+
+    let endpoint =
+      Platform.OS === 'ios'
+        ? AuthManager.DEVICE_TOKEN_APNS
+        : AuthManager.DEVICE_TOKEN_FCM;
+    endpoint += '/' + AuthManager.DEVICE_TOKEN;
+
+    return FetchHelper.delete(endpoint);
   }
 
   static requestResetPassword(email) {
     return FetchHelper.post(
-      Api.RequestResetPassword,
+      AuthManager.REQUEST_RESET_PASSWORD_URL,
       {
         email,
       },
@@ -211,7 +234,7 @@ export default class AuthManager {
       password,
       verification_code: code,
     };
-    return FetchHelper.post(Api.ResetPassword, data, false, false);
+    return FetchHelper.post(AuthManager.RESET_PASSWORD, data, false, false);
   }
 
   static removeCredentials() {
@@ -246,18 +269,11 @@ export default class AuthManager {
   }
 
   static _setUser(responseJson) {
-    if (!responseJson.client) {
-      throw {
-        error: 'Only clients can use this app',
-        message: 'Only clients can use this app',
-      };
-    }
-
+    let { currentUser, userType } = AuthManager.getUser(responseJson);
     AuthManager.isLoggedIn = true;
-    if (responseJson.client) {
-      AuthManager.currentUser = responseJson.client;
-      AuthManager.userType = 'client';
-    }
+    AuthManager.currentUser = currentUser;
+    console.log('userType 270', userType);
+    AuthManager.userType = userType;
   }
 
   static getHeaders(contentType = 'application/json') {
