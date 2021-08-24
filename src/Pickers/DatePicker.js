@@ -20,8 +20,8 @@ export default class DatePicker extends Component {
     this.dateFormat = this._getFormat(props.mode);
     this.state = {
       mode: props.mode,
-      time: moment(props.date).format(this.dateFormat),
-      date: moment(props.date).toDate(),
+      time: moment(props.value).format(this.dateFormat),
+      date: moment(props.value).toDate(),
       minimumDate: props.minimumDate
         ? props.minimumDate
         : moment(new Date()).add(-100, 'years').toDate(),
