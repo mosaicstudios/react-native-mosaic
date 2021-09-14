@@ -26,5 +26,5 @@ LogoBanner.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  image: { width: '70%', flex: 1, resizeMode: 'contain', marginLeft: '5%' },
+  image: { width: '70%', flex: 1, resizeMode: 'contain' },
 });
