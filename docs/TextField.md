@@ -31,6 +31,7 @@ import { TextField } from 'react-native-mosaic';
 | `viewContainerStyle?`   | `style`  | Base style for container.                                                               |
 | `inputContainerStyle?`  | `style`  | Styling for Input Component Container.                                                  |
 | `inputStyle?`           | `style`  | Style that will be passed to the style props of the React Native TextInput.             |
+| `labelStyle?`           | `style`  | Style that will be passed to the label text above the text field.             |
 | `errorStyle?`           | `style`  | Style for the error message when isValid function is triggered.                         |
 | `errorStyle?`           | `style`  | Style for the error message when isValid function is triggered.                         |
 | `phoneInputStyle?`      | `style`  | Style for the phone error message when isValid function is triggered.                   |
