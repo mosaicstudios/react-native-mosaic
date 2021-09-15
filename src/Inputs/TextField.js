@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ViewPropTypes, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
-import PhoneInput from 'react-native-phone-input';
+import PhoneInput from 'react-native-phone-number-input';
 
 import PropTypes from 'prop-types';
 export default class TextField extends Component {
@@ -90,11 +90,11 @@ export default class TextField extends Component {
   }
 
   _isValidPhoneNumber() {
-    let isValid = true;
-    if (this.phone.getISOCode() === null) {
+    isValid = true;
+    if (this.phone.getCallingCode() == null) {
       this.setState({ error: 'Please select a valid country code' });
       isValid = false;
-    } else if (!this.phone.isValidNumber()) {
+    } else if (!this.phone.isValidNumber(this.state.value)) {
       this.setState({ error: 'Please enter a valid phone number' });
       isValid = false;
     }
@@ -133,17 +133,16 @@ export default class TextField extends Component {
   }
 
   _handleOnChangePhoneNumber() {
-    if (this.phone.getISOCode() === null) {
+    if (this.phone.getCountryCode() == null) {
       this.props.onChangePhoneNumber('', '');
       return;
     }
 
-    let countryCode = this.phone.getISOCode()
-      ? '+' + this.phone.getCountryCode()
+    let countryCode = this.phone.getCallingCode()
+      ? '+' + this.phone.getCallingCode()
       : '';
-    let phoneNumber = this.phone.getValue().replace(countryCode, '');
-
-    this.props.onChangePhoneNumber(countryCode, phoneNumber);
+    let phoneNumber = this.phone.getNumberAfterPossiblyEliminatingZero();
+    this.props.onChangePhoneNumber(countryCode, phoneNumber.number);
   }
 
   _renderPhoneErrorMessage() {
@@ -181,11 +180,24 @@ export default class TextField extends Component {
           }}
           containerStyle={[styles.containerStyle, this.props.containerStyle]}
           inputContainerStyle={[
-            styles.inputContainerStyle(underlineColor),
+            this.props.inputType == 'border'
+              ? {
+                  ...styles.borderedInputContainerStyle(underlineColor),
+                }
+              : {
+                  ...styles.inputContainerStyle(underlineColor),
+                },
             this.props.inputContainerStyle,
           ]}
           inputStyle={[
-            styles.inputStyle(isSecure, this.props.label),
+            this.props.inputType == 'border'
+              ? {
+                  ...styles.borderInputStyle(isSecure, this.props.label),
+                }
+              : {
+                  ...styles.inputStyle(isSecure, this.props.label),
+                },
+
             this.props.inputStyle,
           ]}
           onBlur={() => this._onBlur()}
@@ -216,27 +228,58 @@ export default class TextField extends Component {
           </Text>
         )}
         <PhoneInput
+          {...this.props}
           ref={(phone) => (this.phone = phone)}
           value={this.state.value}
-          allowZeroAfterCountryCode={false}
-          initialCountry="ie"
-          onChangePhoneNumber={(value) => {
+          defaultCode="IE"
+          layout="first"
+          onChangeCountry={() => {
+            this._handleOnChangePhoneNumber();
+          }}
+          onChangeText={(value) => {
             this.setState({ value }, () => {
               this._handleOnChangePhoneNumber();
             });
           }}
-          onSelectCountry={() => {
-            this._handleOnChangePhoneNumber();
+          onChangeFormattedText={(value) => {
+            this.setState({ value }, () => {
+              this._handleOnChangePhoneNumber();
+            });
           }}
-          textProps={{
+          containerStyle={[
+            this.props.inputType == 'border'
+              ? {
+                  ...styles.borderedPhoneInputStyle(
+                    underlineColor,
+                    this.props.label
+                  ),
+                }
+              : {
+                  ...styles.phoneInputStyle(underlineColor, this.props.label),
+                },
+            this.props.inputContainerStyle,
+          ]}
+          textInputProps={{
             onBlur: () => this._onBlur(),
             onFocus: () => this._onFocus(),
+            placeholder: this.state.placeholder,
+            placeholderTextColor: this.props.placeholderTextColor,
           }}
-          style={[
-            styles.phoneInputStyle(underlineColor, this.props.label),
-            this.props.phoneInputStyle,
+          codeTextStyle={this.props.codeTextStyle}
+          textInputStyle={this.props.textInputStyle}
+          textContainerStyle={[
+            this.props.inputType == 'border'
+              ? {
+                  ...styles.borderedPhoneTextStyle(
+                    underlineColor,
+                    this.props.label
+                  ),
+                }
+              : {
+                  ...styles.phoneTextStyle(underlineColor, this.props.label),
+                },
+            this.props.phoneTextContainerStyle,
           ]}
-          textStyle={[styles.textStyle, this.props.textStyle]}
         />
       </>
     );
@@ -340,6 +383,7 @@ TextField.propTypes = {
 };
 
 TextField.defaultProps = {
+  inputType: 'underline',
   color: 'lightgray',
   placeholderTextColor: 'gray',
   underlineColor: 'black',
@@ -360,10 +404,34 @@ const styles = StyleSheet.create({
   phoneInputStyle: (color, label) => ({
     borderBottomWidth: 1,
     width: '100%',
-    marginTop: label ? 10 : 30,
+    marginTop: label ? 10 : 20,
     marginHorizontal: 0,
     borderColor: color,
-    paddingBottom: 8,
+  }),
+  borderedPhoneInputStyle: (color, label) => ({
+    width: '100%',
+    borderWidth: 1,
+    borderBottomWidth: 1,
+    marginTop: label ? 10 : 10,
+    paddingLeft: 5,
+    backgroundColor: 'transparent',
+    borderColor: color,
+  }),
+  borderedPhoneTextStyle: (color, label) => ({
+    color: 'black',
+    paddingLeft: 5,
+    borderLeftWidth: 1,
+    padding: 0,
+    backgroundColor: 'transparent',
+    borderColor: color,
+  }),
+  phoneTextStyle: (color, label) => ({
+    fontSize: 17,
+    borderLeftWidth: 1,
+    paddingLeft: 5,
+    borderColor: color,
+    backgroundColor: 'transparent',
+    color: 'black',
   }),
   containerStyle: {
     width: '100%',
@@ -376,18 +444,29 @@ const styles = StyleSheet.create({
     width: '100%',
     borderBottomColor: color,
   }),
+  borderedInputContainerStyle: (color) => ({
+    width: '100%',
+    marginTop: 10,
+    borderWidth: 1,
+    height: 55,
+    borderColor: color,
+  }),
   labelStyle: {
     color: 'black',
     fontSize: 15,
     marginTop: 20,
   },
-
   textStyle: { fontSize: 17, color: 'black' },
   inputStyle: (isSecure, label) => ({
     width: '100%',
     paddingHorizontal: 0,
-    paddingRight: isSecure ? 0 : 0,
+    height: 55,
     marginTop: label ? 0 : 20,
+  }),
+  borderInputStyle: (isSecure, label) => ({
+    width: '100%',
+    marginLeft: 15,
+    paddingHorizontal: 0,
   }),
   errorStyle: { marginLeft: 0, fontSize: 14 },
   phoneErrorStyle: { color: 'red', paddingLeft: 10, marginTop: 5 },
