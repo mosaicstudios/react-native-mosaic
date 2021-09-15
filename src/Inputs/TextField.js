@@ -90,7 +90,7 @@ export default class TextField extends Component {
   }
 
   _isValidPhoneNumber() {
-    isValid = true;
+    let isValid = true;
     if (this.phone.getCallingCode() == null) {
       this.setState({ error: 'Please select a valid country code' });
       isValid = false;
@@ -180,7 +180,7 @@ export default class TextField extends Component {
           }}
           containerStyle={[styles.containerStyle, this.props.containerStyle]}
           inputContainerStyle={[
-            this.props.inputType == 'border'
+            this.props.inputType === 'border'
               ? {
                   ...styles.borderedInputContainerStyle(underlineColor),
                 }
@@ -190,7 +190,7 @@ export default class TextField extends Component {
             this.props.inputContainerStyle,
           ]}
           inputStyle={[
-            this.props.inputType == 'border'
+            this.props.inputType === 'border'
               ? {
                   ...styles.borderInputStyle(isSecure, this.props.label),
                 }
@@ -247,7 +247,7 @@ export default class TextField extends Component {
             });
           }}
           containerStyle={[
-            this.props.inputType == 'border'
+            this.props.inputType === 'border'
               ? {
                   ...styles.borderedPhoneInputStyle(
                     underlineColor,
@@ -268,7 +268,7 @@ export default class TextField extends Component {
           codeTextStyle={this.props.codeTextStyle}
           textInputStyle={this.props.textInputStyle}
           textContainerStyle={[
-            this.props.inputType == 'border'
+            this.props.inputType === 'border'
               ? {
                   ...styles.borderedPhoneTextStyle(
                     underlineColor,

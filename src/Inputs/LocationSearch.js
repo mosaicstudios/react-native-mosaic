@@ -301,8 +301,7 @@ export default class LocationSearch extends Component {
             // predefinedPlaces={[homePlace, workPlace]}
 
             debounce={200} // debounce the requests in ms. Set to 0 to remove debounce. By default 0ms.
-            renderRightButton={() => <View style={styles.rightButton}></View>}
-            // renderRightButton={() => <Text>Custom text after the input</Text>}
+            renderRightButton={() => <View style={styles.rightButton} />}
           />
         )}
         {this.errorMessage()}
