@@ -5,6 +5,14 @@ export default class DateTime {
     return moment();
   }
 
+  static tomorrow() {
+    return moment().add(1, 'days');
+  }
+
+  static year() {
+    return moment().format('YYYY');
+  }
+
   static isoString(date, format) {
     if (!format) {
       format = 'DD MMM YYYY';
