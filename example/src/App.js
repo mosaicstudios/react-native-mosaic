@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { StyleSheet, View } from 'react-native';
 
-import { Button, TextField, AuthManager } from 'react-native-mosaic';
+import { LocationSearch, AuthManager } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -52,26 +52,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextField
-          type="email"
-          value={this.state.email}
-          placeholder="Email"
-          onChangeText={(value) => {
-            this.setState({ email: value });
-          }}
-        />
-        <TextField
-          type="password"
-          value={this.state.password}
-          placeholder="Password"
-          onChangeText={(value) => {
-            this.setState({ password: value });
-          }}
-        />
-        <Button
-          title="Join Now"
-          style={styles.button}
-          textStyle={styles.buttonText}
+        <LocationSearch
+          showManualAddress
+          manualAddressOnly
+          manualInputType="border"
         />
       </View>
     );

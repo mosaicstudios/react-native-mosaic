@@ -28,13 +28,17 @@ render() {
 
 ## Props Available
 
-| Prop                 | Type     | Description                                                                                                                  |
-| -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `gmapsKey`           | `string` | GMaps key is required. See https://developers.google.com/maps/documentation/places/web-service/get-api-key/ to get your key. |
-| `onPlaceSelected`    | `func`   | When an address is entered the full address will return.                                                                     |
-| `underlineColor`     | `string` | Change the underline color of the the input.                                                                                 |
-| `manualAddress?`     | `bool`   | Default is true. If set as false change to manual address button will not show.                                              |
-| `manualAddressOnly?` | `bool`   | Default is false. If set as true autocomplete input will not show. Gmaps key is not required for this.                       |
+| Prop                         | Type     | Description                                                                                                                  |
+| ---------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `gmapsKey`                   | `string` | GMaps key is required. See https://developers.google.com/maps/documentation/places/web-service/get-api-key/ to get your key. |
+| `onPlaceSelected`            | `func`   | When an address is entered the full address will return.                                                                     |
+| `underlineColor`             | `string` | Change the underline color of the the input.                                                                                 |
+| `manualAddress?`             | `bool`   | Default is true. If set as false change to manual address button will not show.                                              |
+| `showManualAddress?`         | `bool`   | Default is false. If set as true the manual address input fields will show.                                                  |
+| `manualAddressOnly?`         | `bool`   | Default is false. If set as true autocomplete input will not show. Gmaps key is not required for this.                       |
+| `manualInputType?`           | `style`  | Style that will be passed to the style props of the manual React Native TextInput.                                           |
+| `manualInputLabelStyle?`     | `style`  | Style that will be passed to the label text above the manual text fields.                                                    |
+| `manualInputContainerStyle?` | `style`  | Styling for manual input component container.                                                                                |
 
 ## Instance Methods
 

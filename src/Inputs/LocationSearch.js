@@ -24,7 +24,7 @@ export default class LocationSearch extends Component {
 
   setAddress(location) {
     if (!location.latitude || !location.longitude) {
-      this.setState({ data: location, showManuallyAddressContainer: true });
+      this.setState({ data: location, showManualAddress: true });
     }
     this.setState({ data: location }, () => {
       this.searchField.setAddressText(LocationFormat.fullAddress(location));
@@ -69,7 +69,7 @@ export default class LocationSearch extends Component {
     const errorMessage = 'Please enter a more specific location';
     var error = null;
     this.setState({ error });
-    if (this.state.showManuallyAddressContainer) {
+    if (this.state.showManualAddress) {
       if (line_1 === null || line_1 === '') {
         error = errorMessage;
       } else if (country === null || country === '') {
@@ -108,13 +108,12 @@ export default class LocationSearch extends Component {
   }
 
   _getTextInputStyle() {
-    let textColor = { color: 'black' };
     return {
       paddingLeft: 0,
       marginLeft: 2,
       backgroundColor: 'transparent',
       fontSize: 18,
-      ...textColor,
+      color: 'black',
     };
   }
 
@@ -125,7 +124,7 @@ export default class LocationSearch extends Component {
     return (
       <View>
         <TouchableOpacity
-          onPress={() => this.setState({ showManuallyAddressContainer: true })}
+          onPress={() => this.setState({ showManualAddress: true })}
         >
           <View
             style={[
@@ -155,16 +154,14 @@ export default class LocationSearch extends Component {
 
   _renderManualAddressContainer() {
     let { data } = this.state;
-    if (!this.state.showManuallyAddressContainer) {
+    if (!this.state.showManualAddress) {
       return null;
     }
     return (
       <>
         {!this.props.manualAddressOnly && (
           <TouchableOpacity
-            onPress={() =>
-              this.setState({ showManuallyAddressContainer: false })
-            }
+            onPress={() => this.setState({ showManualAddress: false })}
           >
             <View style={styles.manualAddressButtonStyle}>
               <Text style={styles.manualAddressText}>
@@ -177,18 +174,27 @@ export default class LocationSearch extends Component {
           ref={(tfLine1) => (this.tfLine1 = tfLine1)}
           value={data ? data.line_1 : null}
           label="Line 1"
+          inputType={this.props.manualInputType}
+          labelStyle={this.props.manualInputLabelStyle}
+          inputContainerStyle={this.props.manualInputContainerStyle}
           placeholder="Address line 1"
           onChangeText={(value) => this._updateData('line_1', value)}
         />
         <TextField
           value={data ? data.line_2 : null}
           label="Line 2"
+          inputType={this.props.manualInputType}
+          labelStyle={this.props.manualInputLabelStyle}
+          inputContainerStyle={this.props.manualInputContainerStyle}
           placeholder="Address line 2 (Optional)"
           onChangeText={(value) => this._updateData('line_2', value)}
         />
         <TextField
           value={data ? data.line_3 : null}
           label="Line 3"
+          inputType={this.props.manualInputType}
+          labelStyle={this.props.manualInputLabelStyle}
+          inputContainerStyle={this.props.manualInputContainerStyle}
           placeholder="Address line 3 (Optional)"
           onChangeText={(value) => this._updateData('line_3', value)}
         />
@@ -196,6 +202,9 @@ export default class LocationSearch extends Component {
           ref={(tfCity) => (this.tfCity = tfCity)}
           value={data ? data.city : null}
           label="City"
+          inputType={this.props.manualInputType}
+          labelStyle={this.props.manualInputLabelStyle}
+          inputContainerStyle={this.props.manualInputContainerStyle}
           placeholder="City"
           onChangeText={(value) => this._updateData('city', value)}
         />
@@ -203,6 +212,9 @@ export default class LocationSearch extends Component {
           ref={(tfCounty) => (this.tfCounty = tfCounty)}
           value={data ? data.state : null}
           label="County"
+          inputType={this.props.manualInputType}
+          labelStyle={this.props.manualInputLabelStyle}
+          inputContainerStyle={this.props.manualInputContainerStyle}
           placeholder="County"
           onChangeText={(value) => this._updateData('state', value)}
         />
@@ -210,6 +222,9 @@ export default class LocationSearch extends Component {
           ref={(tfCountry) => (this.tfCountry = tfCountry)}
           value={data ? data.country : null}
           label="Country"
+          inputType={this.props.manualInputType}
+          labelStyle={this.props.manualInputLabelStyle}
+          inputContainerStyle={this.props.manualInputContainerStyle}
           placeholder="Country"
           onChangeText={(value) => this._updateData('country', value)}
         />
@@ -221,7 +236,7 @@ export default class LocationSearch extends Component {
     return (
       <View style={[styles.container, this.props.containerHeight]}>
         {this._renderManualAddressContainer()}
-        {!this.state.showManuallyAddressContainer && (
+        {!this.state.showManualAddress && (
           <GooglePlacesAutocomplete
             ref={(searchField) => (this.searchField = searchField)}
             enablePoweredByContainer={false}
