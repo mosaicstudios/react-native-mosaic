@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, ViewPropTypes, StyleProp, TextStyle } from 'react-native';
+import { StyleSheet, ViewPropTypes, Text } from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -117,7 +117,7 @@ CustomButton.propTypes = {
   /**
    * Text style for the title text.
    */
-  textStyle: StyleProp<TextStyle>,
+  textStyle: Text.propTypes.style,
 };
 
 CustomButton.defaultProps = {

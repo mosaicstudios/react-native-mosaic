@@ -69,9 +69,9 @@ export default class App extends Component {
           }}
         />
         <Button
-          title="Log In"
-          isLoading={this.state.isLoading}
-          onPress={() => this._login()}
+          title="Join Now"
+          style={styles.button}
+          textStyle={styles.buttonText}
         />
       </View>
     );
@@ -117,5 +117,14 @@ const styles = StyleSheet.create({
   unselectedText: {
     color: 'red',
     fontSize: 16,
+  },
+  button: {
+    backgroundColor: 'rgba(0, 0, 255, 0.32)',
+    borderRadius: 50,
+  },
+  buttonText: {
+    fontSize: 12,
+    color: 'white',
+    fontWeight: '700',
   },
 });
