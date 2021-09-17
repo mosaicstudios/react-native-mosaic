@@ -5,7 +5,7 @@
 ```js
 import { DateTime } from 'react-native-mosaic';
 
-<Text>{LocationFormat.fullAddress(this.state.data)}</Text>;
+<Text>{DateTime.now()}</Text>;
 ```
 
 ## Instance Methods

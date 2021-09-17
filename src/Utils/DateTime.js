@@ -1,6 +1,10 @@
 import moment from 'moment';
 
 export default class DateTime {
+  static now() {
+    return moment();
+  }
+
   static isoString(date, format) {
     if (!format) {
       format = 'DD MMM YYYY';
