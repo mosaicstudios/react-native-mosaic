@@ -42,23 +42,19 @@ export default class CollapsibleAccordion extends Component {
     let index = activeSections.findIndex((item) => item == sectionIndex);
     let isActive = index > -1;
     let color = 'white';
-    let iconName = isActive ? 'angle-down' : 'angle-right';
+    let iconName = isActive ? 'angle-up' : 'angle-down';
     if (isActive) {
       return (
         <View
-          style={{
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            borderLeftWidth: 1,
-            borderRightWidth: 1,
-            borderColor: 'gray',
-            backgroundColor: 'transparent',
-          }}
+          style={[
+            styles.accordionHeaderContainer,
+            this.props.accordionHeaderContainerStyle,
+          ]}
         >
           <View
             style={[
-              styles.accordionHeaderContainer,
-              this.props.accordionHeaderContainerStyle,
+              styles.accordionHeaderTitleContainer,
+              this.props.accordionHeaderTitleContainerStyle,
             ]}
           >
             <Text
@@ -196,6 +192,11 @@ CollapsibleAccordion.propTypes = {
   accordionHeaderContainerStyle: ViewPropTypes.style,
 
   /**
+   * Style props for accordion item header title container
+   */
+  accordionHeaderTitleContainerStyle: ViewPropTypes.style,
+
+  /**
    * Style props for accordion item header title text
    */
   accordionTitleTextStyle: Text.propTypes.style,
@@ -239,6 +240,14 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   accordionHeaderContainer: {
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderColor: 'gray',
+    backgroundColor: 'transparent',
+  },
+  accordionHeaderTitleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
