@@ -74,8 +74,8 @@ export default class CollapsibleAccordion extends Component {
       <>
         <View
           style={[
-            styles.accordionHeaderContainer,
-            this.props.accordionHeaderContainerStyle,
+            styles.accordionHeaderTitleContainer,
+            this.props.accordionHeaderTitleContainerStyle,
           ]}
         >
           <Text
