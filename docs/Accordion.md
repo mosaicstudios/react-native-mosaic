@@ -37,18 +37,20 @@ let data = [
 
 ## Props Available
 
-| Prop                                 | Type     | Description                                                                                                       |
-| ------------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `sections`                           | `array`  | Required data array. Each object must contain header and content values unless using the custom render functions. |
-| `lazyLoadingEnabled`                 | `bool`   | Enable/Disable lazy loading the accordion list.                                                                   |
-| `renderAsFlatList`                   | `bool`   | Optional rendering as FlatList (defaults to true).                                                                |
-| `accordionHeaderContainerStyle`      | `style`  | Style props for accordion item header container                                                                   |
-| `accordionHeaderTitleContainerStyle` | `style`  | Style props for accordion item header title container                                                             |
-| `accordionTitleTextStyle`            | `style`  | Style props for accordion item header title text                                                                  |
-| `renderCustomHeader`                 | `func`   | Render a custom header. section and sectionIndex are passed in the function.                                      |
-| `renderCustomContent`                | `func`   | Render a custom content container. section and sectionIndex are passed in the function.                           |
-| `sectionContainerStyle`              | `style`  | Style props for accordion section container                                                                       |
-| `accordionContentContainerStyle`     | `style`  | Style props for accordion item content container                                                                  |
-| `accordionTextStyle`                 | `style`  | Style props for accordion item content title text.                                                                |
-| `isRefreshing`                       | `func`   | Used with lazy loading to return a boolean if the list is refreshing.                                             |
-| `iconColor`                          | `string` | Color of the arrow icons.                                                                                         |
+| Prop                              | Type     | Description                                                                                                       |
+| --------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `sections`                        | `array`  | Required data array. Each object must contain header and content values unless using the custom render functions. |
+| `lazyLoadingEnabled`              | `bool`   | Enable/Disable lazy loading the accordion list.                                                                   |
+| `renderAsFlatList`                | `bool`   | Optional rendering as FlatList (defaults to true).                                                                |
+| `headerContainerStyle`            | `style`  | Style props for accordion item header container                                                                   |
+| `activeHeaderTitleContainerStyle` | `style`  | Style props for active accordion item header container                                                            |
+| `headerTitleContainerStyle`       | `style`  | Style props for accordion item header title container                                                             |
+| `titleTextStyle`                  | `style`  | Style props for accordion item header title text                                                                  |
+| `activeTitleTextStyle`            | `style`  | Style props for active accordion item header title text                                                           |
+| `renderCustomHeader`              | `func`   | Render a custom header. section and sectionIndex are passed in the function.                                      |
+| `renderCustomContent`             | `func`   | Render a custom content container. section and sectionIndex are passed in the function.                           |
+| `sectionContainerStyle`           | `style`  | Style props for accordion section container                                                                       |
+| `contentContainerStyle`           | `style`  | Style props for accordion item content container                                                                  |
+| `contentTextStyle`                | `style`  | Style props for accordion item content title text.                                                                |
+| `isRefreshing`                    | `func`   | Used with lazy loading to return a boolean if the list is refreshing.                                             |
+| `iconColor`                       | `string` | Color of the arrow icons.                                                                                         |

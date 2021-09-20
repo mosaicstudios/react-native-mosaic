@@ -48,19 +48,19 @@ export default class CollapsibleAccordion extends Component {
         <View
           style={[
             styles.accordionHeaderContainer,
-            this.props.accordionHeaderContainerStyle,
+            this.props.headerContainerStyle,
           ]}
         >
           <View
             style={[
               styles.accordionHeaderTitleContainer,
-              this.props.accordionHeaderTitleContainerStyle,
+              this.props.activeHeaderTitleContainerStyle,
             ]}
           >
             <Text
               style={[
                 styles.accordionTitleText,
-                this.props.accordionTitleTextStyle,
+                this.props.activeTitleTextStyle,
               ]}
             >
               {section.header}
@@ -75,15 +75,10 @@ export default class CollapsibleAccordion extends Component {
         <View
           style={[
             styles.accordionHeaderTitleContainer,
-            this.props.accordionHeaderTitleContainerStyle,
+            this.props.headerTitleContainerStyle,
           ]}
         >
-          <Text
-            style={[
-              styles.accordionTitleText,
-              this.props.accordionTitleTextStyle,
-            ]}
-          >
+          <Text style={[styles.accordionTitleText, this.props.titleTextStyle]}>
             {section.header}
           </Text>
           <Icon name={iconName} type="font-awesome" color={color} />
@@ -100,10 +95,10 @@ export default class CollapsibleAccordion extends Component {
       <View
         style={[
           styles.accordionContentContainer,
-          this.props.accordionContentContainerStyle,
+          this.props.contentContainerStyle,
         ]}
       >
-        <Text style={[styles.accordionText, this.props.accordionTextStyle]}>
+        <Text style={[styles.accordionText, this.props.contentTextStyle]}>
           {section.content}
         </Text>
       </View>
@@ -190,17 +185,27 @@ CollapsibleAccordion.propTypes = {
   /**
    * Style props for accordion item header container
    */
-  accordionHeaderContainerStyle: ViewPropTypes.style,
+  headerContainerStyle: ViewPropTypes.style,
 
   /**
    * Style props for accordion item header title container
    */
-  accordionHeaderTitleContainerStyle: ViewPropTypes.style,
+  headerTitleContainerStyle: ViewPropTypes.style,
+
+  /**
+   * Style props for the active accordion item header title container
+   */
+  activeHeaderTitleContainerStyle: ViewPropTypes.style,
 
   /**
    * Style props for accordion item header title text
    */
-  accordionTitleTextStyle: Text.propTypes.style,
+  titleTextStyle: Text.propTypes.style,
+
+  /**
+   * Style props for active accordion item header title text
+   */
+  activeTitleTextStyle: Text.propTypes.style,
 
   /**
    * Render a custom header. section and sectionIndex are passed in the function.
@@ -220,12 +225,12 @@ CollapsibleAccordion.propTypes = {
   /**
    * Style props for accordion item content container
    */
-  accordionContentContainerStyle: ViewPropTypes.style,
+  contentContainerStyle: ViewPropTypes.style,
 
   /**
    *  Style props for accordion item content title text
    */
-  accordionTextStyle: Text.propTypes.style,
+  contentTextStyle: Text.propTypes.style,
 
   /**
    *  Color of the arrow icons
