@@ -1,4 +1,5 @@
 // Component imports
+import Accordion from './Lists/Accordion';
 import AgreementInput from './AgreementInputs/AgreementInput';
 import Button from './Buttons/Button';
 import DatePicker from './Pickers/DatePicker';
@@ -34,6 +35,7 @@ import TextFormat from './Utils/TextFormat';
 
 // Component exports
 export {
+  Accordion,
   AgreementInput,
   Button,
   DatePicker,

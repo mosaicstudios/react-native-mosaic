@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { StyleSheet, View } from 'react-native';
 
-import { LocationSearch, AuthManager } from 'react-native-mosaic';
+import { Accordion, AuthManager } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -52,10 +52,27 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <LocationSearch
-          showManualAddress
-          manualAddressOnly
-          manualInputType="border"
+        <Accordion
+          sections={[
+            {
+              id: '7',
+              header: 'Where can I find my settings?',
+              content:
+                "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.",
+            },
+            {
+              id: '6',
+              header: 'What is the terms?',
+              content:
+                "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.",
+            },
+            {
+              id: '5',
+              header: '  Where do I leave feedback?',
+              content:
+                "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.",
+            },
+          ]}
         />
       </View>
     );
@@ -68,6 +85,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 20,
+    marginTop: 40,
   },
   box: {
     width: 60,
