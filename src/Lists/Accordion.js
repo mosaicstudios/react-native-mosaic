@@ -41,7 +41,7 @@ export default class CollapsibleAccordion extends Component {
     let { activeSections } = this.state;
     let index = activeSections.findIndex((item) => item == sectionIndex);
     let isActive = index > -1;
-    let color = 'white';
+    let color = this.props.iconColor;
     let iconName = isActive ? 'angle-up' : 'angle-down';
     if (isActive) {
       return (
@@ -168,6 +168,7 @@ CollapsibleAccordion.defaultProps = {
   underlayColor: 'transparent',
   endpoint: '',
   params: { objects: 'all' },
+  iconColor: 'white',
 };
 
 CollapsibleAccordion.propTypes = {
@@ -225,6 +226,11 @@ CollapsibleAccordion.propTypes = {
    *  Style props for accordion item content title text
    */
   accordionTextStyle: Text.propTypes.style,
+
+  /**
+   *  Color of the arrow icons
+   */
+  iconColor: PropTypes.string,
 
   /**
    *  Used with lazy loading to return a boolean if the list is refreshing.
