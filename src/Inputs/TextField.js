@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ViewPropTypes, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 import PhoneInput from 'react-native-phone-number-input';
+import TextFormat from '../Utils/TextFormat';
 
 import PropTypes from 'prop-types';
 export default class TextField extends Component {
@@ -43,11 +44,14 @@ export default class TextField extends Component {
       return this._isValidPhoneNumber();
     }
 
-    if (
-      this.props.isRequired &&
-      (this.state.value === null || this.state.value === '')
-    ) {
-      this.setState({ error: 'Required Field' });
+    if (this.state.value == null || this.state.value == '') {
+      if (this.props.label) {
+        let message =
+          TextFormat.capitalizeFirst(this.props.label) + ' is required.';
+        this.setState({ error: message });
+      } else {
+        this.setState({ error: 'Please enter something' });
+      }
       return false;
     }
     if (this.state.type === 'email') {
