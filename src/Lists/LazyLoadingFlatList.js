@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
 
-import LazyLoader from '../../components/common/LazyLoader';
+import LazyLoader from './LazyLoader';
 
-import AuthManager from '../../utils/AuthManager';
+import AuthManager from '../Utils/AuthManager';
 
 export default class LazyLoadingFlatList extends Component {
   constructor(props) {
