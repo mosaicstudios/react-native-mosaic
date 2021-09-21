@@ -10,6 +10,7 @@ import GetStarted from './GetStarted/GetStarted';
 import InLinePicker from './Pickers/InLinePicker';
 import InputDataItem from './Inputs/InputDataItem';
 import LazyLoader from './Lists/LazyLoader';
+import LazyLoadingFlatList from './Lists/LazyLoadingFlatList';
 import LoadingView from './LoadingViews/LoadingView';
 import LocationSearch from './Inputs/LocationSearch';
 import LogoBanner from './Images/LogoBanner';
@@ -47,6 +48,7 @@ export {
   InLinePicker,
   InputDataItem,
   LazyLoader,
+  LazyLoadingFlatList,
   LoadingView,
   LocationSearch,
   LogoBanner,
