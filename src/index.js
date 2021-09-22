@@ -29,6 +29,7 @@ import TextField from './Inputs/TextField';
 
 // Utility imports
 import AuthManager from './Utils/AuthManager';
+import Clone from './Utils/Clone';
 import DateTime from './Utils/DateTime';
 import List from './Utils/List';
 import LocationFormat from './Utils/LocationFormat';
@@ -67,4 +68,12 @@ export {
 };
 
 // Utility exports
-export { AuthManager, DateTime, List, LocationFormat, Socials, TextFormat };
+export {
+  AuthManager,
+  Clone,
+  DateTime,
+  List,
+  LocationFormat,
+  Socials,
+  TextFormat,
+};

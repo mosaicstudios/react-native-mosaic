@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Alert,
-  ScrollView,
-  ViewPropTypes,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import { View, ViewPropTypes, Text, StyleSheet } from 'react-native';
 import AuthManager from '../Utils/AuthManager';
 import { Icon } from 'react-native-elements';
 import LazyLoader from './LazyLoader';
@@ -39,7 +32,7 @@ export default class CollapsibleAccordion extends Component {
       return this.props.renderCustomHeader(section, sectionIndex);
     }
     let { activeSections } = this.state;
-    let index = activeSections.findIndex((item) => item == sectionIndex);
+    let index = activeSections.findIndex((item) => item === sectionIndex);
     let isActive = index > -1;
     let color = this.props.iconColor;
     let iconName = isActive ? 'angle-up' : 'angle-down';
