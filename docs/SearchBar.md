@@ -21,14 +21,14 @@ import { SearchField } from 'react-native-mosaic';
 
 ## Props Available
 
-| Prop                     | Type     | Description                                                                                                                                              |
-| ------------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `searchTerm`             | `string` | The string to be searched.                                                                                                                               |
-| `throttle?`              | `bool`   | If this prop is set to true the input while wait a period of time after the user has stopped typing. If false the onChangeText will trigger immediately. |
-| `containerStyle`         | `style`  | Base style for container.                                                                                                                                |
-| `inputContainerStyle`    | `style`  | Base style for the input container.                                                                                                                      |
-| `leftIconContainerStyle` | `style`  | Style for the left icon view.                                                                                                                            |
-| `inputStyle`             | `style`  | Style for the input view.                                                                                                                                |
-| `searchIcon`             | `string` | This props allows to override the Icon props or use a custom component.                                                                                  |
-| `placeholder`            | `string` | Set the placeholder text.                                                                                                                                |
-| `borderColor`            | `string` | Set the border color when the input is focused.                                                                                                          |
+| Prop                     | Type     | Description                                                                                                                                                                      |
+| ------------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `searchTerm`             | `string` | The string to be searched.                                                                                                                                                       |
+| `throttle?`              | `bool`   | If this prop is set to true the input while wait a period of time after the user has stopped typing. If false the onChangeText will trigger immediately. Default is set to true. |
+| `containerStyle`         | `style`  | Base style for container.                                                                                                                                                        |
+| `inputContainerStyle`    | `style`  | Base style for the input container.                                                                                                                                              |
+| `leftIconContainerStyle` | `style`  | Style for the left icon view.                                                                                                                                                    |
+| `inputStyle`             | `style`  | Style for the input view.                                                                                                                                                        |
+| `searchIcon`             | `string` | This props allows to override the Icon props or use a custom component.                                                                                                          |
+| `placeholder`            | `string` | Set the placeholder text.                                                                                                                                                        |
+| `borderColor`            | `string` | Set the border color when the input is focused.                                                                                                                                  |
