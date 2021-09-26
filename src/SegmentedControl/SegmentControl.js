@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Animated, ViewPropTypes, TextStyle, Easing } from 'react-native';
+import { View, Animated, ViewPropTypes, Text, Easing } from 'react-native';
 
 import styles from './styles';
 import Segment from './Segment';
@@ -153,7 +153,7 @@ SegmentControl.propTypes = {
   /**
    * To enable diable the segment control. Default value is `false`.
    */
-  disable: PropTypes.bool.isRequired,
+  disable: PropTypes.bool,
 
   /**
    * A callback function of segment index on change. Changed index is send on the callback as a param.
@@ -188,10 +188,10 @@ SegmentControl.propTypes = {
   /**
    * Selected Segment text style.
    */
-  selectedTextStyle: TextStyle,
+  selectedTextStyle: Text.propTypes.style,
 
   /**
    * Unselected Segment text style.
    */
-  unSelectedTextStyle: TextStyle,
+  unSelectedTextStyle: Text.propTypes.style,
 };

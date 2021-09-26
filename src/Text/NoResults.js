@@ -63,7 +63,7 @@ NoResults.propTypes = {
   /**
    * Style for text title.
    */
-  textStyle: TextStyle,
+  textStyle: Text.propTypes.style,
 
   /**
    *  Style for button.

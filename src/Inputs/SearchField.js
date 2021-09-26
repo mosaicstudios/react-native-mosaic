@@ -29,7 +29,7 @@ export default class SearchField extends Component {
   }
 
   _borderColor() {
-    if (this.props.inputType == 'border') {
+    if (this.props.inputType === 'border') {
       return this.props.borderColor ? this.props.borderColor : 'lightgray';
     }
     return this.state._hasFocus ? this.props.borderColor : 'lightgray';
