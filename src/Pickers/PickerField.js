@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ViewPropTypes, TextStyle } from 'react-native';
+import { StyleSheet, Text, View, ViewPropTypes } from 'react-native';
 
 import RNPickerSelect from 'react-native-picker-select';
 
@@ -125,7 +125,7 @@ PickerField.propTypes = {
   /**
    ** Style for the error text.
    */
-  errorTextStyle: TextStyle,
+  errorTextStyle: Text.propTypes.style,
 
   /**
    ** Style for the outermost view container.
