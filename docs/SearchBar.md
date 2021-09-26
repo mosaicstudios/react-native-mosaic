@@ -2,6 +2,8 @@
 
 ## SearchField
 
+This component uses react-native-elements search bar. See https://reactnativeelements.com/docs/searchbar for additional props.
+
 ## Usage (Basic)
 
 ```js
@@ -10,6 +12,7 @@ import { SearchField } from 'react-native-mosaic';
 <SearchField
   containerStyle={{ marginLeft: 20, marginRight: 20 }}
   placeholder="Search"
+  searchIcon="search"
   onChangeText={(searchTerm) => {
     this.setState({ searchTerm });
   }}
@@ -28,4 +31,4 @@ import { SearchField } from 'react-native-mosaic';
 | `inputStyle`             | `style`  | Style for the input view.                                                                                                                                |
 | `searchIcon`             | `string` | This props allows to override the Icon props or use a custom component.                                                                                  |
 | `placeholder`            | `string` | Set the placeholder text.                                                                                                                                |
-| `focusColor`             | `string` | Set the border color when the input is focused.                                                                                                          |
+| `borderColor`            | `string` | Set the border color when the input is focused.                                                                                                          |

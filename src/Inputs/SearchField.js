@@ -29,7 +29,10 @@ export default class SearchField extends Component {
   }
 
   _borderColor() {
-    return this.state._hasFocus ? this.props.focusColor : 'lightgray';
+    if (this.props.inputType == 'border') {
+      return this.props.borderColor ? this.props.borderColor : 'lightgray';
+    }
+    return this.state._hasFocus ? this.props.borderColor : 'lightgray';
   }
 
   _onChangeText(searchTerm) {
@@ -63,14 +66,31 @@ export default class SearchField extends Component {
     let borderColor = this._borderColor();
     return (
       <SearchBar
+        {...this.props}
         lightTheme
         containerStyle={[styles.containerStyle, this.props.containerStyle]}
         inputContainerStyle={[
-          styles.inputContainerStyle(borderColor),
+          this.props.inputType === 'border'
+            ? {
+                ...styles.borderedInputContainerStyle(borderColor),
+              }
+            : {
+                ...styles.inputContainerStyle(borderColor),
+              },
           this.props.inputContainerStyle,
         ]}
         leftIconContainerStyle={this.props.leftIconContainerStyle}
-        inputStyle={[styles.inputStyle, this.props.inputStyle]}
+        inputStyle={[
+          this.props.inputType === 'border'
+            ? {
+                ...styles.borderInputStyle,
+              }
+            : {
+                ...styles.inputStyle,
+              },
+
+          this.props.inputStyle,
+        ]}
         searchIcon={this.props.searchIcon}
         placeholder={this.props.placeholder}
         onChangeText={(searchTerm) => {
@@ -130,7 +150,7 @@ SearchField.propTypes = {
   /**
    *  Set the border color when the input is focused.
    */
-  focusColor: PropTypes.string,
+  borderColor: PropTypes.string,
 };
 
 SearchField.defaultProps = {
@@ -138,7 +158,7 @@ SearchField.defaultProps = {
   throttle: true,
   timeout: TYPING_TIMEOUT,
   isSearching: false,
-  focusColor: 'black',
+  borderColor: 'black',
   searchIcon: false,
 };
 
@@ -164,5 +184,22 @@ const styles = StyleSheet.create({
     paddingTop: 4,
     marginLeft: 0,
     borderRadius: 0,
+  },
+  borderedInputContainerStyle: (color) => ({
+    width: '100%',
+    marginTop: 10,
+    borderWidth: 1,
+    height: 55,
+    borderColor: color,
+  }),
+  borderInputStyle: {
+    width: '100%',
+    marginLeft: 15,
+    paddingHorizontal: 0,
+  },
+  labelStyle: {
+    color: 'black',
+    fontSize: 15,
+    marginTop: 20,
   },
 });
