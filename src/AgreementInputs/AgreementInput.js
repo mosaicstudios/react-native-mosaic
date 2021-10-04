@@ -48,10 +48,7 @@ export default class AgreementInput extends Component {
       return null;
     }
     return (
-      <TouchableOpacity
-        style={styles.urlContainerStyle}
-        onPress={() => this._showTermsModal()}
-      >
+      <TouchableOpacity onPress={() => this._showTermsModal()}>
         <Text style={[styles.termsTextStyle, this.props.termsTextStyle]}>
           Terms & Conditions
         </Text>
@@ -66,10 +63,7 @@ export default class AgreementInput extends Component {
     return (
       <>
         {this.state.termsUrl && <Text> and </Text>}
-        <TouchableOpacity
-          style={styles.urlContainerStyle}
-          onPress={() => this._showPrivacyModal()}
-        >
+        <TouchableOpacity onPress={() => this._showPrivacyModal()}>
           <Text style={[styles.privacyTextStyle, this.props.privacyTextStyle]}>
             Privacy Policy
           </Text>
@@ -85,10 +79,7 @@ export default class AgreementInput extends Component {
     }
     return (
       <>
-        <TouchableOpacity
-          style={styles.urlContainerStyle}
-          onPress={() => this._showCustomUrlModal(customUrl)}
-        >
+        <TouchableOpacity onPress={() => this._showCustomUrlModal(customUrl)}>
           <Text style={[styles.customTextStyle, this.props.customTextStyle]}>
             {this.state.customText || 'CUSTOM TEXT'}
           </Text>
@@ -125,10 +116,10 @@ export default class AgreementInput extends Component {
         <View style={[styles.textContainer, this.props.textContainer]}>
           <Text style={[styles.textStyle, this.props.textStyle]}>
             {this.props.title}
-            {this._renderTermsText()}
-            {this._renderPrivacyPolicyText()}
-            {this._renderCustomUrlText()}
           </Text>
+          {this._renderTermsText()}
+          {this._renderPrivacyPolicyText()}
+          {this._renderCustomUrlText()}
         </View>
       </View>
     );
@@ -242,10 +233,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   checkboxContainer: { alignItems: 'flex-start', marginRight: 10 },
-  textContainer: { flex: 1 },
+  textContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
   textStyle: { flexWrap: 'wrap' },
   customTextStyle: { color: 'green', marginTop: 0 },
   privacyTextStyle: { color: 'green', marginTop: 0 },
   termsTextStyle: { color: 'green' },
-  urlContainerStyle: { marginTop: -3 },
 });
