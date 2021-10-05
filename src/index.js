@@ -31,6 +31,7 @@ import TextField from './Inputs/TextField';
 import AuthManager from './Utils/AuthManager';
 import Clone from './Utils/Clone';
 import DateTime from './Utils/DateTime';
+import FetchHelper from './Utils/FetchHelper';
 import List from './Utils/List';
 import LocationFormat from './Utils/LocationFormat';
 import Socials from './Utils/Socials';
@@ -70,6 +71,7 @@ export {
 // Utility exports
 export {
   AuthManager,
+  FetchHelper,
   Clone,
   DateTime,
   List,
