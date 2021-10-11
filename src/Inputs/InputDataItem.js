@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, ViewPropTypes } from 'react-native';
+import PropTypes from 'prop-types';
 
 export default class InputDataItem extends Component {
   constructor(props) {
@@ -30,9 +31,25 @@ export default class InputDataItem extends Component {
 
 InputDataItem.propTypes = {
   /**
-   * Current selected item of array.
+   * Main container style
    */
   containerStyle: ViewPropTypes.style,
+  /**
+   * Text style for the label text.
+   */
+  textStyle: Text.propTypes.style,
+  /**
+   * Container style for the input view
+   */
+  inputContainerStyle: ViewPropTypes.style,
+  /**
+   * Label for the input view
+   */
+  label: PropTypes.string,
+  /**
+   * Render function to render the inline input item
+   */
+  inputView: PropTypes.func,
 };
 
 InputDataItem.defaultProps = {

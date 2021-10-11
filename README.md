@@ -30,9 +30,9 @@ Please see the components below for guides on how to implement and use the compo
 - [x] [DatePicker](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/DatePicker.md)
 - [x] [Indicators](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Indicators.md)
 - [x] [InlinePicker](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/InlinePicker.md)
-- [ ] [InputDataItem]()
-- [x] [LazyLoader]()
-- [ ] [LazyLoadingFlatList]()
+- [x] [InputDataItem](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/InputDataItem.md)
+- [x] [LazyLoader](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LazyLoader.md)
+- [x] [LazyLoadingFlatList](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LazyLoadingFlatList.md)
 - [x] [LoadingView](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LoadingView.md)
 - [x] [LocationSearch](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LocationSearch.md)
 - [x] [LogoBanner](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LogoBanner.md)
@@ -47,12 +47,12 @@ Please see the components below for guides on how to implement and use the compo
 
 ## Utilities included:
 
-- [ ] [AuthManager]()
+- [x] [AuthManager](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/AuthManager.md)
 - [x] [DateTime](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/DateTime.md)
 - [x] [FetchHelper](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/FetchHelper.md)
-- [x] [List](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/List.md)
-- [x] [LocationFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/LocationFormat.md)
-- [x] [TextFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/TextFormat.md)
+- [x] [List](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/List.md)
+- [x] [LocationFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/LocationFormat.md)
+- [x] [TextFormat](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/TextFormat.md)
 
 ## Screens included:
 
