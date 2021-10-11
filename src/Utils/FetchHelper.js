@@ -252,7 +252,7 @@ export default class FetchHelper {
         ? RNFetchBlob.fs.dirs.DocumentDir
         : RNFetchBlob.fs.dirs.DownloadDir;
     const title =
-      'RR_' +
+      'App_' +
       Math.floor(date.getTime() + date.getSeconds() / 2) +
       '.' +
       extension;
