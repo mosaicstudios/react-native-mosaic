@@ -44,7 +44,7 @@ export default class TextField extends Component {
       return this._isValidPhoneNumber();
     }
 
-    if (this.state.value == null || this.state.value == '') {
+    if (this.state.value === null || this.state.value === '') {
       if (this.props.label) {
         let message =
           TextFormat.capitalizeFirst(this.props.label) + ' is required.';
@@ -178,6 +178,14 @@ export default class TextField extends Component {
           placeholder={this.state.placeholder}
           placeholderTextColor={this.props.placeholderTextColor}
           value={this.state.value}
+          onEndEditing={() => {
+            let { value } = this.state;
+            if (this.state.type === 'number') {
+              let stringValue = value.toString().replaceAll(',', '.');
+              this.setState({ stringValue });
+              this.props.onChangeText(stringValue);
+            }
+          }}
           onChangeText={(value) => {
             this.setState({ value });
             this.props.onChangeText(value);

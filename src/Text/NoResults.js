@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ViewPropTypes, TextStyle } from 'react-native';
+import { View, Text, StyleSheet, ViewPropTypes } from 'react-native';
 
 import PropTypes from 'prop-types';
 
