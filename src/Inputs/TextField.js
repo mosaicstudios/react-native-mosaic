@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ViewPropTypes, StyleSheet } from 'react-native';
+import { View, Text, ViewPropTypes, StyleSheet, Platform } from 'react-native';
 import { Input } from 'react-native-elements';
 import PhoneInput from 'react-native-phone-number-input';
 import TextFormat from '../Utils/TextFormat';
@@ -179,12 +179,15 @@ export default class TextField extends Component {
           placeholderTextColor={this.props.placeholderTextColor}
           value={this.state.value}
           onEndEditing={() => {
-            let { value } = this.state;
-            if (this.state.type === 'number') {
-              let stringValue = value.toString().replaceAll(',', '.');
-              this.setState({ stringValue });
-              this.props.onChangeText(stringValue);
-            }
+            // if (Platform.OS != 'ios') {
+            //   return;
+            // }
+            // let { value } = this.state;
+            // if (this.state.type === 'number') {
+            //   let stringValue = value.toString().replaceAll(',', '.');
+            //   this.setState({ stringValue });
+            //   this.props.onChangeText(stringValue);
+            // }
           }}
           onChangeText={(value) => {
             this.setState({ value });
