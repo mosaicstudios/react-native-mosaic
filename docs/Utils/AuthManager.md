@@ -71,6 +71,7 @@ _login() {
 | Method                 | Params                                                      | Description                                                                                          |
 | ---------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `setup`                | data (object)                                               | Set endpoints and current user.                                                                      |
+| `updateDeviceToken`    | func (object)                                               | Function used to set the a device token for push notifications.                                      |
 | `isAuthenticated`      | '-'                                                         | Checks if a user is logged in.. Returns a boolean value.                                             |
 | `getCurrentUser`       | '-'                                                         | Returns the current user object if one is set.                                                       |
 | `register`             | data (object)                                               | Register user endpoint.                                                                              |

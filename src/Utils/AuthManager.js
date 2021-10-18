@@ -24,6 +24,10 @@ export default class AuthManager {
     AuthManager.getUser = data.getUser;
   }
 
+  static updateDeviceToken(token) {
+    AuthManager.DEVICE_TOKEN = token;
+  }
+
   static showEndpoints() {
     let endpoints = {
       REFRESH_TOKEN_URL: AuthManager.REFRESH_TOKEN_URL,
