@@ -24,6 +24,23 @@ export default class AuthManager {
     AuthManager.getUser = data.getUser;
   }
 
+  static showEndpoints() {
+    let endpoints = {
+      REFRESH_TOKEN_URL: AuthManager.REFRESH_TOKEN_URL,
+      LOGIN_URL: AuthManager.LOGIN_URL,
+      LOGOUT_URL: AuthManager.LOGOUT_URL,
+      REGISTER_URL: AuthManager.REGISTER_URL,
+      USER_INFO_URL: AuthManager.USER_INFO_URL,
+      REQUEST_RESET_PASSWORD_URL: AuthManager.REQUEST_RESET_PASSWORD_URL,
+      RESET_PASSWORD: AuthManager.RESET_PASSWORD,
+      SOCIAL_LOGIN_URL: AuthManager.SOCIAL_LOGIN_URL,
+      DEVICE_TOKEN: AuthManager.DEVICE_TOKEN,
+      DEVICE_TOKEN_APNS: AuthManager.DEVICE_TOKEN_APNS,
+      DEVICE_TOKEN_FCM: AuthManager.DEVICE_TOKEN_FCM,
+    };
+    return endpoints;
+  }
+
   static isAuthenticated() {
     return AuthManager.isLoggedIn;
   }
