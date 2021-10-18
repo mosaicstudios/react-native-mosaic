@@ -83,11 +83,9 @@ export default class AuthManager {
   static register(data) {
     return FetchHelper.post(AuthManager.REGISTER_URL, data, false, false)
       .then((responseJson) => {
-        console.log('responseJson', responseJson);
         if (this._hasError(responseJson)) {
           throw AuthManager.getError(responseJson);
         }
-        console.log('no Error');
         AuthManager._updateTokens(responseJson.tokens);
         AuthManager._setUser(responseJson);
         return responseJson;
