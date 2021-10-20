@@ -290,6 +290,7 @@ export default class AuthManager {
   }
 
   static _setUser(responseJson) {
+    console.log('_setUser', responseJson);
     let { currentUser, userType } = AuthManager.getUser(responseJson);
     console.log('AuthManager.getUser', AuthManager.getUser(responseJson));
     console.log('currentUser', currentUser);
