@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ViewPropTypes, StyleSheet, Platform } from 'react-native';
+import { View, Text, ViewPropTypes, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 import PhoneInput from 'react-native-phone-number-input';
 import TextFormat from '../Utils/TextFormat';
@@ -55,7 +55,7 @@ export default class TextField extends Component {
       return false;
     }
     if (this.state.type === 'email') {
-      let reg = /^\w+([\.-]?w+)*@\w+([\.-]?w+)*(\.\w{2,3})+$/;
+      let reg = /^\w+([.-]?w+)*@\w+([.-]?w+)*(\.\w{2,3})+$/;
       if (reg.test(this.state.value) === false) {
         this.setState({ error: 'Please enter a valid email address' });
         return false;
