@@ -27,10 +27,11 @@ export default class LocationSearch extends Component {
   setAddress(location) {
     if (!location.latitude || !location.longitude) {
       this.setState({ data: location, showManualAddress: true });
+    } else {
+      this.setState({ data: location }, () => {
+        this.searchField.setAddressText(LocationFormat.fullAddress(location));
+      });
     }
-    this.setState({ data: location }, () => {
-      this.searchField.setAddressText(LocationFormat.fullAddress(location));
-    });
   }
 
   _underlineColor() {
