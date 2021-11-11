@@ -59,7 +59,6 @@ export default class App extends Component {
           showCountryPicker
           manualInputType="border"
           onPlaceSelected={(data) => {
-            console.log('data62', data);
             this.setState({ location: data });
           }}
         />
