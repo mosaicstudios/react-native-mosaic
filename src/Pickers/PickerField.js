@@ -13,7 +13,7 @@ export default class PickerField extends Component<Props> {
     this.state = {
       placeholder: props.placeholder,
       items: props.items,
-      value: props.selectedItemValue,
+      value: props.value,
       _hasFocus: false,
       error: null,
     };
