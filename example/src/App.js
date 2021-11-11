@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { StyleSheet, View } from 'react-native';
 
-import { SearchField, AuthManager } from 'react-native-mosaic';
+import { LocationSearch, AuthManager } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -52,13 +52,14 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SearchField
-          placeholder="Search"
-          searchIcon="search"
-          inputType="border"
-          borderColor="transparent"
-          onChangeText={(searchTerm) => {
-            this.setState({ searchTerm });
+        <LocationSearch
+          ref={(locationField) => (this.locationField = locationField)}
+          showManualAddress
+          manualAddressOnly
+          showCountryPicker
+          manualInputType="border"
+          onPlaceSelected={(data) => {
+            this.setState({ location: data });
           }}
         />
       </View>

@@ -3,9 +3,11 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import PropTypes from 'prop-types';
 
+import PickerField from '../Pickers/PickerField';
 import TextField from './TextField';
 import Separator from '../Separators/Separator';
 
+import Countries from '../Utils/Countries';
 import LocationFormat from '../Utils/LocationFormat';
 
 export default class LocationSearch extends Component {
@@ -218,16 +220,42 @@ export default class LocationSearch extends Component {
           placeholder="County"
           onChangeText={(value) => this._updateData('state', value)}
         />
-        <TextField
-          ref={(tfCountry) => (this.tfCountry = tfCountry)}
-          value={data ? data.country : null}
-          label="Country"
-          inputType={this.props.manualInputType}
-          labelStyle={this.props.manualInputLabelStyle}
-          inputContainerStyle={this.props.manualInputContainerStyle}
-          placeholder="Country"
-          onChangeText={(value) => this._updateData('country', value)}
-        />
+        {!this.props.showCountryPicker && (
+          <TextField
+            ref={(tfCountry) => (this.tfCountry = tfCountry)}
+            value={data ? data.country : null}
+            label="Country"
+            inputType={this.props.manualInputType}
+            labelStyle={this.props.manualInputLabelStyle}
+            inputContainerStyle={this.props.manualInputContainerStyle}
+            placeholder="Country"
+            onChangeText={(value) => this._updateData('country', value)}
+          />
+        )}
+        {this.props.showCountryPicker && (
+          <View style={{ marginVertical: 20 }}>
+            <Text style={this.props.manualInputLabelStyle}>Country</Text>
+            <PickerField
+              selectedItemValue={Countries.getCountry(data?.country_short)}
+              items={Countries.all()}
+              pickerContainerStyle={[
+                {
+                  marginTop: 10,
+                  height: 50,
+                  borderColor: 'lightgray',
+                  borderRadius: 0,
+                },
+                this.props.pickerContainerStyle,
+              ]}
+              pickerStyle={this.props.pickerStyle}
+              onValueChange={(selected) => {
+                let country = Countries.getCountry(data?.country_short);
+                this._updateData('country', country);
+                this._updateData('country_short', selected);
+              }}
+            />
+          </View>
+        )}
       </>
     );
   }
