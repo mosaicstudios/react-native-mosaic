@@ -234,20 +234,35 @@ export default class LocationSearch extends Component {
         )}
         {this.props.showCountryPicker && (
           <View style={styles.countryPickerContainer}>
-            <Text style={this.props.manualInputLabelStyle}>Country</Text>
             <PickerField
-              selectedItemValue={Countries.getCountry(data?.country_short)}
-              items={Countries.all()}
-              pickerContainerStyle={[
-                styles.pickerContainer,
-                this.props.pickerContainerStyle,
-              ]}
+              label={
+                Countries.getCountry(data?.country_short) || 'Select Country'
+              }
               pickerStyle={this.props.pickerStyle}
-              onValueChange={(selected) => {
-                let country = Countries.getCountry(data?.country_short);
+              data={[
+                {
+                  label: 'Select Country',
+                  items: Countries.all(),
+                },
+              ]}
+              valueStyle={[
+                styles.countryValueStyle(data?.country_short),
+                this.props.countryValueStyle,
+              ]}
+              textStyle={this.props.pickerTextStyle}
+              title="Country"
+              selectedValues={[
+                {
+                  label: data?.country,
+                  value: data?.country_short,
+                },
+              ]}
+              onValuesChange={(values) => {
+                let country = Countries.getCountry(values[0]);
                 this._updateData('country', country);
-                this._updateData('country_short', selected);
+                this._updateData('country_short', values[0]);
               }}
+              setInitialValueOnShowIfNull={true}
             />
           </View>
         )}
@@ -421,4 +436,9 @@ const styles = {
   errorText: { marginBottom: 10, color: 'red', marginLeft: 10, marginTop: 5 },
   manualAddressButtonStyle: { marginTop: 10 },
   countryPickerContainer: { marginVertical: 20 },
+  countryValueStyle: (country_short) => ({
+    fontSize: 17,
+    color: country_short ? 'black' : '#999999',
+    marginLeft: 5,
+  }),
 };
