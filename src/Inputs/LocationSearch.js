@@ -236,6 +236,7 @@ export default class LocationSearch extends Component {
           <View style={styles.countryPickerContainer}>
             <Text style={this.props.manualInputLabelStyle}>Country</Text>
             <PickerField
+              pickerContainerStyle={this.props.manualInputContainerStyle}
               selectedItemValue={this.state.selected}
               items={[{ label: 'Country', value: null }, ...Countries.all()]}
               onValueChange={(selected) => {

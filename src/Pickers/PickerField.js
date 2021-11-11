@@ -46,6 +46,9 @@ export default class PickerField extends Component<Props> {
   }
 
   _getPickerStyle() {
+    if (this.props.pickerStyle) {
+      return this.props.pickerStyle;
+    }
     return {
       inputIOS: {
         marginLeft: 15,
