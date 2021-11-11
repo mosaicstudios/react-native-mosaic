@@ -279,7 +279,7 @@ export default class Countries {
 
   static getCountry(country_code) {
     let countries = Countries.all();
-    let country = countries.find((country) => country.value === country_code);
+    let country = countries.find((item) => item.value === country_code);
     if (!country) {
       return;
     }

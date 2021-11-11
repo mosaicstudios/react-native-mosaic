@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ViewPropTypes } from 'react-native';
+import { View, TouchableOpacity, ViewPropTypes, Text } from 'react-native';
+import Modal from 'react-native-modal';
 
-import RNPickerSelect from 'react-native-picker-select';
+import { Icon } from 'react-native-elements';
+
+import ModalInlinePicker from './ModalInlinePicker';
 
 import PropTypes from 'prop-types';
 
-type Props = {};
-
-export default class PickerField extends Component<Props> {
+export default class PickerField extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isVisible: props.isVisible,
       placeholder: props.placeholder,
       items: props.items,
       value: props.selectedItemValue,
+      doneTitle: props.doneTitle,
       _hasFocus: false,
       error: null,
     };
-  }
-
-  static getDerivedStateFromProps(nextProps, state) {
-    return nextProps;
   }
 
   isValid() {
@@ -37,65 +36,136 @@ export default class PickerField extends Component<Props> {
     return true;
   }
 
-  _onBlur() {
-    this.setState({ _hasFocus: false });
+  _hide() {
+    this.setState({ isVisible: false });
   }
 
-  _onFocus() {
-    this.setState({ _hasFocus: true, error: null });
-  }
-
-  _underlineColor() {
-    return this.state._hasFocus ? 'black' : 'lightgray';
-  }
-
-  _renderErrorMessage() {
-    if (this.state.error === null || this.state.error === '') {
-      return null;
+  _onPressLabel() {
+    let { selectedValues, data } = this.props;
+    let fireOnValuesChange = false;
+    if (this.props.setInitialValueOnShowIfNull) {
+      data.forEach((entry, index) => {
+        if (selectedValues == null) {
+          selectedValues = [];
+        }
+        if (selectedValues[index] == null) {
+          selectedValues[index] = data[index].items[0].value;
+          fireOnValuesChange = true;
+        }
+      });
     }
 
-    return (
-      <Text labelStyle={[styles.error, this.props.errorTextStyle]}>
-        {this.state.error}
-      </Text>
+    this.setState(
+      {
+        isVisible: true,
+        selectedValues,
+      },
+      () => {
+        if (fireOnValuesChange) {
+          this.props.onValuesChange(selectedValues);
+        }
+      }
     );
   }
 
   render() {
     return (
-      <View style={[styles.mainContainer, this.props.containerStyle]}>
-        <View
-          style={[styles.pickerContainerStyle, this.props.pickerContainerStyle]}
-        >
-          <RNPickerSelect
-            placeholder={
-              this.state.placeholder ? { label: this.state.placeholder } : {}
-            }
-            value={this.state.value}
-            items={this.state.items}
-            onValueChange={(value) => {
-              this._onFocus();
-              this.setState({ value });
-              this.props.onValueChange(value);
-            }}
-            style={
-              this.props.pickerStyle ? this.props.pickerStyle : pickerStyle
-            }
-            hideIcon={true}
-          />
-        </View>
+      <View style={[styles.container, this.props.containerStyle]}>
+        <TouchableOpacity onPress={() => this._onPressLabel()}>
+          {this.props.label && (
+            <Text style={styles.labelText}>{this.props.label}</Text>
+          )}
+          <View style={[styles.pickerStyle, { ...this.props.pickerStyle }]}>
+            <Text style={this.props.valueStyle} numberOfLines={1}>
+              {this.props.value}
+            </Text>
+            {this.props.showArrow && (
+              <Icon
+                name={'chevron-down'}
+                size={this.props.iconSize || 20}
+                containerStyle={styles.iconContainerStyle}
+                color={this.props.iconColor || '#A0A4A8'}
+                type="entypo"
+              />
+            )}
+          </View>
+        </TouchableOpacity>
 
-        {this._renderErrorMessage()}
+        <Modal
+          isVisible={this.state.isVisible}
+          onBackdropPress={() => this._hide()}
+          onBackButtonPress={() => this._hide()}
+          useNativeDriver={true}
+          style={styles.modalStyle}
+        >
+          <View style={[styles.pickerContainer, this.props.pickerContainer]}>
+            <Text
+              style={[styles.doneButton, this.props.doneButtonStyle]}
+              onPress={() => this._hide()}
+            >
+              {this.props.doneTitle || 'Done'}
+            </Text>
+            <ModalInlinePicker
+              data={this.props.data}
+              labelStyle={styles.labelStyle}
+              itemStyle={this.props.textStyle}
+              selectedValues={this.props.selectedValues}
+              onValuesChange={(values) => this.props.onValuesChange(values)}
+            />
+          </View>
+        </Modal>
       </View>
     );
   }
 }
 
+const styles = {
+  pickerContainer: {
+    bottom: 0,
+    left: 0,
+    right: 0,
+    position: 'absolute',
+    backgroundColor: 'white',
+    paddingBottom: 30,
+  },
+  pickerStyle: {
+    borderWidth: 1,
+    paddingHorizontal: 20,
+    padding: 10,
+    borderColor: 'lightgray',
+    borderRadius: 0,
+    height: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  container: {
+    marginTop: 20,
+    width: '100%',
+  },
+  doneButton: {
+    textAlign: 'right',
+    color: '#3786FB',
+    fontSize: 16,
+    padding: 15,
+  },
+  labelStyle: {
+    fontSize: 18,
+  },
+  labelText: {
+    marginBottom: 10,
+    color: 'black',
+    fontSize: 15,
+  },
+  iconContainerStyle: { justifyContent: 'center' },
+  modalStyle: { margin: 0 },
+};
+
 PickerField.propTypes = {
   /**
    ** This function is called when the picker item changes. Returns the value from the items array.
    */
-  onValueChange: PropTypes.func.isRequired,
+  onValuesChange: PropTypes.func.isRequired,
 
   /**
    ** This function can be called to validate if the picker has a selected item. Returns a boolean value.
@@ -103,24 +173,19 @@ PickerField.propTypes = {
   isValid: PropTypes.func,
 
   /**
-   ** Current selected item in the picker.
+   ** Current selected item in the picker. Also used to show the placeholder value.
    */
   value: PropTypes.string.isRequired,
 
   /**
    ** An array of items to display in the picker.
    */
-  items: PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired,
 
   /**
    ** Style for the picker.
    */
   pickerStyle: ViewPropTypes.style,
-
-  /**
-   ** The view containing the picker label.
-   */
-  pickerContainerStyle: ViewPropTypes.style,
 
   /**
    ** Style for the error text.
@@ -133,45 +198,22 @@ PickerField.propTypes = {
   containerStyle: ViewPropTypes.style,
 
   /**
-   ** The placeholder label for the picker. Default is { label: 'Select an item'}
+   ** String to show to close button for the picker.
    */
-  placeholder: PropTypes.object,
+  doneTitle: PropTypes.string,
+
+  /**
+   ** Boolean value to show a chevron arrow on the right of the picker
+   */
+  showArrow: PropTypes.bool,
 };
 
 PickerField.defaultProps = {
-  placeholder: null,
+  textStyle: {
+    color: 'black',
+    fontSize: 18,
+  },
   items: [],
-  onValueChange: () => {},
+  showArrow: false,
+  setInitialValueOnShowIfNull: false,
 };
-
-const pickerStyle = {
-  inputIOS: {
-    textAlign: 'center',
-    color: 'black',
-    fontSize: 16,
-  },
-  inputAndroid: {
-    textAlign: 'center',
-    color: 'black',
-    fontSize: 16,
-    marginLeft: 0,
-    marginRight: -50,
-    underline: {
-      height: 0,
-    },
-  },
-};
-
-const styles = StyleSheet.create({
-  mainContainer: { width: '100%' },
-  pickerContainerStyle: {
-    marginTop: 20,
-    height: 35,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-  error: { color: 'red', marginLeft: 0 },
-});

@@ -233,18 +233,13 @@ export default class LocationSearch extends Component {
           />
         )}
         {this.props.showCountryPicker && (
-          <View style={{ marginVertical: 20 }}>
+          <View style={styles.countryPickerContainer}>
             <Text style={this.props.manualInputLabelStyle}>Country</Text>
             <PickerField
               selectedItemValue={Countries.getCountry(data?.country_short)}
               items={Countries.all()}
               pickerContainerStyle={[
-                {
-                  marginTop: 10,
-                  height: 50,
-                  borderColor: 'lightgray',
-                  borderRadius: 0,
-                },
+                styles.pickerContainer,
                 this.props.pickerContainerStyle,
               ]}
               pickerStyle={this.props.pickerStyle}
@@ -398,6 +393,12 @@ const styles = {
     flex: 1,
     marginBottom: -10,
   },
+  pickerContainer: {
+    marginTop: 10,
+    height: 50,
+    borderColor: 'lightgray',
+    borderRadius: 0,
+  },
   manualAddressContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -419,4 +420,5 @@ const styles = {
   },
   errorText: { marginBottom: 10, color: 'red', marginLeft: 10, marginTop: 5 },
   manualAddressButtonStyle: { marginTop: 10 },
+  countryPickerContainer: { marginVertical: 20 },
 };
