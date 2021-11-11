@@ -8,42 +8,31 @@
 import { PickerField } from 'react-native-mosaic';
 
 <PickerField
-  label={'Country'}
-  value={this.state.selectedItem || 'Select An Option'}
-  data={[
-    {
-      label: 'Select An Option',
-      items: [
-        { label: 'Developer', value: 'Developer' },
-        { label: 'Designer', value: 'Designer' },
-      ],
-    },
+  selectedItemValue={this.state.selected}
+  items={[
+    { label: 'Gaelic Football', value: 'gaelic football' },
+    { label: 'Hurling', value: 'hurling' },
+    { label: 'Rubgy', value: 'rugby' },
   ]}
-  textStyle={{
-    color: '#52575C',
-    fontSize: 15,
+  onValueChange={(selected) => {
+    this.setState({ selected });
   }}
-  container={{ marginVertical: 40 }}
-  selectedValues={[this.state.selectedItem]}
-  onValuesChange={(values) => this.setState({ selectedItem: values[0] })}
-  setInitialValueOnShowIfNull={true}
 />;
 ```
 
 ## Props Available
 
-| Prop             | Type   | Description                                                                                   |
-| ---------------- | ------ | --------------------------------------------------------------------------------------------- |
-| `onValuesChange` | `func` | This function is called when the picker item changes. Returns the value from the items array. |
+| Prop            | Type   | Description                                                                                   |
+| --------------- | ------ | --------------------------------------------------------------------------------------------- |
+| `onValueChange` | `func` | This function is called when the picker item changes. Returns the value from the items array. |
 
 | `value` | `string` | Current selected item in the picker. |
-| `data` | `array` | An array of items to display in the picker. |
+| `items` | `array` | An array of items to display in the picker. |
 | `pickerStyle?` | `style` | Style for the picker. |
-
+| `pickerContainerStyle?` | `style` | The view containing the picker label. |
 | `errorTextStyle?` | `style` | Style for the error text. Shown if isValid function returns false. |
 | `containerStyle?` | `style` | Style for the outermost view container. |
-| `doneTitle?` | `string` | String to show to close button for the picker. |
-| `showArrow?` | `bool` | Boolean value to show a chevron arrow on the right of the picker |
+| `placeholder?` | `string` | The placeholder label for the picker. Default is { label: 'Select an item'} |
 
 ## Instance Methods
 

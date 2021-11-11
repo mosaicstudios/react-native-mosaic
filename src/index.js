@@ -14,7 +14,6 @@ import LazyLoadingFlatList from './Lists/LazyLoadingFlatList';
 import LoadingView from './LoadingViews/LoadingView';
 import LocationSearch from './Inputs/LocationSearch';
 import LogoBanner from './Images/LogoBanner';
-import ModalInlinePicker from './Pickers/ModalInlinePicker';
 import NoResults from './Text/NoResults';
 import Onboarding from './Onboarding/Onboarding';
 import PickerField from './Pickers/PickerField';
@@ -55,7 +54,6 @@ export {
   LoadingView,
   LocationSearch,
   LogoBanner,
-  ModalInlinePicker,
   NoResults,
   Onboarding,
   PickerField,

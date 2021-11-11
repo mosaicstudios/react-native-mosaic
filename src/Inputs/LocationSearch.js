@@ -234,35 +234,15 @@ export default class LocationSearch extends Component {
         )}
         {this.props.showCountryPicker && (
           <View style={styles.countryPickerContainer}>
+            <Text style={this.props.manualInputLabelStyle}>Country</Text>
             <PickerField
-              label={
-                Countries.getCountry(data?.country_short) || 'Select Country'
-              }
-              pickerStyle={this.props.pickerStyle}
-              data={[
-                {
-                  label: 'Select Country',
-                  items: Countries.all(),
-                },
-              ]}
-              valueStyle={[
-                styles.countryValueStyle(data?.country_short),
-                this.props.countryValueStyle,
-              ]}
-              textStyle={this.props.pickerTextStyle}
-              title="Country"
-              selectedValues={[
-                {
-                  label: data?.country,
-                  value: data?.country_short,
-                },
-              ]}
-              onValuesChange={(values) => {
-                let country = Countries.getCountry(values[0]);
+              selectedItemValue={this.state.selected}
+              items={[{ label: 'Country', value: null }, ...Countries.all()]}
+              onValueChange={(selected) => {
+                let country = Countries.getCountry(selected);
                 this._updateData('country', country);
-                this._updateData('country_short', values[0]);
+                this._updateData('country_short', selected);
               }}
-              setInitialValueOnShowIfNull={true}
             />
           </View>
         )}
@@ -399,6 +379,7 @@ LocationSearch.defaultProps = {
   underlineColor: 'black',
   manualAddress: true,
   manualAddressOnly: false,
+  showCountryPicker: false,
   value: '',
 };
 
@@ -439,6 +420,6 @@ const styles = {
   countryValueStyle: (country_short) => ({
     fontSize: 17,
     color: country_short ? 'black' : '#999999',
-    marginLeft: 5,
+    marginLeft: 0,
   }),
 };
