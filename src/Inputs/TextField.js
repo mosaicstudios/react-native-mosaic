@@ -61,7 +61,7 @@ export default class TextField extends Component {
         return false;
       }
     } else if (this.state.type === 'password') {
-      if (this.state.value.length < 6) {
+      if (this.state.value == null || this.state.value.length < 6) {
         this.setState({ error: 'Password must have 6 or more characters' });
         return false;
       }
