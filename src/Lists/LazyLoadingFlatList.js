@@ -19,11 +19,11 @@ export default class LazyLoadingFlatList extends Component {
   }
 
   _renderFooter() {
-    if (!this.state.isInitialLoading && !this.props.renderFooter) {
+    if (!this.state.isInitialLoading && !this.props.ListFooterComponent) {
       return null;
     }
-    if (!this.state.isInitialLoading && this.props.renderFooter) {
-      return this.props.renderFooter();
+    if (!this.state.isInitialLoading && this.props.ListFooterComponent) {
+      return this.props.ListFooterComponent();
     }
     return (
       <View style={styles.loadingView}>
