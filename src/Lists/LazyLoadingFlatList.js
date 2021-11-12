@@ -19,10 +19,12 @@ export default class LazyLoadingFlatList extends Component {
   }
 
   _renderFooter() {
-    if (!this.state.isInitialLoading) {
+    if (!this.state.isInitialLoading && !this.props.renderFooter) {
       return null;
     }
-
+    if (!this.state.isInitialLoading && this.props.renderFooter) {
+      return this.props.renderFooter();
+    }
     return (
       <View style={styles.loadingView}>
         <ActivityIndicator animating size="large" />
