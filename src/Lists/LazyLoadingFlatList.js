@@ -22,7 +22,7 @@ export default class LazyLoadingFlatList extends Component {
     if (!this.state.isInitialLoading && !this.props.ListFooterComponent) {
       return null;
     }
-    if (!this.state.isInitialLoading && this.props.ListFooterComponent) {
+    if (this.props.ListFooterComponent) {
       return this.props.ListFooterComponent();
     }
     return (
