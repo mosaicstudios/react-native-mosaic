@@ -61,34 +61,48 @@ export default class TextField extends Component {
         return false;
       }
     } else if (this.state.type === 'password') {
-      if (this.state.value == null || this.state.value.length < 6) {
+      if (
+        !this.state.strictPassword &&
+        (this.state.value == null || this.state.value.length < 6)
+      ) {
         this.setState({ error: 'Password must have 6 or more characters' });
         return false;
       }
+      if (this.state.strictPassword) {
+        if (this.state.value == null || this.state.value.length < 8) {
+          this.setState({ error: 'Password must have 6 or more characters' });
+          return false;
+        }
+        var reg = /[0-9]+/;
+        if (!reg.test(this.state.value)) {
+          this.setState({ error: 'Password must contain at least one number' });
+          return false;
+        }
 
-      // var reg = /[0-9]+/
-      // if(!reg.test(this.state.value)){
-      //   this.setState({error: "Password must contain at least one number"})
-      //   return false;
-      // }
-      //
-      // reg = /[A-Z]+/
-      // if(!reg.test(this.state.value)){
-      //     this.setState({error: "Password must contain at least one uppercase character"})
-      //     return false;
-      // }
-      //
-      // reg = /[a-z]+/
-      // if(!reg.test(this.state.value)){
-      //   this.setState({error: "Password must contain at least one lowercase character"})
-      //   return false;
-      // }
-      //
-      // reg = /[^a-zA-Z0-9]+/
-      // if(!reg.test(this.state.value)){
-      //   this.setState({error: "Password must contain at least one special character"})
-      //   return false;
-      // }
+        reg = /[A-Z]+/;
+        if (!reg.test(this.state.value)) {
+          this.setState({
+            error: 'Password must contain at least one uppercase character',
+          });
+          return false;
+        }
+
+        reg = /[a-z]+/;
+        if (!reg.test(this.state.value)) {
+          this.setState({
+            error: 'Password must contain at least one lowercase character',
+          });
+          return false;
+        }
+
+        reg = /[^a-zA-Z0-9]+/;
+        if (!reg.test(this.state.value)) {
+          this.setState({
+            error: 'Password must contain at least one special character',
+          });
+          return false;
+        }
+      }
     }
     return true;
   }
@@ -395,6 +409,11 @@ TextField.propTypes = {
    * If true, the text input can be multiple lines. The default value is false.
    */
   multiline: PropTypes.bool,
+
+  /**
+   * Enforce strict password validation requiring an uppercase character, lowercase character, special character and one number
+   */
+  strictPassword: PropTypes.bool,
 };
 
 TextField.defaultProps = {
