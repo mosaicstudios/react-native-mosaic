@@ -62,15 +62,16 @@ export default class TextField extends Component {
         return false;
       }
     } else if (this.state.type === 'password') {
-      if (!this.state.strictPassword) {
-        if (this.state.value == null || this.state.value.length < 6) {
-          this.setState({ error: 'Password must have 6 or more characters' });
-          return false;
-        }
+      if (
+        !this.state.strictPassword &&
+        (this.state.value == null || this.state.value.length < 6)
+      ) {
+        this.setState({ error: 'Password must have 6 or more characters' });
+        return false;
       }
       if (this.state.strictPassword) {
         if (this.state.value == null || this.state.value.length < 8) {
-          this.setState({ error: 'Password must have 6 or more characters' });
+          this.setState({ error: 'Password must have 8 or more characters' });
           return false;
         }
         var reg = /[0-9]+/;
