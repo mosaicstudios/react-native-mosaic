@@ -26,6 +26,7 @@ export default class TextField extends Component {
       error: null,
       secureTextEntry: props.type === 'password',
       isDisabled: props.isDisabled,
+      strictPassword: props.strictPassword,
     };
   }
 
@@ -411,7 +412,7 @@ TextField.propTypes = {
   multiline: PropTypes.bool,
 
   /**
-   * Enforce strict password validation requiring an uppercase character, lowercase character, special character and one number
+   * Enforce strict password validation requiring an uppercase character, lowercase character, special character and one number.
    */
   strictPassword: PropTypes.bool,
 };
@@ -431,6 +432,7 @@ TextField.defaultProps = {
   multiline: false,
   isRequired: true,
   autoCapitalize: 'sentences',
+  strictPassword: false,
 };
 
 const styles = StyleSheet.create({
