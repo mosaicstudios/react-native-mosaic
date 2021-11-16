@@ -72,26 +72,27 @@ export default class LocationSearch extends Component {
     const errorMessage = 'Please enter a more specific location';
     var error = null;
     this.setState({ error });
+
     if (this.state.showManualAddress) {
-      if (line_1 === null || line_1 === '') {
+      if (!line_1 || line_1 === '') {
         error = errorMessage;
-      } else if (country === null || country === '') {
+      } else if (!country || country === '') {
         error = errorMessage;
-      } else if (city === null || city === '') {
+      } else if (!city || city === '') {
         error = errorMessage;
-      } else if (state === null || state === '') {
+      } else if (!state || state === '') {
         error = errorMessage;
       }
     } else {
-      if (country === null || country === '') {
+      if (!country || country === '') {
         error = errorMessage;
-      } else if (city === null || city === '') {
+      } else if (!city || city === '') {
         error = errorMessage;
-      } else if (line_1 === null || line_1 === '') {
+      } else if (!line_1 === null || line_1 === '') {
         error = errorMessage;
-      } else if (state === null || state === '') {
+      } else if (!state === null || state === '') {
         error = errorMessage;
-      } else if (longitude === null || latitude === null) {
+      } else if (!longitude || !latitude) {
         error = errorMessage;
       }
     }
