@@ -88,9 +88,9 @@ export default class LocationSearch extends Component {
         error = errorMessage;
       } else if (!city || city === '') {
         error = errorMessage;
-      } else if (!line_1 === null || line_1 === '') {
+      } else if (!line_1 || line_1 === '') {
         error = errorMessage;
-      } else if (!state === null || state === '') {
+      } else if (!state || state === '') {
         error = errorMessage;
       } else if (!longitude || !latitude) {
         error = errorMessage;
@@ -104,7 +104,7 @@ export default class LocationSearch extends Component {
     return true;
   }
   errorMessage() {
-    if (this.state.error === null || this.state.error === '') {
+    if (!this.state.error || this.state.error === '') {
       return <View style={styles.spacer} />;
     }
 

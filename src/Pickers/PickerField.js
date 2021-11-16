@@ -37,7 +37,7 @@ export default class PickerField extends Component<Props> {
       return true;
     }
 
-    if (this.state.value === null || this.state.value === '') {
+    if (!this.state.value || this.state.value === '') {
       this.setState({ error: 'Please select something' });
       return false;
     }
@@ -80,7 +80,7 @@ export default class PickerField extends Component<Props> {
   }
 
   _renderErrorMessage() {
-    if (this.state.error === null || this.state.error === '') {
+    if (!this.state.error || this.state.error === '') {
       return null;
     }
 

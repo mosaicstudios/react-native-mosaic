@@ -45,7 +45,7 @@ export default class TextField extends Component {
       return this._isValidPhoneNumber();
     }
 
-    if (this.state.value === null || this.state.value === '') {
+    if (!this.state.value || this.state.value === '') {
       if (this.props.label) {
         let message =
           TextFormat.capitalizeFirst(this.props.label) + ' is required.';
