@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ViewPropTypes } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ViewPropTypes,
+  Dimensions,
+} from 'react-native';
+
+const { width, height } = Dimensions.get('screen');
 
 import RNPickerSelect from 'react-native-picker-select';
 
@@ -58,6 +66,8 @@ export default class PickerField extends Component<Props> {
       inputAndroid: {
         color: this.state.value ? 'black' : 'gray',
         fontSize: 18,
+        marginLeft: 15,
+        width: width - 40,
         underline: {
           height: 0,
         },
@@ -93,7 +103,6 @@ export default class PickerField extends Component<Props> {
             }
             value={this.state.value}
             items={this.state.items}
-            fixAndroidTouchableBug={true}
             useNativeAndroidPickerStyle={false}
             onValueChange={(value) => {
               this._onFocus();
