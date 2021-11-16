@@ -58,8 +58,6 @@ export default class PickerField extends Component<Props> {
       inputAndroid: {
         color: this.state.value ? 'black' : 'gray',
         fontSize: 18,
-        marginLeft: 15,
-        marginRight: -50,
         underline: {
           height: 0,
         },
@@ -95,6 +93,8 @@ export default class PickerField extends Component<Props> {
             }
             value={this.state.value}
             items={this.state.items}
+            fixAndroidTouchableBug={true}
+            useNativeAndroidPickerStyle={false}
             onValueChange={(value) => {
               this._onFocus();
               this.setState({ value });
