@@ -257,7 +257,7 @@ export default class LocationSearch extends Component {
             inputType={this.props.manualInputType}
             labelStyle={this.props.manualInputLabelStyle}
             inputContainerStyle={this.props.manualInputContainerStyle}
-            placeholder="Postal Code"
+            placeholder="D24 3QA"
             onChangeText={(value) => this._updateData('postal_code', value)}
           />
         )}
