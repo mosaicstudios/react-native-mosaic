@@ -249,7 +249,7 @@ export default class LocationSearch extends Component {
             />
           </View>
         )}
-        {!this.props.showPostalCode && (
+        {this.props.showPostalCode && (
           <TextField
             ref={(tfPostalCode) => (this.tfPostalCode = tfPostalCode)}
             value={data ? data.postal_code : null}
