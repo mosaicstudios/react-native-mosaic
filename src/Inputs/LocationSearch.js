@@ -400,7 +400,6 @@ LocationSearch.defaultProps = {
   manualAddress: true,
   manualAddressOnly: false,
   showCountryPicker: false,
-  showPostalCode: false,
   value: '',
 };
 
