@@ -398,6 +398,7 @@ LocationSearch.propTypes = {
 LocationSearch.defaultProps = {
   underlineColor: 'black',
   manualAddress: true,
+  showPostalCode: false,
   manualAddressOnly: false,
   showCountryPicker: false,
   value: '',
