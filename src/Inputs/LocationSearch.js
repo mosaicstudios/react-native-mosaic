@@ -249,6 +249,18 @@ export default class LocationSearch extends Component {
             />
           </View>
         )}
+        {!this.props.showPostalCode && (
+          <TextField
+            ref={(tfPostalCode) => (this.tfPostalCode = tfPostalCode)}
+            value={data ? data.postal_code : null}
+            label="Postal Code"
+            inputType={this.props.manualInputType}
+            labelStyle={this.props.manualInputLabelStyle}
+            inputContainerStyle={this.props.manualInputContainerStyle}
+            placeholder="Postal Code"
+            onChangeText={(value) => this._updateData('postal_code', value)}
+          />
+        )}
       </>
     );
   }
@@ -376,6 +388,11 @@ LocationSearch.propTypes = {
    * When an address is entered the full address will return.
    */
   onPlaceSelected: PropTypes.func,
+
+  /**
+   * Show postal code or zip code input field.
+   */
+  showPostalCode: PropTypes.bool,
 };
 
 LocationSearch.defaultProps = {
@@ -383,6 +400,7 @@ LocationSearch.defaultProps = {
   manualAddress: true,
   manualAddressOnly: false,
   showCountryPicker: false,
+  showPostalCode: false,
   value: '',
 };
 
