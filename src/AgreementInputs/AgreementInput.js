@@ -220,7 +220,7 @@ AgreementInput.propTypes = {
 
 AgreementInput.defaultProps = {
   visible: true,
-  title: 'I agree to the terms & conditions ',
+  title: 'I agree to the ',
   checkboxAnimationDuration: 0.4,
   onValueChange: () => {},
 };
