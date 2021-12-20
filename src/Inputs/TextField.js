@@ -56,7 +56,7 @@ export default class TextField extends Component {
       return false;
     }
     if (this.state.type === 'email') {
-      let reg = /^\w+([.-]?w+)*@\w+([.-]?w+)*(\.\w{2,3})+$/;
+      let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
       if (reg.test(this.state.value) === false) {
         this.setState({ error: 'Please enter a valid email address' });
         return false;
