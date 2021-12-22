@@ -161,6 +161,7 @@ export default class LocationSearch extends Component {
     if (!this.state.showManualAddress) {
       return null;
     }
+    console.log('this.props.hidePostalCode', this.props.hidePostalCode);
     return (
       <>
         {!this.props.manualAddressOnly && (
@@ -398,9 +399,9 @@ LocationSearch.propTypes = {
 LocationSearch.defaultProps = {
   underlineColor: 'black',
   manualAddress: true,
-  showPostalCode: false,
   manualAddressOnly: false,
-  showCountryPicker: false,
+  showCountryPicker: true,
+  showPostalCode: false,
   value: '',
 };
 
@@ -437,7 +438,7 @@ const styles = {
   },
   errorText: { marginBottom: 10, color: 'red', marginLeft: 10, marginTop: 5 },
   manualAddressButtonStyle: { marginTop: 10 },
-  countryPickerContainer: { marginVertical: 20 },
+  countryPickerContainer: { marginTop: 20, marginBottom: 10 },
   countryValueStyle: (country_short) => ({
     fontSize: 17,
     color: country_short ? 'black' : '#999999',
