@@ -19,6 +19,23 @@ constructor(props) {
 }
 ```
 
+### FadeIndicator
+
+```js
+import { FadeIndicator } from 'react-native-mosaic';
+
+<FadeIndicator
+  data={data}
+  scrollX={this.state.scrollX}
+  activeDotColor="blue"
+  inActiveDotColor="gray"
+  inActiveDotOpacity={0.5}
+  activeDotOpacity={1}
+  dotSize={12}
+  indicatorSpacing={10}
+/>;
+```
+
 ### ScaleIndicator
 
 ```js
@@ -86,6 +103,22 @@ import { ExpandingIndicator } from 'react-native-mosaic';
   dotWidth={10}
 />;
 ```
+
+## FadeIndicator Props Available
+
+| Prop                     | Type     | Description                                                                    |
+| ------------------------ | -------- | ------------------------------------------------------------------------------ |
+| `scrollX`                | `func`   | The horizontal position of the scrollView/FlatList currently being animated.   |
+| `data`                   | `array`  | Used to render the number of dot indicators and to animate the scrolling dots. |
+| `inActiveDotColor?`      | `string` | The color of the inactive indicator dots.                                      |
+| `activeDotColor?`        | `string` | The color of the active indicator dot.                                         |
+| `dotSize?`               | `number` | The size of the dot indicators. Default size is 12.                            |
+| `indicatorSpacing?`      | `number` | The spacing between the dot indicators. Default size is 10.                    |
+| `inActiveDotOpacity?`    | `number` | The opacity of the inactive indicator dots. Default value is 1.                |
+| `activeDotOpacity?`      | `number` | The opacity of the active indicator dots. Default value is 1.                  |
+| `containerStyle?`        | `style`  | The style of the main view container.                                          |
+| `dotStyle?`              | `style`  | The style of the dot indicators                                                |
+| `slidingIndicatorStyle?` | `style`  | The style of the sliding dot indicator                                         |
 
 ## ScaleIndicator Props Available
 

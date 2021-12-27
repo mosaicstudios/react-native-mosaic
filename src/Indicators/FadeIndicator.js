@@ -9,7 +9,7 @@ import {
 const { width } = Dimensions.get('screen');
 import PropTypes from 'prop-types';
 
-export default class SlidingIndicator extends Component {
+export default class FadeIndicator extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +18,7 @@ export default class SlidingIndicator extends Component {
       dotSize: props.dotSize,
       indicatorSpacing: props.indicatorSpacing,
       inActiveDotColor: props.inActiveDotColor,
+      activeDotColor: props.activeDotColor,
       inActiveDotOpacity: props.inActiveDotOpacity,
       activeDotOpacity: props.activeDotOpacity,
     };
@@ -28,7 +29,16 @@ export default class SlidingIndicator extends Component {
   }
 
   _renderIndicators() {
-    let { dotSize, indicatorSpacing, data, scrollX } = this.state;
+    let {
+      dotSize,
+      indicatorSpacing,
+      inActiveDotColor,
+      activeDotColor,
+      inActiveDotOpacity,
+      activeDotOpacity,
+      data,
+      scrollX,
+    } = this.state;
     const inputRange = [-width, 0, width];
     const translateX = scrollX.interpolate({
       inputRange,
@@ -56,29 +66,42 @@ export default class SlidingIndicator extends Component {
               transform: [{ translateX }],
             },
             this.props.slidingIndicatorStyle,
-            {
-              backgroundColor: this.props.activeDotColor,
-              opacity: this.props.activeDotOpacity,
-            },
           ]}
         />
-        {data.map((_item, index) => {
+        {data.map((_, index) => {
+          const itemInputRange = [
+            (index - 1) * width,
+            index * width,
+            (index + 1) * width,
+          ];
+          const colour = scrollX.interpolate({
+            inputRange: itemInputRange,
+            outputRange: [inActiveDotColor, activeDotColor, inActiveDotColor],
+            extrapolate: 'clamp',
+          });
+          const opacity = scrollX.interpolate({
+            inputRange: itemInputRange,
+            outputRange: [
+              inActiveDotOpacity,
+              activeDotOpacity,
+              inActiveDotOpacity,
+            ],
+            extrapolate: 'clamp',
+          });
           return (
-            <View
+            <Animated.View
               key={index}
               style={[
                 {
-                  width: this.props.dotSize,
-                  height: this.props.dotSize,
+                  width: dotSize,
+                  height: dotSize,
                   marginHorizontal: indicatorSpacing,
-                  borderRadius: this.props.dotSize / 2,
+                  borderRadius: dotSize / 2,
+                  backgroundColor: colour,
+                  opacity,
                 },
                 styles.dotStyle,
                 this.props.dotStyle,
-                {
-                  backgroundColor: this.props.inActiveDotColor,
-                  opacity: this.props.inActiveDotOpacity,
-                },
               ]}
             />
           );
@@ -100,7 +123,7 @@ export default class SlidingIndicator extends Component {
   }
 }
 
-SlidingIndicator.propTypes = {
+FadeIndicator.propTypes = {
   /**
    * The horizontal position of the scrollView/FlatList currently being animated.
    */
@@ -147,7 +170,7 @@ SlidingIndicator.propTypes = {
   dotStyle: ViewPropTypes.style,
 };
 
-SlidingIndicator.defaultProps = {
+FadeIndicator.defaultProps = {
   dotSize: 12,
   indicatorSpacing: 10,
   inActiveDotOpacity: 0.5,
@@ -164,11 +187,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingBottom: 50,
   },
-  dotStyle: {
-    backgroundColor: 'lightgrey',
-  },
   slidingIndicatorStyle: {
-    backgroundColor: '#fff',
     zIndex: 99,
     alignItems: 'center',
     justifyContent: 'center',

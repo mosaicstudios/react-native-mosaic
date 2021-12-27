@@ -8,6 +8,7 @@ import SlidingBorderIndicator from '../Indicators/SlidingBorderIndicator';
 import ScaleIndicator from '../Indicators/ScaleIndicator';
 import ExpandingIndicator from '../Indicators/ExpandingIndicator';
 import SlidingIndicator from '../Indicators/SlidingIndicator';
+import FadeIndicator from '../Indicators/FadeIndicator';
 import Backdrop from './Backdrop';
 import Shape from './Shape';
 
@@ -118,6 +119,22 @@ export default class IntroScroller extends Component {
   _renderIndicators() {
     let { indicatorType, scrollX, data } = this.state;
     switch (indicatorType) {
+      case 'fade':
+        return (
+          <FadeIndicator
+            data={data}
+            scrollX={scrollX}
+            activeDotColor="white"
+            inActiveDotColor="white"
+            inActiveDotOpacity={0.5}
+            activeDotOpacity={1}
+            dotSize={12}
+            indicatorSpacing={10}
+            containerStyle={this.props.indicatorContainerStyle}
+            dotStyle={this.props.dotStyle}
+            slidingIndicatorStyle={this.props.slidingIndicatorStyle}
+          />
+        );
       case 'sliding':
         return (
           <SlidingIndicator
@@ -183,7 +200,7 @@ export default class IntroScroller extends Component {
         );
       default:
         return (
-          <SlidingIndicator
+          <FadeIndicator
             data={data}
             scrollX={scrollX}
             activeDotColor="white"
@@ -281,6 +298,7 @@ IntroScroller.propTypes = {
   backgroundShapeAnimation: PropTypes.bool,
   singleBackgroundColor: PropTypes.string,
   indicatorType: PropTypes.oneOf([
+    'fade',
     'sliding',
     'slidingBorder',
     'scale',
@@ -289,7 +307,7 @@ IntroScroller.propTypes = {
 };
 
 IntroScroller.defaultProps = {
-  indicatorType: 'sliding',
+  indicatorType: 'fade',
   data: [{}, {}],
   doneLabel: 'Done',
   nextLabel: 'Next',
