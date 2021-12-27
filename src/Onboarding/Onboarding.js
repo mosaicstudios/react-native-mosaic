@@ -303,11 +303,12 @@ IntroScroller.propTypes = {
     'slidingBorder',
     'scale',
     'expanding',
+    'expandingWorm',
   ]),
 };
 
 IntroScroller.defaultProps = {
-  indicatorType: 'fade',
+  indicatorType: 'expandingWorm',
   data: [{}, {}],
   doneLabel: 'Done',
   nextLabel: 'Next',

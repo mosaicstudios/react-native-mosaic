@@ -16,7 +16,7 @@ constructor(props) {
   this.state = {
     width,
     scrollX: new Animated.Value(0),
-    data: ['Test 1', 'Test 2', 'Test 3'],
+    data: [{title: 'Test 1'}, {title: 'Test 2'}, {title: 'Test 3'}],
   }
 }
 ```
@@ -26,7 +26,6 @@ import { TitleTicker } from 'react-native-mosaic';
 
 <View style={styles.container}>
   <TitleTicker data={this.state.data} scrollX={this.state.scrollX} />
-
   // Change to scrollY for vertical
   <Animated.FlatList
     horizontal
@@ -46,7 +45,7 @@ import { TitleTicker } from 'react-native-mosaic';
       );
     }}
   />
-</View>
+</View>;
 ```
 
 ## Props Available

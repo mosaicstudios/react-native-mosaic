@@ -1,6 +1,7 @@
 // Component imports
 import Accordion from './Lists/Accordion';
 import AgreementInput from './AgreementInputs/AgreementInput';
+import BackgroundCarousel from './Scroll/BackgroundCarousel';
 import Button from './Buttons/Button';
 import CheckBox from './Inputs/CheckBox';
 import DatePicker from './Pickers/DatePicker';
@@ -33,6 +34,7 @@ import TitleTicker from './Text/TitleTicker';
 // Utility imports
 import AuthManager from './Utils/AuthManager';
 import Clone from './Utils/Clone';
+import Color from './Utils/Color';
 import DateTime from './Utils/DateTime';
 import FetchHelper from './Utils/FetchHelper';
 import List from './Utils/List';
@@ -44,6 +46,7 @@ import TextFormat from './Utils/TextFormat';
 export {
   Accordion,
   AgreementInput,
+  BackgroundCarousel,
   Button,
   CheckBox,
   DatePicker,
@@ -79,6 +82,7 @@ export {
   AuthManager,
   FetchHelper,
   Clone,
+  Color,
   DateTime,
   List,
   LocationFormat,
