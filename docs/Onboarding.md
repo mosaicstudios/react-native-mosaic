@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1T7Ba_93Kz0AO3iqizBbQRgJwVJeYzv5P)
+![Onboarding](https://user-images.githubusercontent.com/22890658/147465395-5be62c3d-8dc0-44f8-96ab-f1c06ca50b2f.gif)
 
 ## Onboarding Screen
 
