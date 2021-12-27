@@ -1,4 +1,4 @@
-![BackgroundCarousel](https://user-images.githubusercontent.com/22890658/147465088-98a24bbc-b1c7-4fd2-99e4-e897e57566bc.gif)
+![BackgroundCarousel](https://user-images.githubusercontent.com/22890658/147511739-14fa2329-6b81-4c05-a3cf-2b44771977b3.gif)
 
 ## BackgroundCarousel Screen 2
 
