@@ -30,12 +30,11 @@ render() {
 
 ## Props Available
 
-| Prop | Type | Description |
-| ---- | ---- | ----------- |
-
-| `progressBarColor?` | `string` | Change the color of the progress bar. |
-| `containerStyle?` | `style` | Main style prop of the surrounding container view. |
-| `progressBarStyle?` | `style` | Style prop for the progress bar view. |
+| Prop                | Type     | Description                                        |
+| ------------------- | -------- | -------------------------------------------------- |
+| `progressBarColor?` | `string` | Change the color of the progress bar.              |
+| `containerStyle?`   | `style`  | Main style prop of the surrounding container view. |
+| `progressBarStyle?` | `style`  | Style prop for the progress bar view.              |
 
 ## Instance Methods
 
