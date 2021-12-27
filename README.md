@@ -39,6 +39,7 @@ Please see the components below for guides on how to implement and use the compo
 - [x] [NoResults](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/NoResults.md)
 - [x] [QuickModal](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/QuickModal.md)
 - [x] [PickerField](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/PickerField.md)
+- [x] [ProgressBar](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/ProgressBar.md)
 - [x] [RadioGroup](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/RadioGroup.md)
 - [x] [SearchField](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SearchBar.md)
 - [x] [Separator](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Separator.md)
