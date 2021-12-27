@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1NmjwnW4cWlL7WbdrlK-Mt-CJ1IXWhlsJ)
+![PickerField](https://user-images.githubusercontent.com/22890658/147465567-476e1c04-b6b6-4816-af87-790fc4b7a95d.gif)
 
 ## PickerField
 
