@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1Jy31C4-jnNg2rlwG4u8cpTB8dGnjcwMh)
+![Indicators](https://user-images.githubusercontent.com/22890658/147465130-bfa8f7b9-4527-42e9-ab99-8921ed8ae027.gif)
 
 ## Scroll Indicators
 
