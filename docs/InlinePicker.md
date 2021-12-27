@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1DGaGM7E4tK_X-meb4y2yL4fkttWMv41A)
+![InlinePicker](https://user-images.githubusercontent.com/22890658/147465172-81d333db-c4b3-403e-8cb6-ae87a916b101.gif)
 
 ## Inline Picker
 
