@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1cTWGCpqT0jAK0WzRdFl72_N4y3FOpE1k)
+![SegmentedControl](https://user-images.githubusercontent.com/22890658/147465904-45d337d1-c881-46b3-91fb-e70cbc677c15.gif)
 
 ## Segmented Control
 
