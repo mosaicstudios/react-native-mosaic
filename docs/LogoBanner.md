@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1HKoUfq6cyX-f6qDaBHxYt6nSakHwDmXq)
+<img width="160" alt="LogoBanner" src="https://user-images.githubusercontent.com/22890658/147465307-71ec3aa3-f015-46c0-836a-f51a7abcb1ce.png">
 
 ## Logo Banner
 
