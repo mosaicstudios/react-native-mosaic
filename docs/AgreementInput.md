@@ -1,4 +1,5 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1yX4JMcq406tIg76oKjoWgHDK3cvykMoW)
+
+![AgreementInput](https://user-images.githubusercontent.com/22890658/147463266-efd32766-ca37-43bb-a0a2-eeba6ea4f3e8.gif)
 
 ## AgreementInput
 
