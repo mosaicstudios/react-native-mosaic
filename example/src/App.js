@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { StyleSheet, View } from 'react-native';
 
-import { LocationSearch, AuthManager } from 'react-native-mosaic';
+import { ProgressBar, AuthManager, Button } from 'react-native-mosaic';
 
 export default class App extends Component {
   constructor(props) {
@@ -52,14 +52,18 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <LocationSearch
-          ref={(locationField) => (this.locationField = locationField)}
-          showManualAddress
-          manualAddressOnly
-          showCountryPicker
-          manualInputType="border"
-          onPlaceSelected={(data) => {
-            this.setState({ location: data });
+        <ProgressBar ref={(progress) => (this.progress = progress)} />
+        <View style={{ margin: 20 }} />
+        <Button
+          title="Next"
+          onPress={() => {
+            this.progress.increaseProgress(25);
+          }}
+        />
+        <Button
+          title="Back"
+          onPress={() => {
+            this.progress.decreaseProgress(25);
           }}
         />
       </View>

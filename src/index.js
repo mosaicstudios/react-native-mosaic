@@ -18,6 +18,7 @@ import LogoBanner from './Images/LogoBanner';
 import NoResults from './Text/NoResults';
 import Onboarding from './Onboarding/Onboarding';
 import PickerField from './Pickers/PickerField';
+import ProgressBar from './LoadingViews/ProgressBar';
 import RadioGroup from './Inputs/RadioGroup';
 import ScaleIndicator from './Indicators/ScaleIndicator';
 import SearchField from './Inputs/SearchField';
@@ -60,6 +61,7 @@ export {
   NoResults,
   Onboarding,
   PickerField,
+  ProgressBar,
   RadioGroup,
   ScaleIndicator,
   SearchField,
