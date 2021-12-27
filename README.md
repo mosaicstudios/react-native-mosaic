@@ -48,6 +48,8 @@ Please see the components below for guides on how to implement and use the compo
 ## Utilities included:
 
 - [x] [AuthManager](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/AuthManager.md)
+- [x] [Clone](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/Clone.md)
+- [x] [Color](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/Color.md)
 - [x] [DateTime](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/DateTime.md)
 - [x] [FetchHelper](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/FetchHelper.md)
 - [x] [List](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Utils/List.md)
