@@ -1,6 +1,6 @@
 ![BackgroundCarousel](https://user-images.githubusercontent.com/22890658/147511739-14fa2329-6b81-4c05-a3cf-2b44771977b3.gif)
 
-## BackgroundCarousel Screen 2
+## BackgroundCarousel Screen
 
 ## Usage (Basic)
 
