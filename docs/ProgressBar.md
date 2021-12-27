@@ -1,4 +1,4 @@
-![LocationSearch](https://user-images.githubusercontent.com/22890658/147465258-1c5c6462-0be6-41c4-9f7e-ab9a17e033e0.gif)
+![ProgressBar](https://user-images.githubusercontent.com/22890658/147476626-f73fd79c-8bd8-4187-98dd-5a0723ed115f.gif)
 
 ## Progress Bar
 
