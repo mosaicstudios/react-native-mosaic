@@ -53,6 +53,16 @@ import { Onboarding } from 'react-native-mosaic';
 
 ## Props Available
 
-| Prop    | Type    | Description     |
-| ------- | ------- | --------------- |
-| `data?` | `array` | Array of urls . |
+| Prop                     | Type     | Description                                                                                             |
+| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------- |
+| `data?`                  | `array`  | Array of urls .                                                                                         |
+| `backgroundColors?`      | `array`  | Array of colors.                                                                                        |
+| `singleBackgroundColor?` | `string` | Single background color for the backdrop.                                                               |
+| `backgroundShape?`       | `string` | Animated shape that animates on scroll. Currenty two shapes are supported 'circle' or 'square' .        |
+| `indicatorType?`         | `string` | Choose an indicator type. Types 'sliding', 'slidingBorder', 'scale', 'expanding'. Default is 'sliding'. |
+| `showPrevButton?`        | `bool`   | show the back button.                                                                                   |
+| `prevLabel?`             | `string` | Title of the back button.                                                                               |
+| `showNextButton?`        | `bool`   | show the next button.                                                                                   |
+| `nextLabel?`             | `string` | Title of the next button.                                                                               |
+| `showDoneButton?`        | `bool`   | show the done button.                                                                                   |
+| `doneLabel?`             | `string` | Title of the done button.                                                                               |
