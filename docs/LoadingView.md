@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1wEachC62WsY10jp1gS0m1bJl8sZa8wzl)
+![LoadingView](https://user-images.githubusercontent.com/22890658/147465223-507e0e9f-dea4-4521-97e7-1dbac9bbbbc7.gif)
 
 ## Loading View
 
