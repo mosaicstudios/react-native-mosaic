@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1ZK29srbFMcrGTp3RWomVhQ5T7YIB6-oS)
+![GetStarted](https://user-images.githubusercontent.com/22890658/147469115-25056ac9-c7d7-4785-be73-579dd570a7f6.gif)
 
 ## Get Started Screen
 
