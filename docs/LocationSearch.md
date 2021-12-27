@@ -36,6 +36,8 @@ render() {
 | `manualAddress?`             | `bool`   | Default is true. If set as false change to manual address button will not show.                                              |
 | `showManualAddress?`         | `bool`   | Default is false. If set as true the manual address input fields will show.                                                  |
 | `manualAddressOnly?`         | `bool`   | Default is false. If set as true autocomplete input will not show. Gmaps key is not required for this.                       |
+| `showPostalCode?`            | `bool`   | Show postal code or zip code input field.                                                                                    |
+| `showCountryPicker?`         | `bool`   | Show a country picker or simple text input. Default is true.                                                                 |
 | `manualInputType?`           | `style`  | Style that will be passed to the style props of the manual React Native TextInput.                                           |
 | `manualInputLabelStyle?`     | `style`  | Style that will be passed to the label text above the manual text fields.                                                    |
 | `manualInputContainerStyle?` | `style`  | Styling for manual input component container.                                                                                |

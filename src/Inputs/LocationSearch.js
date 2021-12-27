@@ -391,6 +391,11 @@ LocationSearch.propTypes = {
   onPlaceSelected: PropTypes.func,
 
   /**
+   * Show a country picker or simple text input. Default is true.
+   */
+  showCountryPicker: PropTypes.bool,
+
+  /**
    * Show postal code or zip code input field.
    */
   showPostalCode: PropTypes.bool,
