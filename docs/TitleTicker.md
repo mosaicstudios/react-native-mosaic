@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1TiK9PpPtuVZLmqQZpFt2Lvv8PZ08kDTG)
+![TitleTicker](https://user-images.githubusercontent.com/22890658/147465971-a03fc6ad-450a-4905-8098-0673157d10a9.gif)
 
 ## Title Ticker
 
