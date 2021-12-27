@@ -1,4 +1,4 @@
-![TitleTicker](https://user-images.githubusercontent.com/22890658/147465971-a03fc6ad-450a-4905-8098-0673157d10a9.gif)
+![TitleTicker](https://user-images.githubusercontent.com/22890658/147468294-0ce09640-38b3-4a49-acdd-ec6ab16084a7.gif)
 
 ## Title Ticker
 
