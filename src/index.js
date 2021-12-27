@@ -2,6 +2,7 @@
 import Accordion from './Lists/Accordion';
 import AgreementInput from './AgreementInputs/AgreementInput';
 import Button from './Buttons/Button';
+import CheckBox from './Inputs/CheckBox';
 import DatePicker from './Pickers/DatePicker';
 import ExpandingIndicator from './Indicators/ExpandingIndicator';
 import Gallery from './Galleries/Gallery';
@@ -26,6 +27,7 @@ import SlidingBorderIndicator from './Indicators/SlidingBorderIndicator';
 import SlidingIndicator from './Indicators/SlidingIndicator';
 import QuickModal from './Modals/QuickModal';
 import TextField from './Inputs/TextField';
+import TitleTicker from './Text/TitleTicker';
 
 // Utility imports
 import AuthManager from './Utils/AuthManager';
@@ -42,6 +44,7 @@ export {
   Accordion,
   AgreementInput,
   Button,
+  CheckBox,
   DatePicker,
   ExpandingIndicator,
   Gallery,
@@ -66,6 +69,7 @@ export {
   SlidingIndicator,
   QuickModal,
   TextField,
+  TitleTicker,
 };
 
 // Utility exports

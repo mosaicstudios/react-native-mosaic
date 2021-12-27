@@ -29,7 +29,7 @@ export default class TitleTicker extends Component {
     return (
       <View style={[styles.titleContainer, this.props.titleContainer]}>
         <Animated.View style={{ transform: [{ translateY }] }}>
-          {data.map(({ title }, index) => {
+          {data.map((title, index) => {
             return (
               <Text key={index.toString()} style={styles.text}>
                 {title}
