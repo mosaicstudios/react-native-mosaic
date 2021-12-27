@@ -1,4 +1,4 @@
-![Alt Text](https://drive.google.com/uc?export=view&id=1Nv_AdP8oQ2xk-TedIflR-xUSqjpU4K6p)
+![Gallery](https://user-images.githubusercontent.com/22890658/147465038-1931fb15-b168-4fb7-bd6c-9d61408ea805.gif)
 
 ## Gallery Screen
 
