@@ -4,6 +4,21 @@
 
 ## Usage (Basic)
 
+### Get Started
+
+To get the scrollX value use the animated component imported from react-native
+
+```js
+import { Animated } from 'react-native';
+
+constructor(props) {
+  super(props);
+  this.state = {
+    scrollX: new Animated.Value(0),
+  }
+}
+```
+
 ```js
 import { TitleTicker } from 'react-native-mosaic';
 
