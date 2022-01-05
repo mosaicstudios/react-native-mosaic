@@ -12,6 +12,7 @@ import { DateTime } from 'react-native-mosaic';
 
 | Method              | Params                                         | Description                                                                     |
 | ------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------- |
+| `format`            | date (string), format (string)                 | Convert date to formatted string.                                               |
 | `isoString`         | date (string), format? (string)                | Convert date to iso string.                                                     |
 | `createDateTime`    | date (string), time (string), format? (string) | Convert date string and time string to moment.                                  |
 | `formatDateTime`    | date (string)                                  | Format datetime to 'Do MMM YYYY, h:mm a' format.                                |
