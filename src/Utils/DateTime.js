@@ -12,6 +12,10 @@ export default class DateTime {
   static year() {
     return moment().format('YYYY');
   }
+  
+  static format(date, format){
+    return moment(date).format(format);
+  }
 
   static isoString(date, format) {
     if (!format) {
