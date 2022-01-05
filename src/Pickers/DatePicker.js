@@ -91,7 +91,6 @@ export default class DatePicker extends Component {
             />
           </View>
         </TouchableOpacity>
-        <Separator style={styles.separator} />
         {this.state.showError && (
           <Text style={[styles.errorTextStyle, this.props.errorTextStyle]}>
             {this.state.error}
