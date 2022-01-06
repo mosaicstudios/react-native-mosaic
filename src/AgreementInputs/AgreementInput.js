@@ -102,7 +102,7 @@ export default class AgreementInput extends Component {
             boxType={this.state.boxType}
             onCheckColor={this.state.checkColor}
             onFillColor={this.state.fillColor}
-            onTintColor={this.state.tintColor}
+            onTintColor={this.state.onTintColor}
             animationDuration={this.state.checkboxAnimationDuration}
             onValueChange={(value) => {
               this.setState({ termsAgreed: value }, () => {
@@ -180,7 +180,7 @@ AgreementInput.propTypes = {
   /**
    * Border color around the checkbox input.
    */
-  tintColor: PropTypes.string,
+  onTintColor: PropTypes.string,
 
   /**
    * Checkmark color.
