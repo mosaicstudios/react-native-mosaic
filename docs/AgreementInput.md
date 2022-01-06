@@ -69,7 +69,7 @@ import { AgreementInput } from 'react-native-mosaic';
 | `customText?`                | `string` | The custom text for a custom url. Defaults to 'CUSTOM TEXT' if a customUrl is provided but this prop is not used. |
 | `showCustom?`                | `func`   | Will trigger when customUrl contains a string and is pressed by the user.                                         |
 | `fillColor?`                 | `string` | Background color of the checkbox indicator.                                                                       |
-| `tintColor?`                 | `string` | Border color around the checkbox input.                                                                           |
+| `onTintColor?`                 | `string` | Border color around the checkbox input.                                                                           |
 | `checkColor?`                | `string` | Checkmark color.                                                                                                  |
 | `containerStyle?`            | `style`  | Base style for the container.                                                                                     |
 | `checkboxContainer?`         | `style`  | Style for the container of checkbox input.                                                                        |
