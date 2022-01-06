@@ -52,11 +52,7 @@ export default class Shape extends Component {
         style={[
           styles.base(type),
           {
-            width: height / 3,
-            height: height / 3,
-            backgroundColor,
-            top: -40,
-            left: height * 1.24,
+            ...styles.shape(backgroundColor),
             transform: useAnimation
               ? [
                   {
@@ -87,5 +83,12 @@ const styles = StyleSheet.create({
   base: (type) => ({
     position: 'absolute',
     borderRadius: type === 'square' ? 86 : height / 2,
+  }),
+  shape: (backgroundColor) => ({
+    width: height / 3,
+    height: height / 3,
+    backgroundColor,
+    top: -40,
+    left: height * 1.24,
   }),
 });
