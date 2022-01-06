@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ViewPropTypes } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import PropTypes from 'prop-types';
 
@@ -118,6 +118,7 @@ export default class LocationSearch extends Component {
       backgroundColor: 'transparent',
       fontSize: 18,
       color: 'black',
+      ...this.props.textInputStyle,
     };
   }
 
@@ -274,8 +275,8 @@ export default class LocationSearch extends Component {
           <GooglePlacesAutocomplete
             ref={(searchField) => (this.searchField = searchField)}
             enablePoweredByContainer={false}
-            placeholder="Address"
-            placeholderTextColor="black"
+            placeholder={this.props.placeholder}
+            placeholderTextColor={this.props.placeholderTextColor}
             minLength={2} // minimum length of text to search
             autoFocus={false}
             returnKeyType={'search'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
@@ -317,6 +318,7 @@ export default class LocationSearch extends Component {
                 marginLeft: 0,
                 borderRadius: 0,
                 borderTopWidth: 0,
+                ...this.props.textInputContainerStyle,
               },
               textInput: this._getTextInputStyle(),
               description: {
@@ -361,6 +363,16 @@ export default class LocationSearch extends Component {
 
 LocationSearch.propTypes = {
   /**
+   * Placeholder text display in the input when no value is entered. Default is 'Address'.
+   */
+  placeholder: PropTypes.string,
+
+  /**
+   * Color of the placeholder text. Default color is black.
+   */
+  placeholderTextColor: PropTypes.string,
+
+  /**
    * Object used to set the location.
    */
   data: PropTypes.object,
@@ -399,9 +411,21 @@ LocationSearch.propTypes = {
    * Show postal code or zip code input field.
    */
   showPostalCode: PropTypes.bool,
+
+  /**
+   * Container style for the input view.
+   */
+  textInputContainerStyle: ViewPropTypes.style,
+
+  /**
+   * Text style for the input view.
+   */
+  textInputStyle: Text.propTypes.style,
 };
 
 LocationSearch.defaultProps = {
+  placeholder: 'Address',
+  placeholderTextColor: 'black',
   underlineColor: 'black',
   manualAddress: true,
   manualAddressOnly: false,

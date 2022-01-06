@@ -30,6 +30,8 @@ render() {
 
 | Prop                         | Type     | Description                                                                                                                  |
 | ---------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `placeholder?`               | `string` | Placeholder text display in the input when no value is entered. Default is 'Address'.                                        |
+| `placeholderTextColor?`      | `string` | Color of the placeholder text. Default color is black.                                                                       |
 | `gmapsKey`                   | `string` | GMaps key is required. See https://developers.google.com/maps/documentation/places/web-service/get-api-key/ to get your key. |
 | `onPlaceSelected`            | `func`   | When an address is entered the full address will return.                                                                     |
 | `underlineColor`             | `string` | Change the underline color of the the input.                                                                                 |
@@ -38,6 +40,7 @@ render() {
 | `manualAddressOnly?`         | `bool`   | Default is false. If set as true autocomplete input will not show. Gmaps key is not required for this.                       |
 | `showPostalCode?`            | `bool`   | Show postal code or zip code input field.                                                                                    |
 | `showCountryPicker?`         | `bool`   | Show a country picker or simple text input. Default is true.                                                                 |
+| `textInputContainerStyle?`   | `style`  | Container style for the input view.                                                                                          |
 | `manualInputType?`           | `style`  | Style that will be passed to the style props of the manual React Native TextInput.                                           |
 | `manualInputLabelStyle?`     | `style`  | Style that will be passed to the label text above the manual text fields.                                                    |
 | `manualInputContainerStyle?` | `style`  | Styling for manual input component container.                                                                                |
