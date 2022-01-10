@@ -22,6 +22,7 @@ export default class RadioGroup extends Component<Props> {
     return data.map((item, index) => {
       return (
         <CheckBox
+          {...this.props}
           title={item.label}
           checked={this.state.selectedValue === item.value}
           checkedIcon={this.props.checkedIcon}
