@@ -30,6 +30,7 @@ import { RadioGroup } from 'react-native-mosaic';
 | `selectedValue`        | `string` | Current selected item of array.                  |
 | `data`                 | `array`  | Array of objects to display in the group.        |
 | `containerStyle?`      | `style`  | Base style for container.                        |
+| `inputLabelStyle?`     | `style`  | Style for title label.                           |
 | `inputContainerStyle?` | `style`  | Style for the radio group.                       |
 | `checkBoxStyle?`       | `style`  | Style for the checkbox.                          |
 | `checkedColor?`        | `string` | Color of the selected item. Default is 'green'.  |
