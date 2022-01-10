@@ -38,7 +38,7 @@ export default class RadioGroup extends Component<Props> {
     return (
       <View style={this.props.containerStyle}>
         {this.props.title && (
-          <Text style={[styles.inputLabelStyle]}>{this.props.title}</Text>
+          <Text style={[styles.inputLabelStyle, {this.props.inputLabelStyle}]}>{this.props.title}</Text>
         )}
         <View
           style={[styles.inputContainerStyle, this.props.inputContainerStyle]}
@@ -65,6 +65,11 @@ RadioGroup.propTypes = {
    * Base style for container.
    */
   containerStyle: ViewPropTypes.style,
+  
+  /**
+   * Style for title label.
+   */
+  inputLabelStyle: ViewPropTypes.style,
 
   /**
    * Style for the radio group.
