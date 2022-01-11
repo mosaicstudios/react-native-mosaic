@@ -32,15 +32,14 @@ import { DatePicker } from 'react-native-mosaic';
 
 Please see @react-native-community/datetimepicker for additional available props.
 
-| Prop        | Type                                                   | Description                                                                                                                                                                                                            |
-| ----------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `onChange`  | `func`                                                 | This is called when the user confirm the picked date or time in the UI. The first and only argument is a date or time string representing the new date and time formatted by moment.js with the given format property. |
-| `isVisible` | `bool`                                                 | Used to display the modal picker.                                                                                                                                                                                      |
-| `date`      | <code>string &#124; date &#124; Moment instance</code> | Specify the display date of DatePicker. `string` type value must match the specified format                                                                                                                            |
-| `mode`      | `enum`                                                 | The `enum` of `date`, `datetime` and `time`                                                                                                                                                                            |
-
-| `minimumDate` | <code>string &#124; date</code> | Restricts the range of possible date values. |
-| `maximumDate` | <code>string &#124; date</code> | Restricts the range of possible date values. |
+| Prop          | Type                                                   | Description                                                                                                                                                                                                            |
+| ------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `onChange`    | `func`                                                 | This is called when the user confirm the picked date or time in the UI. The first and only argument is a date or time string representing the new date and time formatted by moment.js with the given format property. |
+| `isVisible`   | `bool`                                                 | Used to display the modal picker.                                                                                                                                                                                      |
+| `date`        | <code>string &#124; date &#124; Moment instance</code> | Specify the display date of DatePicker. `string` type value must match the specified format                                                                                                                            |
+| `mode`        | `enum`                                                 | The `enum` of `date`, `datetime` and `time`                                                                                                                                                                            |
+| `minimumDate` | <code>string &#124; date</code>                        | Restricts the range of possible date values.                                                                                                                                                                           |
+| `maximumDate` | <code>string &#124; date</code>                        | Restricts the range of possible date values.                                                                                                                                                                           |
 
 ### Property `customStyles` available keys
 
