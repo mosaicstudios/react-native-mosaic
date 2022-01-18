@@ -134,7 +134,7 @@ export default class LocationSearch extends Component {
       <Icon
         name="map-marker-outline"
         type="material-community"
-        size={30}
+        size={25}
         containerStyle={[styles.locationIcon, this.props.locationIconStyle]}
       />
     );
@@ -528,7 +528,7 @@ const styles = {
     margin: 5,
     marginHorizontal: 15,
   },
-  locationIcon: { marginRight: 20 },
+  locationIcon: { marginRight: 10 },
   currentLocationContainer: {
     flex: 1,
     height: 44,
