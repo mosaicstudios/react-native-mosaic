@@ -2,10 +2,10 @@ export default class LocationFormat {
   static fullAddress(location) {
     let fullAddress = location.line_1;
     let cityState = '';
-    if (location.line_2 || location.line_2 !== null) {
+    if (location?.line_2) {
       fullAddress += '\n' + location.line_2 + ',\n';
     }
-    if (location.line_3 || location.line_3 !== null) {
+    if (location?.line_3) {
       fullAddress += location.line_3 + ',\n';
     }
     if (location.city === location.state) {
@@ -15,7 +15,7 @@ export default class LocationFormat {
     }
     fullAddress += '\n' + cityState;
 
-    if (location.postal_code || location.postal_code !== null) {
+    if (location?.postal_code) {
       fullAddress += '\n' + location.postal_code;
     }
 
