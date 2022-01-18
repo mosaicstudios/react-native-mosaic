@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, ViewPropTypes } from 'react-native';
+import { Icon } from 'react-native-elements';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import PropTypes from 'prop-types';
 
@@ -122,6 +123,23 @@ export default class LocationSearch extends Component {
     };
   }
 
+  _renderLocationIcon() {
+    if (this.props.hideLocationIcon) {
+      return null;
+    }
+    if (this.props.renderCustomLocationIcon) {
+      return this.props.renderCustomLocationIcon();
+    }
+    return (
+      <Icon
+        name="map-marker-outline"
+        type="material-community"
+        size={30}
+        containerStyle={[styles.locationIcon, this.props.locationIconStyle]}
+      />
+    );
+  }
+
   _renderHeaderComponent() {
     if (!this.props.manualAddress && !this.props.showCurrentLocation) {
       return null;
@@ -155,6 +173,8 @@ export default class LocationSearch extends Component {
                 this.props.currentLocationContainer,
               ]}
             >
+              {this._renderLocationIcon()}
+
               <Text
                 style={[
                   styles.currentLocationText,
@@ -297,7 +317,7 @@ export default class LocationSearch extends Component {
             enablePoweredByContainer={false}
             placeholder={this.props.placeholder}
             placeholderTextColor={this.props.placeholderTextColor}
-            minLength={2} // minimum length of text to search
+            minLength={this.props.showCurrentLocation ? 0 : 2} // minimum length of text to search
             autoFocus={false}
             returnKeyType={'search'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
             listViewDisplayed={this.state.listViewDisplayed}
@@ -423,6 +443,21 @@ LocationSearch.propTypes = {
   currentLocationText: Text.propTypes.style,
 
   /**
+   * Hide icon that is shown to the left of the current location text.
+   */
+  hideLocationIcon: PropTypes.bool,
+
+  /**
+   * Render custom location icon. Default is the "map-marker" from "material-community" location icon .
+   */
+  renderCustomLocationIcon: PropTypes.func,
+
+  /**
+   * Style props for the default location icon.
+   */
+  locationIconStyle: ViewPropTypes.style,
+
+  /**
    * Default is true. If set as false change to manual address button will not show.
    */
   manualAddress: PropTypes.bool,
@@ -493,12 +528,15 @@ const styles = {
     margin: 5,
     marginHorizontal: 15,
   },
+  locationIcon: { marginRight: 20 },
   currentLocationContainer: {
     flex: 1,
     justifyContent: 'center',
     height: 44,
     margin: 5,
     marginHorizontal: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   manualAddressText: {
     fontSize: 16,

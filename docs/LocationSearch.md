@@ -48,6 +48,9 @@ render() {
 | `onCurrentLocationPressed?`  | `func`   | onPress event when pressing the current location button.                                                                     |
 | `currentLocationContainer?`  | `style`  | Style container fro the current location button.                                                                             |
 | `currentLocationText?`       | `style`  | Text style for current location button.                                                                                      |
+| `hideLocationIcon?`          | `func`   | Hide icon that is shown to the left of the current location text.                                                            |
+| `renderCustomLocationIcon?`  | `style`  | Render custom location icon. Default is the "map-marker" from "material-community" location icon.                            |
+| `locationIconStyle?`         | `style`  | Style props for the default location icon.                                                                                   |
 
 ## Instance Methods
 
