@@ -531,11 +531,11 @@ const styles = {
   locationIcon: { marginRight: 20 },
   currentLocationContainer: {
     flex: 1,
-    justifyContent: 'center',
     height: 44,
     margin: 5,
     marginHorizontal: 15,
     flexDirection: 'row',
+    alignItems: 'center',
   },
   manualAddressText: {
     fontSize: 16,
