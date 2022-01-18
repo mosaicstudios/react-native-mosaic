@@ -123,28 +123,49 @@ export default class LocationSearch extends Component {
   }
 
   _renderHeaderComponent() {
-    if (!this.props.manualAddress) {
+    if (!this.props.manualAddress && !this.props.showCurrentLocation) {
       return null;
     }
     return (
       <View>
-        <TouchableOpacity
-          onPress={() => this.setState({ showManualAddress: true })}
-        >
-          <View
-            style={[
-              styles.manualAddressContainer,
-              this.props.manualAddressContainer,
-            ]}
+        {this.props.manualAddress && (
+          <TouchableOpacity
+            onPress={() => this.setState({ showManualAddress: true })}
           >
-            <Text
-              style={[styles.manualAddressText, this.props.manualAddressText]}
+            <View
+              style={[
+                styles.manualAddressContainer,
+                this.props.manualAddressContainer,
+              ]}
             >
-              Enter Address Manually
-            </Text>
-          </View>
-        </TouchableOpacity>
+              <Text
+                style={[styles.manualAddressText, this.props.manualAddressText]}
+              >
+                Enter Address Manually
+              </Text>
+            </View>
+          </TouchableOpacity>
+        )}
         <Separator />
+        {this.props.showCurrentLocation && (
+          <TouchableOpacity onPress={() => this.props.onCurrentLocationPressed}>
+            <View
+              style={[
+                styles.currentLocationContainer,
+                this.props.currentLocationContainer,
+              ]}
+            >
+              <Text
+                style={[
+                  styles.currentLocationText,
+                  this.props.currentLocationText,
+                ]}
+              >
+                My Current Location
+              </Text>
+            </View>
+          </TouchableOpacity>
+        )}
       </View>
     );
   }
@@ -162,7 +183,6 @@ export default class LocationSearch extends Component {
     if (!this.state.showManualAddress) {
       return null;
     }
-    console.log('this.props.hidePostalCode', this.props.hidePostalCode);
     return (
       <>
         {!this.props.manualAddressOnly && (
@@ -453,7 +473,19 @@ const styles = {
     margin: 5,
     marginHorizontal: 15,
   },
+  currentLocationContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    height: 44,
+    margin: 5,
+    marginHorizontal: 15,
+  },
   manualAddressText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  currentLocationText: {
     fontSize: 16,
     fontWeight: 'bold',
     color: 'black',
