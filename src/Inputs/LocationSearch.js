@@ -403,6 +403,26 @@ LocationSearch.propTypes = {
   underlineColor: PropTypes.string,
 
   /**
+   * If set as true change to current location button will show. Default is false.
+   */
+  showCurrentLocation: PropTypes.bool,
+
+  /**
+   * onPress event when pressing the current location button.
+   */
+  onCurrentLocationPressed: PropTypes.func,
+
+  /**
+   * Style container fro the current location button.
+   */
+  currentLocationContainer: ViewPropTypes.style,
+
+  /**
+   * Text style for current location button.
+   */
+  currentLocationText: Text.propTypes.style,
+
+  /**
    * Default is true. If set as false change to manual address button will not show.
    */
   manualAddress: PropTypes.bool,
