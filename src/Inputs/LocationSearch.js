@@ -166,7 +166,9 @@ export default class LocationSearch extends Component {
         )}
         <Separator />
         {this.props.showCurrentLocation && (
-          <TouchableOpacity onPress={() => this.props.onCurrentLocationPressed}>
+          <TouchableOpacity
+            onPress={() => this.props.onCurrentLocationPressed()}
+          >
             <View
               style={[
                 styles.currentLocationContainer,
