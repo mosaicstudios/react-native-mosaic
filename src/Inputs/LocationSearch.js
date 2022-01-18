@@ -536,7 +536,6 @@ const styles = {
     margin: 5,
     marginHorizontal: 15,
     flexDirection: 'row',
-    alignItems: 'center',
   },
   manualAddressText: {
     fontSize: 16,
