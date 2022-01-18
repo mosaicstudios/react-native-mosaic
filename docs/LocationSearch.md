@@ -44,6 +44,10 @@ render() {
 | `manualInputType?`           | `style`  | Style that will be passed to the style props of the manual React Native TextInput.                                           |
 | `manualInputLabelStyle?`     | `style`  | Style that will be passed to the label text above the manual text fields.                                                    |
 | `manualInputContainerStyle?` | `style`  | Styling for manual input component container.                                                                                |
+| `showCurrentLocation?`       | `bool`   | If set as true change to current location button will show. Default is false.                                                |
+| `onCurrentLocationPressed?`  | `func`   | onPress event when pressing the current location button.                                                                     |
+| `currentLocationContainer?`  | `style`  | Style container fro the current location button.                                                                             |
+| `currentLocationText?`       | `style`  | Text style for current location button.                                                                                      |
 
 ## Instance Methods
 
