@@ -25,8 +25,6 @@ export default class LocationFormat {
   static getAddress(data) {
     let location = {
       line_1: data.line_1,
-      line_2: data.line_2,
-      line_3: data.line_3,
       city: data.city,
       country: data.country,
       state: data.state,
@@ -34,8 +32,14 @@ export default class LocationFormat {
       longitude: data.longitude,
       latitude: data.latitude,
     };
-    if (!location.city) {
-      location.city = location.state;
+    if (data?.line_2) {
+      location.line_2 = data.line_2;
+    }
+    if (data?.line_3) {
+      location.line_3 = data.line_3;
+    }
+    if (data?.postal_code) {
+      location.postal_code = data.postal_code;
     }
     return location;
   }
