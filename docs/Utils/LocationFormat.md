@@ -10,7 +10,7 @@ import { LocationFormat } from 'react-native-mosaic';
 
 ## Instance Methods
 
-| Method        | Params | Description                           |
-| ------------- | ------ | ------------------------------------- |
-| `fullAddress` | object | Convert object to displayable string. |
-| `getAddress`  | object | Get address from object.              |
+| Method        | Params       | Description                                                                                                         |
+| ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| `fullAddress` | object, bool | Convert object to displayable string. Pass true as the second parameter to render each address value on a new line. |
+| `getAddress`  | object       | Get address from object.                                                                                            |
