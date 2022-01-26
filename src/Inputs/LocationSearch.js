@@ -315,6 +315,7 @@ export default class LocationSearch extends Component {
         {this._renderManualAddressContainer()}
         {!this.state.showManualAddress && (
           <GooglePlacesAutocomplete
+            {...this.props}
             ref={(searchField) => (this.searchField = searchField)}
             enablePoweredByContainer={false}
             placeholder={this.props.placeholder}
