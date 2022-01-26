@@ -340,8 +340,18 @@ export default class LocationSearch extends Component {
                   listViewDisplayed: true,
                 });
               },
-              onFocus: () => this.setState({ _hasFocus: true }),
-              onBlur: () => this.setState({ _hasFocus: false }),
+              onFocus: () =>
+                this.setState({ _hasFocus: true }, () => {
+                  if (this.props.onFocus) {
+                    this.props.onFocus(this.state._hasFocus);
+                  }
+                }),
+              onBlur: () =>
+                this.setState({ _hasFocus: false }, () => {
+                  if (this.props.onFocus) {
+                    this.props.onFocus(this.state._hasFocus);
+                  }
+                }),
             }}
             getDefaultValue={() => this.props.value}
             query={{
