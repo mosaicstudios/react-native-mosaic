@@ -6,6 +6,7 @@ import Button from './Buttons/Button';
 import CheckBox from './Inputs/CheckBox';
 import DatePicker from './Pickers/DatePicker';
 import ExpandingIndicator from './Indicators/ExpandingIndicator';
+import FadeIndicator from './Indicators/FadeIndicator';
 import Gallery from './Galleries/Gallery';
 import Gallery2 from './Galleries/Gallery2';
 import GetStarted from './GetStarted/GetStarted';
@@ -51,6 +52,7 @@ export {
   CheckBox,
   DatePicker,
   ExpandingIndicator,
+  FadeIndicator,
   Gallery,
   Gallery2,
   GetStarted,
