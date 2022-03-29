@@ -3,19 +3,21 @@ export default class LocationFormat {
     let fullAddress = location.line_1;
     let cityState = '';
     if (location?.line_2) {
-      fullAddress += format ? location.line_2 + ',\n' : location.line_2 + ', ';
+      fullAddress += format ? ',\n' + location.line_2 : ', ' + location.line_2;
     }
     if (location?.line_3) {
-      fullAddress += format ? location.line_3 + ',\n' : location.line_3 + ', ';
+      fullAddress += format ? ',\n' + location.line_3 : ', ' + location.line_3;
     }
     if (location.city === location.state) {
       cityState = location.city;
     } else {
-      cityState = location.city + format ? ',\n' : ', ' + location.state;
+      cityState = location.state;
     }
-    fullAddress += format ? '\n' : ' ' + cityState;
+    fullAddress += format ? ',\n' + cityState : ', ' + cityState;
     if (location?.postal_code) {
-      fullAddress += format ? '\n' : ' ' + location.postal_code;
+      fullAddress += format
+        ? ',\n' + location.postal_code
+        : ', ' + location.postal_code;
     }
     return fullAddress;
   }
