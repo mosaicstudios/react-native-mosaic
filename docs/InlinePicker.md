@@ -28,7 +28,6 @@ export default class App extends Component {
           title="Choose one"
           items={items}
           onItemSelected={(selectedItem) => {
-            console.log('selectedItem', selectedItem);
             this.setState({ selectedItem });
           }}
           selectedItem={selectedItem ? parseInt(selectedItem) : 1}

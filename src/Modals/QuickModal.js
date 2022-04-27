@@ -45,8 +45,8 @@ export default class QuickModal extends Component {
         style={this._getModalPosition()}
       >
         <View style={styles.background}>
-          <View style={[styles.container]}>
-            <Text style={styles.text}>{text}</Text>
+          <View style={[styles.container, this.props.containerStyle]}>
+            <Text style={[styles.text, this.props.textStyle]}>{text}</Text>
           </View>
         </View>
       </Modal>

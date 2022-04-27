@@ -21,6 +21,8 @@ import { QuickModal, Button } from 'react-native-mosaic';
 | Prop                            | Type             | Description                                                                                                                                |
 | ------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | `duration?`                     | number           | Timing for the modal hide animation (in ms). Default is 1400.                                                                              |
+| `containerStyle?`               | number           | Timing for the modal hide animation (in ms). Default is 1400.                                                                              |
+| `textStyle?`                    | number           | Timing for the modal hide animation (in ms). Default is 1400.                                                                              |
 | `modalPosition?`                | string           | To set the size of the activity indicator. Default value is 'large'. Default is 'bottom'.                                                  |
 | animationIn?                    | string or object | Modal show animation. Default is 'fadeInUp'                                                                                                |
 | animationOut                    | string or object | Modal hide animation. Default is 'fadeOutDown'                                                                                             |
