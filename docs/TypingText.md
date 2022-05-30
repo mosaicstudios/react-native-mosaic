@@ -22,15 +22,6 @@ import { TypingText } from 'react-native-mosaic';
 
 ## Props Available
 
-steps: ['Design', 1000, 'Develop', 1000, 'Maintain', 1000],
-color: 'black',
-blinkingCursor: true,
-style: { fontSize: 14 },
-editDelay: 80,
-deleteDelay: 80,
-blinkCursor: true,
-blinkingCursorColor: 'black',
-
 | Prop                   | Type     | Description                                                                                             |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `steps`                | `array`  | Steps which will be displayed and the duration on screen. Example ["string", 1000, "next string", 1000] |

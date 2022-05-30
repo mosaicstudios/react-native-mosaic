@@ -45,6 +45,7 @@ Please see the components below for guides on how to implement and use the compo
 - [x] [Separator](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/Separator.md)
 - [x] [SegmentControl](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/SegmentControl.md)
 - [x] [TextField](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/TextField.md)
+- [x] [TypingText](https://github.com/AdamLee321/react-native-mosaic/blob/master/docs/TypingText.md)
 
 ## Utilities included:
 
