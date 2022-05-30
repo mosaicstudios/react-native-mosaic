@@ -1,4 +1,4 @@
-![TypingText](https://user-images.githubusercontent.com/22890658/147465945-9f9fb328-73dd-4a60-ab86-743dad488e57.gif)
+![TypingText](https://user-images.githubusercontent.com/22890658/171034956-2f4f953e-fc88-40c3-9970-6058a8e62173.gif)
 
 ## TypingText
 
