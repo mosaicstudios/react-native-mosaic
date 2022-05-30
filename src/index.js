@@ -31,6 +31,7 @@ import SlidingIndicator from './Indicators/SlidingIndicator';
 import QuickModal from './Modals/QuickModal';
 import TextField from './Inputs/TextField';
 import TitleTicker from './Text/TitleTicker';
+import TypingText from './Text/TypingText';
 
 // Utility imports
 import AuthManager from './Utils/AuthManager';
@@ -77,6 +78,7 @@ export {
   QuickModal,
   TextField,
   TitleTicker,
+  TypingText,
 };
 
 // Utility exports
