@@ -135,8 +135,6 @@ export default class FetchHelper {
     validateTokens = AuthManager.getCurrentUser() ? true : false
   ) {
     var headers = AuthManager.getHeaders();
-    // this is needed by server side for all put requests
-    data._method = 'PUT';
     if (stringify) {
       data = JSON.stringify(data);
     } else {
@@ -146,7 +144,7 @@ export default class FetchHelper {
     return FetchHelper._handleValidateTokens(validateTokens).then(() => {
       return fetch(endpoint, {
         // this is needed by server side for all put requests
-        method: 'POST',
+        method: 'PUT',
         headers: headers,
         body: data,
       })
