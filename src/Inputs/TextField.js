@@ -34,6 +34,39 @@ export default class TextField extends Component {
     let value = nextProps.value ? nextProps.value.toString() : nextProps.value;
     return { ...nextProps, value };
   }
+  
+  clear() {
+    if (this.input) {
+      this.input.clear();
+      return;
+    }
+    if (this.phone) {
+      this.phone.clear();
+    }
+    this.setState({value: null});
+  }
+
+  focus() {
+    if (this.input) {
+      this.input.focus();
+      return;
+    }
+    if (this.phone) {
+      this.input.focus();
+      return;
+    }
+  }
+
+  blur() {
+    if (this.input) {
+      this.input.blur();
+    }
+    if (this.phone) {
+      this.phone.blur();
+      return;
+    }
+    return;
+  }
 
   isValid() {
     this.state.error = '';
@@ -190,6 +223,7 @@ export default class TextField extends Component {
           </Text>
         )}
         <Input
+          ref={input => (this.input = input)}
           placeholder={this.state.placeholder}
           placeholderTextColor={this.props.placeholderTextColor}
           value={this.state.value}
