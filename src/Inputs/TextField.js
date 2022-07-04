@@ -38,7 +38,6 @@ export default class TextField extends Component {
   clear() {
     if (this.input) {
       this.input.clear();
-      return;
     }
     if (this.phone) {
       this.phone.clear();
@@ -60,12 +59,12 @@ export default class TextField extends Component {
   blur() {
     if (this.input) {
       this.input.blur();
+      return;
     }
     if (this.phone) {
       this.phone.blur();
       return;
     }
-    return;
   }
 
   isValid() {
