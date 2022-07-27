@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ViewPropTypes, StyleSheet } from 'react-native';
-import { Input } from 'react-native-elements';
+import { Input, Icon } from 'react-native-elements';
 import PhoneInput from 'react-native-phone-number-input';
 import TextFormat from '../Utils/TextFormat';
 
@@ -65,6 +65,10 @@ export default class TextField extends Component {
       this.phone.blur();
       return;
     }
+  }
+  
+  _isShowHideButtonEnabled() {
+    return this.state.type === 'password';
   }
 
   isValid() {
@@ -274,11 +278,35 @@ export default class TextField extends Component {
           autoCapitalize={this.state.type === 'text' ? 'sentences' : 'none'}
           editable={!this.state.isDisabled}
           errorMessage={this.state.error}
+          leftIcon={this.props.leftIcon}
+          rightIcon={this._renderRightIcon()}
           errorStyle={[styles.errorStyle, this.props.errorStyle]}
           renderErrorMessage={this.state.error}
         />
       </>
     );
+  }
+  
+  _renderRightIcon() {
+    let {secureTextEntry} = this.state;
+    let {rightIcon, rightIconStyle} = this.props;
+    if (rightIcon) {
+      return <Image source={rightIcon} style={rightIconStyle} />;
+    }
+    if (this._isShowHideButtonEnabled()) {
+      return (
+        <Icon
+          name={secureTextEntry ? 'eye-outline' : 'eye-off-outline'}
+          size={this.props.iconSize}
+          color={this.props.passwordIconColor}
+          type="material-community"
+          style={{marginRight: 5}}
+          onPress={() => this.setState({secureTextEntry: !secureTextEntry})}
+        />
+      );
+    }
+
+    return null;
   }
 
   _renderPhoneInput() {
@@ -466,6 +494,8 @@ TextField.defaultProps = {
   isRequired: true,
   autoCapitalize: 'sentences',
   strictPassword: false,
+  iconSize: 24,
+  passwordIconColor: '#000'
 };
 
 const styles = StyleSheet.create({
