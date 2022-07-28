@@ -7,7 +7,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-const { width, height } = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
 
 import RNPickerSelect from 'react-native-picker-select';
 

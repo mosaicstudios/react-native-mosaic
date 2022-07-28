@@ -11,7 +11,6 @@ import {
   Platform,
 } from 'react-native';
 
-import TitleTicker from '../Text/TitleTicker';
 import Shape from './Shape';
 import SlidingIndicator from '../Indicators/SlidingIndicator';
 
@@ -69,21 +68,10 @@ export default class BackgroundCarousel extends Component {
           type={this.props.backgroundShape}
           useAnimation={this.props.backgroundShapeAnimation}
         />
-        <View
-          style={{
-            marginTop: Platform.OS == 'ios' ? 54 : StatusBar.currentHeight + 10,
-            marginHorizontal: 40,
-            marginBottom: 40,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <Text style={{ fontSize: 35, fontWeight: '700' }}>Classes</Text>
+        <View style={styles.rightIconContainer}>
+          <Text style={styles.classTitle}>Classes</Text>
           {this.props.renderRightIcons && (
-            <View style={{ flexDirection: 'row' }}>
-              {this.props.renderRightIcons()}
-            </View>
+            <View style={styles.row}>{this.props.renderRightIcons()}</View>
           )}
         </View>
         <Animated.FlatList
@@ -118,16 +106,7 @@ export default class BackgroundCarousel extends Component {
                       style={[styles.image]}
                     />
                   </View>
-                  <View
-                    style={{
-                      height: 100,
-                      width: ITEM_WIDTH,
-                      backgroundColor: backgroundColors[index],
-                      padding: 20,
-                      borderBottomLeftRadius: 14,
-                      borderBottomRightRadius: 14,
-                    }}
-                  >
+                  <View style={styles.titleContainer(backgroundColors[index])}>
                     <Text numberOfLines={1} style={styles.title}>
                       {index + 1}. {item.title}
                     </Text>
@@ -219,4 +198,22 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '400',
   },
+  rightIconContainer: {
+    marginTop: Platform.OS === 'ios' ? 54 : StatusBar.currentHeight + 10,
+    marginHorizontal: 40,
+    marginBottom: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  row: { flexDirection: 'row' },
+  classTitle: { fontSize: 35, fontWeight: '700' },
+  titleContainer: (color) => ({
+    height: 100,
+    width: ITEM_WIDTH,
+    backgroundColor: color,
+    padding: 20,
+    borderBottomLeftRadius: 14,
+    borderBottomRightRadius: 14,
+  }),
 });

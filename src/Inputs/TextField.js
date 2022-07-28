@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ViewPropTypes, StyleSheet } from 'react-native';
+import { View, Text, ViewPropTypes, StyleSheet, Image } from 'react-native';
 import { Input, Icon } from 'react-native-elements';
 import PhoneInput from 'react-native-phone-number-input';
 import TextFormat from '../Utils/TextFormat';
@@ -34,7 +34,7 @@ export default class TextField extends Component {
     let value = nextProps.value ? nextProps.value.toString() : nextProps.value;
     return { ...nextProps, value };
   }
-  
+
   clear() {
     if (this.input) {
       this.input.clear();
@@ -42,7 +42,7 @@ export default class TextField extends Component {
     if (this.phone) {
       this.phone.clear();
     }
-    this.setState({value: null});
+    this.setState({ value: null });
   }
 
   focus() {
@@ -66,7 +66,7 @@ export default class TextField extends Component {
       return;
     }
   }
-  
+
   _isShowHideButtonEnabled() {
     return this.state.type === 'password';
   }
@@ -226,7 +226,7 @@ export default class TextField extends Component {
           </Text>
         )}
         <Input
-          ref={input => (this.input = input)}
+          ref={(input) => (this.input = input)}
           placeholder={this.state.placeholder}
           placeholderTextColor={this.props.placeholderTextColor}
           value={this.state.value}
@@ -286,10 +286,10 @@ export default class TextField extends Component {
       </>
     );
   }
-  
+
   _renderRightIcon() {
-    let {secureTextEntry} = this.state;
-    let {rightIcon, rightIconStyle} = this.props;
+    let { secureTextEntry } = this.state;
+    let { rightIcon, rightIconStyle } = this.props;
     if (rightIcon) {
       return <Image source={rightIcon} style={rightIconStyle} />;
     }
@@ -300,8 +300,8 @@ export default class TextField extends Component {
           size={this.props.iconSize}
           color={this.props.passwordIconColor}
           type="material-community"
-          style={{marginRight: 5}}
-          onPress={() => this.setState({secureTextEntry: !secureTextEntry})}
+          style={[styles.iconStyle, this.props.passwordIconStyle]}
+          onPress={() => this.setState({ secureTextEntry: !secureTextEntry })}
         />
       );
     }
@@ -495,7 +495,7 @@ TextField.defaultProps = {
   autoCapitalize: 'sentences',
   strictPassword: false,
   iconSize: 24,
-  passwordIconColor: '#000'
+  passwordIconColor: '#000',
 };
 
 const styles = StyleSheet.create({
@@ -569,4 +569,5 @@ const styles = StyleSheet.create({
   }),
   errorStyle: { marginLeft: 0, fontSize: 14 },
   phoneErrorStyle: { color: 'red', paddingLeft: 10, marginTop: 5 },
+  iconStyle: { marginRight: 5 },
 });

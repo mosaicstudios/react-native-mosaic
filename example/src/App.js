@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, View, Alert, Text } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { StyleSheet, View, Text } from 'react-native';
 import { TypingText } from 'react-native-mosaic';
 
 export default class App extends Component {
@@ -38,16 +37,15 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-          <Text style={{ fontSize: 16 }}>This is mosaic, We </Text>
+      <View style={styles.container}>
+        <View style={styles.innerContainer}>
+          <Text>This is mosaic, We </Text>
           <TypingText
             steps={['Design ✏️', 1000, 'Develop 🛠️', 1000, 'Maintain 💡', 1000]}
             loop={Infinity}
             blinkCursor={true}
             editDelay={100}
             deleteDelay={100}
-            style={{ fontSize: 16, fontWeight: 'bold' }}
           />
         </View>
       </View>
@@ -56,17 +54,8 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginHorizontal: 20,
-    justifyContent: 'center',
-    marginTop: 40,
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  innerContainer: { flexDirection: 'row', justifyContent: 'center' },
   containerStyle: {
     backgroundColor: 'transparent',
     padding: 0,

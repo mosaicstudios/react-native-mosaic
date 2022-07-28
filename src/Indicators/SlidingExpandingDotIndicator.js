@@ -42,9 +42,6 @@ export default class SlidingExpandingDotIndicator extends Component {
       spacing,
       inActiveDotColor,
       activeDotColor,
-      slidingIndicatorColor,
-      inActiveDotOpacity,
-      activeDotOpacity,
       dotSize,
     } = this.state;
     const inputRange = [0, width, width * 2];

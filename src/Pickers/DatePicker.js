@@ -6,7 +6,6 @@ import {
   StyleSheet,
 } from 'react-native';
 import Text from 'react-native-text';
-import Separator from '../Separators/Separator';
 
 import moment from 'moment';
 
