@@ -30,10 +30,10 @@ export default class TextField extends Component {
     };
   }
 
-  static getDerivedStateFromProps(nextProps, state) {
-    let value = nextProps.value ? nextProps.value.toString() : nextProps.value;
-    return { ...nextProps, value };
-  }
+//   static getDerivedStateFromProps(nextProps, state) {
+//     let value = nextProps.value ? nextProps.value.toString() : nextProps.value;
+//     return { ...nextProps, value };
+//   }
 
   clear() {
     if (this.input) {
