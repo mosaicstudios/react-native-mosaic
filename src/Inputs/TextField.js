@@ -84,7 +84,7 @@ export default class TextField extends Component {
     if (!this.state.value || this.state.value === '') {
       if (this.props.label) {
         let message =
-          TextFormat.capitalizeFirst(this.props.label) + ' is required.';
+          TextFormat.capitalizeFirst(this.props.label) + ' is required';
         this.setState({ error: message });
       } else {
         this.setState({ error: 'Please enter something' });
