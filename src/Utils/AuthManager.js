@@ -142,8 +142,7 @@ export default class AuthManager {
     var exp = decodedJWT.exp * 1000;
     var expirationTime = moment(exp);
     var today = moment();
-    let absoluteDifference = Math.abs(expirationTime.diff(today, 'minutes'));
-    return absoluteDifference;
+    return expirationTime.diff(today, 'minutes');
   }
 
   static async validateTokens(onSuccess, onError) {
