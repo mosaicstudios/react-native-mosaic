@@ -151,7 +151,7 @@ export default class AuthManager {
       onSuccess();
       return;
     }
-    return AuthManager.refreshTokens(() => {
+    return AuthManager.refreshTokens().then() => {
       return onSuccess();
     }).catch((error) => {
       onError();
@@ -169,7 +169,7 @@ export default class AuthManager {
         // our token has expired and we will need user to re login
         // manually
         const data = { refresh: refreshToken };
-
+        AuthManager.accesToken = null
         return FetchHelper.post(
           AuthManager.REFRESH_TOKEN_URL,
           data,
