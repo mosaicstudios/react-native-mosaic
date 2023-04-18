@@ -151,7 +151,7 @@ export default class AuthManager {
       onSuccess();
       return;
     }
-    return AuthManager.refreshTokens().then() => {
+    return AuthManager.refreshTokens().then(() => {
       return onSuccess();
     }).catch((error) => {
       onError();
