@@ -85,7 +85,7 @@ export default class PickerField extends Component<Props> {
     }
 
     return (
-      <Text labelStyle={[styles.error, this.props.errorTextStyle]}>
+      <Text style={[styles.error, this.props.errorTextStyle]}>
         {this.state.error}
       </Text>
     );
